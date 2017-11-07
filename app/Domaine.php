@@ -9,6 +9,7 @@ class Domaine extends Model
 
     protected $table = 'domaines';
     public $timestamps = true;
+    protected $fillable = ['NomDomaines'];
 
     public function SousDomaines()
     {

@@ -16,19 +16,19 @@
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{ url('domaines') }}" class="mce-menu-item">
                         <span>DOMAINES</span>
                     </a>
 
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{ url('sousdomaines') }}" class="mce-menu-item">
                         <span>SOUS-DOMAINES</span>
                     </a>
 
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{ url('categories') }}" class="mce-menu-item">
                         <span>CATEGORIES-DOCS</span>
                     </a>
 

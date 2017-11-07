@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 class CategorieController extends Controller 
 {
 
@@ -12,9 +17,34 @@ class CategorieController extends Controller
    */
   public function index()
   {
-    
+    $categories = Categorie::all();
+    return view('categories.list',compact('categories'));
   }
 
+
+    /***
+     * Fonction permettant d'enregistrer un nouveau Domaines
+     */
+
+    public function NewCategories(Request $request)
+    {
+        dump($_POST);
+        echo "[".$request->libelle."]";
+        if($request->ajax())
+        {
+            $categorie = new Categorie;
+
+            $categorie->libelle = $request->input('libelle');
+            $categorie->save();
+
+            $categories =  Categorie::create($request->all());
+            return response()->json($categories);
+        }
+    }
+
+    /***
+     * Fin de la Fonction permettant d'enregistrer un nouveau Domaines
+     */
   /**
    * Show the form for creating a new resource.
    *
