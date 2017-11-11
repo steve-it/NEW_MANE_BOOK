@@ -26,9 +26,9 @@ class CreateConsultationsDocumentsTable extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
 
-            $table->foreign('domaines_id')
+            $table->foreign('documents_id')
                 ->references('id')
-                ->on('domaines')
+                ->on('documents')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -43,7 +43,7 @@ class CreateConsultationsDocumentsTable extends Migration
     {
         //
         Schema::table('consultations_documents', function(Blueprint $table) {
-            $table->dropForeign('consultations_documents_domaines_id_foreign');
+            $table->dropForeign('consultations_documents_documents_id_foreign');
         });
 
         Schema::table('consultations_documents', function(Blueprint $table) {
