@@ -2,6 +2,8 @@
 @extends('page_model')
 
 @section('css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <style>
         html{
             overflow-y : scroll;
@@ -99,7 +101,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Informations du Domaines </h4>
                 </div>
                 <div class="modal-body">
@@ -107,7 +108,7 @@
                         {{ csrf_field() }}
 
                         <!-- champ cache -->
-                        <input type="hidden" id="domaineid" name="id">
+                        <input type="hidden"  id="domaineid" name="id">
 
                         <!-- champ NomDomaines -->
                         <div class="form-group form-float">
@@ -134,8 +135,18 @@
 @stop
 
 
-@section('js')
+
+
+
+@section('script')
     <script>
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        /*
         $(document).ready(function () {
 
             $.ajaxSetup({
@@ -144,7 +155,7 @@
                 }
             });
 
-        });
+        });*/
 
         $('#add').on('click',function () {
             console.log('add-click', 'ça passe');
@@ -153,66 +164,72 @@
             $('#save').val('save');
             $('#insert_form').trigger('reset');
 
-        });
 
 
-        $('#insert_form').on('submit', function (e) {
-            e.preventDefault();
-            var url = $('#insert_form').attr('action');
-            var data = $('#insert_form').serialize();
-            var type = 'POST';
-            var statut = $('#save').val();
+            $('#insert_form').on('submit', function (e) {
+                e.preventDefault();
+                var url = $('#insert_form').attr('action');
+                var data = $('#insert_form').serialize();
+                var type = 'POST';
+                var statut = $('#save').val();
 
-           console.log();
-            if( statut == 'modifier')
-            {
-                type = 'PUT';
-                //data += '&id='+$(this).data('id');
-            }
-            if($('#NomDomaines').val()=='')
-            {
-                alert("NomDomaines is requred");
-            }
-            else
-            {
+                if( statut == 'modifier')
+                {
+                    type = 'PUT';
+                    //data += '&id='+$(this).data('id');
+                }
+                if($('#NomDomaines').val()=='')
+                {
+                    alert("NomDomaines is requred");
+                }
+                else
+                {
 
-                $.ajax({
-                    type: type,
-                    url: url,
-                    data: data,
-                    success:function (data) {
-                        console.log(data)
-                        /*$('#insert_form')[0].reset();
-                         $('#add_data_Modal').modal('hide');
-                         $('#membre_table').html(data);*/
+                    $.ajax({
+                        type: type,
+                        url: url,
+                        data: data,
+                        success:function (data) {
+                            console.log(data);
+                            /*$('#insert_form')[0].reset();
+                             $('#add_data_Modal').modal('hide');
+                             $('#membre_table').html(data);*/
 
-                        var row = '<tr id="domaines'+ data.id+'" >' +
-                            '<td>' + data.NomDomaines + '</td>' +
-                            '<td>' +
-                            '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
-                            '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
-                            '</td>'+
-                            '</tr>';
-                        if (statut == 'save') {
-                            $('tbody').prepend(row);
+                            var row = '<tr id="domaines'+ data.id+'" >' +
+                                '<td>' + data.NomDomaines + '</td>' +
+                                '<td>' +
+                                '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
+                                '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
+                                '</td>'+
+                                '</tr>';
+                            if (statut == 'save') {
+                                $('tbody').prepend(row);
+                            }
+                            else
+                            {
+                                $('#domaines'+ data.id).replaceWith(row);
+                                $('#add_data_Modal').modal('hide');
+
+                            }
+
                         }
-                        else
-                        {
-                            $('#domaines'+ data.id).replaceWith(row);
-                            $('#add_data_Modal').modal('hide');
-                        }
 
-
-                    }
-
-                });
+                    });
 
 
 
-                //---------reset_formulaire--------------------
-                $(this).trigger('reset');
-            }
-        });
+                    //---------reset_formulaire--------------------
+                   //
+
+                }
+                $('#add').trigger('reset');
+
+            });
+
+            });
+
+
+
 
 
         //--------update-------------------------------
@@ -234,6 +251,8 @@
                     $('#save').val('modifier');
                     $('#add_data_Modal').modal('show');
 
+                },error:function(){
+                    alert("error!!!!");
                 }
 
             });
@@ -255,6 +274,7 @@
             }
 
         });
+
 
 
     </script>

@@ -149,10 +149,69 @@
             $('#save').val('save');
             $('#insert_form').trigger('reset');
 
+
+            $('#insert_form').on('submit', function (e) {
+
+                e.preventDefault();
+                var url = $('#insert_form').attr('action');
+                var data = $('#insert_form').serialize();
+                var type = 'POST';
+                var statut = $('#save').val();
+
+                if( statut == 'modifier')
+                {
+                    type = 'PUT';
+                    //data += '&id='+$(this).data('id');
+                }
+                if($('#libelle').val()=='')
+                {
+                    alert("libelle Categorie is requred");
+                }
+
+                else
+                {
+
+                    $.ajax({
+                        type: type,
+                        url: url,
+                        data: data,
+                        success:function (data) {
+                            console.log(data)
+
+
+                            var row = '<tr id="categories'+ data.id+'" >' +
+                                '<td>  ' +
+                                '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
+                                '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
+                                '</td>' +
+                                '</tr>';
+                            if (statut == 'save') {
+                                $('tbody').prepend(row);
+                            }
+                            else
+                            {
+                                $('#categories'+ data.id).replaceWith(row);
+                                $('#add_data_Modal').modal('hide');
+                            }
+
+
+                        }
+
+                    });
+
+
+
+                    //---------reset_formulaire--------------------
+                    $(this).trigger('reset');
+                }
+            });
+
         });
 
 
+        /*
         $('#insert_form').on('submit', function (e) {
+
             e.preventDefault();
             var url = $('#insert_form').attr('action');
             var data = $('#insert_form').serialize();
@@ -178,9 +237,7 @@
                     data: data,
                     success:function (data) {
                         console.log(data)
-                        /*$('#insert_form')[0].reset();
-                         $('#add_data_Modal').modal('hide');
-                         $('#membre_table').html(data);*/
+
 
                         var row = '<tr id="categories'+ data.id+'" >' +
                             '<td>  ' +
@@ -207,7 +264,7 @@
                 //---------reset_formulaire--------------------
                 $(this).trigger('reset');
             }
-        });
+        });*/
 
         //--------update-------------------------------
         $('tbody').delegate('.btn-info','click',function () {
@@ -238,13 +295,18 @@
         $('tbody').delegate('.btn-danger','click',function () {
 
             var value= $(this).data('id');
-            var url = '{{ URL::to('deleteMember') }}';
+            var url = '{{ URL::to('deletecategories') }}';
+
+            //alert(value);
             if(confirm("etez vous sure de vouloir Supprimer")==true){
 
                 $.ajax({type : 'post',  url : url, data : {'id':value}, success:function () {
                     $('#categories'+value).remove();
 
                 }
+                    ,error:function(){
+                        alert("  Error!!!! ");
+                    }
                 });
             }
 

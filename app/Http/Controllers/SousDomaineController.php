@@ -32,7 +32,11 @@ class SousDomaineController extends Controller
 
         if($request->ajax())
         {
-            $sousdomaines =  SousDomaine::create($request->all());
+            $sousdomaines = new SousDomaine();
+            $sousdomaines->NomSousDomaines = $request->NomSousDomaines;
+            $sousdomaines->save();
+
+           // $sousdomaines =  SousDomaine::create($request->all());
             return response()->json($sousdomaines);
         }
     }

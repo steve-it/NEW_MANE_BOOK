@@ -12,6 +12,7 @@
         <!-- Google Fonts -->
         <link href={{asset("css/font_material_design.css")}} rel="stylesheet">
         <link href={{asset("css/icon_material_design.css")}} rel="stylesheet">
+        <link href={{asset("css/sweetalert2.min.css")}} rel="stylesheet">
 
 
         <!-- Bootstrap Core Css -->
@@ -105,6 +106,7 @@
         -->
         <!-- Jquery Core Js -->
 
+
         <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js")}}></script>
 
         @yield('script')
@@ -141,8 +143,8 @@
         <script src={{asset("bower_components/adminbsb-materialdesign/js/admin.js")}}></script>
         <!--<script src={{asset("bower_components/adminbsb-materialdesign/js/pages/index.js")}}></script>-->
 
-        <!-- Demo Js -->
-        <script src={{asset("bower_components/adminbsb-materialdesign/js/demo.js")}}></script>
+        <!-- Demo Js
+        <script src={{asset("bower_components/adminbsb-materialdesign/js/demo.js")}}></script>-->
 
         @yield('js')
 

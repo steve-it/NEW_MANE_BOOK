@@ -29,12 +29,15 @@ class DomaineController extends Controller
 
     public function NewDomaines(Request $request)
     {
+
        //dump($_POST);
-        echo "[".$request->NomDomaines."]";
+
         if($request->ajax())
         {
+
             $domaines =  Domaine::create($request->all());
-            return response()->json($domaines);
+            return Response()->json($domaines);
+           // return response()->json($domaines);
         }
     }
 

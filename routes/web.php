@@ -39,6 +39,7 @@ Route::get('/', function () {
 
     Route::put('/NouveauDomaines', 'DomaineController@UpdateDomaines');
 
+
     Route::get('/listDomaines', 'DomaineController@show');
 
     Route::post('/deleteDomaines', 'DomaineController@delete');
@@ -72,11 +73,11 @@ Route::get('/', function () {
 
     Route::post('/Nouveaucategories', 'CategorieController@NewCategories');
 
-    /*Route::put('/Nouveaucategories', 'CategorieController@UpdateCategories');
+    Route::put('/Nouveaucategories', 'CategorieController@UpdateCategories');
 
     Route::get('/listcategories', 'CategorieController@show');
 
-    Route::post('/deletecategories', 'CategorieController@delete');*/
+    Route::post('/deletecategories', 'CategorieController@delete');
 
 
 //// Fin Route in SousDomaines /////////////////////////////////////////////

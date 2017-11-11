@@ -109,15 +109,15 @@
                         {{ csrf_field() }}
                         <input type="hidden" id="memberid" name="id">
 
-                        <div id="member-block" class="header">
+                       
                             <h2> Choisir Le Domaine</h2>
-                            <br>
+
                             <div id="base-member" class="row">
                                 <div class="form-group">
                                     {{ Form::select('domaines_id', $domaines, null, ['id'=>'id', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}
                                 </div>
                             </div>
-                        </div>
+
 
                         <div class="form-group form-float">
                             <div class="form-line{{ $errors->has('NomSousDomaines') ? ' has-error' : '' }}">
@@ -165,15 +165,78 @@
             $('#save').val('save');
             $('#insert_form').trigger('reset');
 
+            $('#insert_form').on('submit', function (e) {
+              e.preventDefault();
+                var url = $('#insert_form').attr('action');
+                var data = $('#insert_form').serialize();
+                var type = 'POST';
+                var statut = $('#save').val();
+
+                alert(data);
+                if( statut == 'modifier')
+                {
+                    type = 'PUT';
+                    //data += '&id='+$(this).data('id');
+                }
+                if($('#NomSousDomaines').val()=='')
+                {
+                    alert("Name SousDomaines is requred");
+                }
+                else
+                {
+
+                    $.ajax({
+                        type: type,
+                        url: url,
+                        data: data,
+                        success:function (data) {
+                            console.log(data)
+                            /*$('#insert_form')[0].reset();
+                             $('#add_data_Modal').modal('hide');
+                             $('#membre_table').html(data);*/
+
+                            var row = '<tr id="membres'+ data.id+'" >' +
+                                '<td>' + data.NomSousDomaines + '</td>' +
+                                '<td>' +
+                                '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
+                                '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
+                                '</td>' +
+                                '</tr>';
+                            if (statut == 'save') {
+                                $('tbody').prepend(row);
+                            }
+                            else
+                            {
+                                $('#membres'+ data.id).replaceWith(row);
+                                $('#add_data_Modal').modal('hide');
+                            }
+
+
+                        }
+
+                    });
+
+
+
+                    //---------reset_formulaire--------------------
+                    $(this).trigger('reset');
+                }
+
+            });
+
+
+
         });
 
 
-        $('#insert_form').on('submit', function (e) {
+        /* $('#insert_form').on('submit', function (e) {
             e.preventDefault();
             var url = $('#insert_form').attr('action');
             var data = $('#insert_form').serialize();
             var type = 'POST';
             var statut = $('#save').val();
+
+            alert(data);
 
             if( statut == 'modifier')
             {
@@ -193,9 +256,9 @@
                     data: data,
                     success:function (data) {
                         console.log(data)
-                        /*$('#insert_form')[0].reset();
+                        $('#insert_form')[0].reset();
                          $('#add_data_Modal').modal('hide');
-                         $('#membre_table').html(data);*/
+                         $('#membre_table').html(data);
 
                         var row = '<tr id="membres'+ data.id+'" >' +
                             '<td>' + data.NomSousDomaines + '</td>' +
@@ -223,7 +286,7 @@
                 //---------reset_formulaire--------------------
                 $(this).trigger('reset');
             }
-        });
+        }); */
 
         //--------update-------------------------------
         $('tbody').delegate('.btn-info','click',function () {

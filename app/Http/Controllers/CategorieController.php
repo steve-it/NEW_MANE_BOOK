@@ -30,12 +30,9 @@ class CategorieController extends Controller
     {
         dump($_POST);
         echo "[".$request->libelle."]";
+
         if($request->ajax())
         {
-            $categorie = new Categorie;
-
-            $categorie->libelle = $request->input('libelle');
-            $categorie->save();
 
             $categories =  Categorie::create($request->all());
             return response()->json($categories);
@@ -106,9 +103,18 @@ class CategorieController extends Controller
    */
   public function destroy($id)
   {
+
     
   }
-  
+
+    public function delete(Request $request)
+    {
+        dd($_POST);
+
+      Categorie::destroy($request->id);
+
+   }
+
 }
 
 ?>

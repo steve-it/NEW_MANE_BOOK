@@ -11,6 +11,8 @@ class SousDomaine extends Model
     public $timestamps = true;
     protected $fillable = ['NomSousDomaines'];
 
+
+
     public function Domaines()
     {
         return $this->belongsTo('Domaine');
