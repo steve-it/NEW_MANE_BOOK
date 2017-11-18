@@ -9,10 +9,12 @@ class Emprunt extends Model
 
     protected $table = 'emprunts';
     public $timestamps = true;
+    protected $fillable = ['NomEmprunteur','CniEmprunteur','DateEmprunt','DateEffRetourEmprunt',
+        'ObservationEmprunt','ObservationRetour','documents_id'];
 
     public function Documents()
     {
-        return $this->belongsToMany('Documents');
+        return $this->belongsTo('App\Documents');
     }
 
 }

@@ -23,6 +23,12 @@ class CreateEmpruntsTable extends Migration
             $table->date('DateEffRetourEmprunt');
             $table->text('ObservationEmprunt');
             $table->text('ObservationRetour');
+            $table->integer('documents_id')->unsigned();
+            $table->foreign('documents_id')
+                ->references('id')
+                ->on('documents')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 
@@ -33,7 +39,9 @@ class CreateEmpruntsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('emprunts', function(Blueprint $table) {
+            $table->dropForeign('emprunts_documents_id_foreign');
+        });
         Schema::drop('emprunts');
     }
 }

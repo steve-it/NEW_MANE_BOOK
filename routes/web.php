@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Support\Facades\DB;
+use App\SousDomaine;
+use \Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +14,39 @@
 */
 Route::get('/', function () {
     return view('page_model');
+
+
+   /* $domainesous = SousDomaine::where('domaines_id','=',2)->get();
+
+    foreach($domainesous as $domainesous){
+
+        echo $domainesous->id;
+        echo $domainesous->NomSousDomaines;
+
+    }*/
+
+
+
+
+
 });
 
+//// Route in auteurs /////////////////////////////////////////////
 
+
+Route::get('/Auteurs', 'AuteurController@index');
+
+Route::post('/Nouveauauteurs', 'AuteurController@Newauteurs');
+
+Route::put('/Nouveauauteurs', 'AuteurController@Updateauteurs');
+
+Route::get('/listauteurs', 'AuteurController@show');
+
+Route::post('/deleteauteurs', 'AuteurController@delete');
+
+
+//// Fin Route in SousDomaines ////////////////////////////////////////////
+///
 
 //// Route in Domaines /////////////////////////////////////////////
 
@@ -80,9 +112,63 @@ Route::get('/', function () {
     Route::post('/deletecategories', 'CategorieController@delete');
 
 
-//// Fin Route in SousDomaines /////////////////////////////////////////////
+//// Fin Route in SousDomaines ////////////////////////////////////////////
+///
+///
+/// ///// Route in Documents /////////////////////////////////////////////
 
 
+Route::get('/documents', 'DocumentsController@index');
+
+Route::get('/Selectsousdomaine',function (){
+
+    $dom_id = Input::get('iddomain');
+    $domainesous = SousDomaine::where('domaines_id','=',$dom_id)->get();
+
+    $select = null;
+    $select .= "<option>-----------------------------------</option>";
+    foreach($domainesous as $data){
+        $select .= "<option value=".$data->id.">".$data->NomSousDomaines."</option>";
+    }
+    //return $select;
+
+    return Response::json($select);
+});
+
+
+Route::get('NewDocuments', [
+    'as' => 'creerDocuments',
+    'uses' => 'DocumentsController@create'
+]);
+Route::post('NewDocuments','DocumentsController@store');
+
+
+
+
+//// Fin Route in Documents /////////////////////////////////////////////
+
+///
+//// Route in Consultations /////////////////////////////////////////////
+
+
+Route::get('/Consultations', 'ConsultationController@index');
+Route::get('NouvelleConsultations', [
+    'as' => 'addConsultations',
+    'uses' => 'ConsultationController@create'
+]);
+
+Route::post('/NouvelleConsultations', 'ConsultationController@store');
+
+/*Route::put('/Nouveausousdomaines', 'SousDomaineController@UpdateDomaines');
+
+Route::get('/listsousdomaines', 'SousDomaineController@show');
+
+Route::post('/deletesousdomaines', 'SousDomaineController@delete');*/
+
+
+//// Fin Route in Consultations ///////////////////////////////////////////
+///
+///
 
 
 Auth::routes();

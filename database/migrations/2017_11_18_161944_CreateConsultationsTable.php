@@ -18,6 +18,12 @@ class CreateConsultationsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->date('DateConsultations');
+            $table->integer('documents_id')->unsigned();
+            $table->foreign('documents_id')
+                ->references('id')
+                ->on('documents')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 
@@ -29,6 +35,9 @@ class CreateConsultationsTable extends Migration
     public function down()
     {
         //
+        Schema::table('consultations', function(Blueprint $table) {
+            $table->dropForeign('consultations_documents_id_foreign');
+        });
         Schema::drop('consultations');
     }
 }

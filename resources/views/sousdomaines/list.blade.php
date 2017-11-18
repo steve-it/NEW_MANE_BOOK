@@ -13,6 +13,7 @@
 
 @section('main_content')
 
+
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -60,13 +61,16 @@
 
                                     <tbody>
 
-                                    @foreach($membres as $membre)
-                                        <tr id="membres{{$membre->id}}">
-                                            <td>{{ $membre->NomSousDomaines }}</td>
-                                            <td>{{ $membre->NomSousDomaines }}</td>
+                                    @foreach($sousdomaines as $sousdomaine)
+                                        <tr id="membres{{$sousdomaine->id}}">
+                                            <td>{{ $sousdomaine->NomDomaines }}</td>
+                                            <td>{{ $sousdomaine->NomSousDomaines }}</td>
+
+
+
                                             <td>
-                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $membre->id }}"title="voir"><i class="material-icons">list</i></button>
-                                                <button class="btn btn-xs btn-danger" data-id="{{ $membre->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
+                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $sousdomaine->id }}"title="voir"><i class="material-icons">list</i></button>
+                                                <button class="btn btn-xs btn-danger" data-id="{{ $sousdomaine->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
 
                                             </td>
                                         </tr>
@@ -108,16 +112,19 @@
                     <form id="insert_form" method="POST" action="Nouveausousdomaines" >
                         {{ csrf_field() }}
                         <input type="hidden" id="memberid" name="id">
+                        <h2> Choisir Le Domaine</h2>
 
-                       
-                            <h2> Choisir Le Domaine</h2>
-
-                            <div id="base-member" class="row">
-                                <div class="form-group">
-                                    {{ Form::select('domaines_id', $domaines, null, ['id'=>'id', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}
-                                </div>
+                        <div id="base-member" class="row">
+                            <div class="form-group">
+                                {{--{{ Form::select('domaines_id', $domaines, null, ['id'=>'id', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}--}}
+                                <select class="form-control show-tick" name="domaines_id" id="domaines_id">
+                                    <option value="">---------SVP Selectionner la domaine --</option>
+                                    @foreach($domaines as $domaine)
+                                        <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-
+                        </div>
 
                         <div class="form-group form-float">
                             <div class="form-line{{ $errors->has('NomSousDomaines') ? ' has-error' : '' }}">
@@ -130,15 +137,11 @@
                             </div>
                         </div>
 
-
-
-
-
                         <input type="submit" id="save" value="Save" class="btn btn-primary">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                 </div>
-
+                {{----}}
             </div>
         </div>
     </div>

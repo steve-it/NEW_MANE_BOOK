@@ -34,13 +34,13 @@
 
                 </li>
                 <li>
-                    <a href="{{ url('membretribunal') }}"  class="mce-menu-item">
+                    <a href="{{ url('Auteurs') }}"  class="mce-menu-item">
                         <span>AUTEURS</span>
                     </a>
 
                 </li>
                 <li>
-                    <a href="{{ url('membretribunal') }}"  class="mce-menu-item">
+                    <a href="{{ url('documents') }}"  class="mce-menu-item">
                         <span>DOCUMENTS</span>
                     </a>
 
@@ -53,7 +53,7 @@
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{ url('Consultations') }}" class="mce-menu-item">
                         <span>CONSULTATIONS</span>
                     </a>
 

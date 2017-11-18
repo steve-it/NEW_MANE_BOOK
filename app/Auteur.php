@@ -8,6 +8,8 @@ class Auteur extends Model
 {
 
     protected $table = 'auteurs';
+    protected $fillable = ['NomAuteur'];
+
     public $timestamps = true;
 
     public function Documents()

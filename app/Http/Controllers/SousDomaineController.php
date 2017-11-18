@@ -6,7 +6,7 @@ use App\Domaine;
 use App\SousDomaine;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use Illuminate\Support\Facades\DB;
 class SousDomaineController extends Controller 
 {
 
@@ -15,10 +15,31 @@ class SousDomaineController extends Controller
    *
    * @return Response
    */
+
+    protected $sousdomaines;
+
+    public function __construct(SousDomaine $sousdomaines)
+    {
+        $this->sousdomaines = $sousdomaines;
+    }
+
+
   public function index()
   {
-      $membres = SousDomaine::all();
-      return view('sousdomaines.list', ['membres'=>$membres,'domaines'=>Domaine::pluck('NomDomaines', 'id')]);
+
+
+      $sousdomaines = DB::table('sousdomaines')
+          ->join('domaines','domaines.id','=','sousdomaines.domaines_id')
+          ->get();
+      /*  $sousdomaines = DB::table('domaines')
+        ->join('sousdomaines','domaines.id','=','sousdomaines.domaines_id')
+        ->get();*/
+
+
+
+
+      //return view('sousdomaines.list', ['sousdomaines'=>$sousdomaines,'domaines'=>Domaine::pluck('NomDomaines', 'id')]);
+      return view('sousdomaines.list', ['sousdomaines'=>$sousdomaines,'domaines'=>Domaine::all()]);
   }
 
     /***
@@ -28,15 +49,15 @@ class SousDomaineController extends Controller
     public function NewSousDomaines(Request $request)
     {
         dump($_POST);
-        echo "[".$request->NomSousDomaines."]";
+        echo "[".$request->NomSousDomaines.$request->domaines_id."]";
 
         if($request->ajax())
         {
-            $sousdomaines = new SousDomaine();
+            /*$sousdomaines = new SousDomaine();
             $sousdomaines->NomSousDomaines = $request->NomSousDomaines;
-            $sousdomaines->save();
+            $sousdomaines->save();*/
 
-           // $sousdomaines =  SousDomaine::create($request->all());
+           $sousdomaines =  SousDomaine::create($request->all());
             return response()->json($sousdomaines);
         }
     }

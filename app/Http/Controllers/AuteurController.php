@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Auteur;
+
 class AuteurController extends Controller 
 {
 
@@ -12,7 +16,22 @@ class AuteurController extends Controller
    */
   public function index()
   {
-    
+    $auteurs = Auteur::all();
+   return view('auteurs.list',compact('auteurs'));
+
+  }
+
+
+  public function Newauteurs(Request $request)
+  {
+     // dump($_POST);
+      if($request->ajax())
+      {
+
+          $auteurs =  Auteur::create($request->all());
+          return Response()->json($auteurs);
+
+      }
   }
 
   /**
@@ -74,9 +93,9 @@ class AuteurController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function delete(Request $request)
   {
-    
+    Auteur::destroy($request->id);
   }
   
 }

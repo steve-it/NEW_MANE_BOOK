@@ -23,6 +23,7 @@ class DomaineController extends Controller
       return view('domaines.list', compact('domaines'));
   }
 
+
     /***
      * Fonction permettant d'enregistrer un nouveau Domaines
      */

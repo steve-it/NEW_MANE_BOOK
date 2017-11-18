@@ -18,7 +18,7 @@ class CreateAuteursTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('NomAuteur', 255);
-            $table->enum('SexeAuteurs', array('Masculin', 'Feminin'));
+            //$table->string('SexeAuteurs', 50);
         });
     }
 
