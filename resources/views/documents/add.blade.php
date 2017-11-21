@@ -196,7 +196,9 @@
                             <div class="row clearfix">
                                 <div class="col-md-4">
                                     <div class="form-group">
+
                                         <div class="form-line">
+
                                             <label>Annee Publication Documents</label>
                                             <input type="date" class="form-control" name="AnneePublicationDocuments"
                                                    placeholder="Annee Publication Documents">

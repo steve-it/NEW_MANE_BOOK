@@ -1,7 +1,13 @@
 <?php 
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Response;
+use Illuminate\Http\Request;
+use App\Categorie;
+use App\Domaine;
+use App\Emprunt;
+use App\SousDomaine;
+use App\Http\Controllers\DB;
 class EmpruntController extends Controller 
 {
 
@@ -12,7 +18,16 @@ class EmpruntController extends Controller
    */
   public function index()
   {
-    
+      $emprunts = DB::table('documents')
+          ->join('categories', 'categories.id', '=', 'documents.categories_id')
+          ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
+          ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
+          ->join('emprunts', 'documents.id', '=', 'emprunts.documents_id')
+
+          ->get();
+
+
+      return view('emprunts.list', compact('emprunts'));
   }
 
   /**

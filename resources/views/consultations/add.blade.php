@@ -125,6 +125,46 @@
 
 
 
+
+                                    {{--<div class="row clearfix">--}}
+                                        {{--<div class="col-md-6">--}}
+                                            {{--<div class="form-group">--}}
+                                                {{--<div class="form-line">--}}
+                                                    {{--<select class="form-control show-tick" name="destination" id="status">--}}
+                                                        {{--<option data-prix="Prix voyage" selected="selected" value='Choisissez'>Choisissez</option>--}}
+                                                        {{--<option data-prix="9000 FCFA" value='Bassila'>Bassila</option>--}}
+                                                        {{--<option data-prix="2500 FCFA" value='Bohicon'>Bohicon</option>--}}
+                                                        {{--<option data-prix="4500 FCFA" value='Dassa'>Dassa</option>--}}
+                                                        {{--<option data-prix="7500 FCFA" value='Djougou'>Djougou</option>--}}
+                                                        {{--<option data-prix="5000 FCFA" value='Parakou'>Parakou</option>--}}
+                                                        {{--<option data-prix="8300 FCFA" value='Natitingou'>Natitingou</option>--}}
+                                                        {{--<option data-prix="3000 FCFA" value='Savalou'>Savalou</option>--}}
+                                                        {{--<option data-prix="3500 FCFA" value='Savè'>Savè</option>--}}
+                                                        {{--<option data-prix="4600 FCFA" value='Tchaorou'>Tchaorou</option>--}}
+
+                                                    {{--</select>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="col-md-6">--}}
+                                            {{--<div class="form-group">--}}
+                                                    {{--         <input value="" type="text" name="prix" id="cardNumber" value="" autocomplete="off" placeholder="prix voyage" readonly onFocus="this.blur()" required />--}}
+
+                                                {{--<div class="form-line">--}}
+                                                    {{--<input type="text" class="form-control" name="prix"--}}
+                                                           {{--id="cardNumber" required>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+
+
+
+
+
+
+
+
                                     <button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
                                 {{--{{ Form::close() }}--}}
                             </form>
@@ -152,6 +192,11 @@
         });
 
 
+        $('select[name="destination"]').change(function() {
+            $('input[name="prix"]').val($(this).find('option:selected').data('prix'));
+        });
+
+
         $('#insert_form').on('submit', function (e) {
             e.preventDefault();
 
@@ -160,7 +205,7 @@
             var url = $(this).attr('action');
             var post = $(this).attr('method');
 
-           // alert(url);
+           alert(data);
 
             $.ajax({
                 type : post, // method of route get, post.....

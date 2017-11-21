@@ -23,6 +23,8 @@ class CreateEmpruntsTable extends Migration
             $table->date('DateEffRetourEmprunt');
             $table->text('ObservationEmprunt');
             $table->text('ObservationRetour');
+            $table->string('statusEmprunteur',50);
+            $table->integer('cautionEmprunteur');
             $table->integer('documents_id')->unsigned();
             $table->foreign('documents_id')
                 ->references('id')

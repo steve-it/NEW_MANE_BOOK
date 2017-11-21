@@ -2,8 +2,6 @@
 
 @section('css')
     <link href={{asset("css/sweetalert2.min.css")}} rel="stylesheet"/>
-    <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css")}} rel="stylesheet">
-    <link href={{asset("bower_components/adminbsb-materialdesign/plugins/waitme/waitMe.css")}} rel="stylesheet">
 
 
     <!-- Bootstrap Material Datetime Picker Css -->
@@ -138,6 +136,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <div class="form-group">
 
                                 <div class="col-md-6">
                                     <div class="form-group">

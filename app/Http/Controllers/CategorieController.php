@@ -109,7 +109,7 @@ class CategorieController extends Controller
 
     public function delete(Request $request)
     {
-        dd($_POST);
+
 
       Categorie::destroy($request->id);
 

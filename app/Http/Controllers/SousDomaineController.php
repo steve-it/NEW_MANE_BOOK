@@ -48,8 +48,8 @@ class SousDomaineController extends Controller
 
     public function NewSousDomaines(Request $request)
     {
-        dump($_POST);
-        echo "[".$request->NomSousDomaines.$request->domaines_id."]";
+       /* dump($_POST);
+        echo "[".$request->NomSousDomaines.$request->domaines_id."]";*/
 
         if($request->ajax())
         {
@@ -58,6 +58,8 @@ class SousDomaineController extends Controller
             $sousdomaines->save();*/
 
            $sousdomaines =  SousDomaine::create($request->all());
+
+
             return response()->json($sousdomaines);
         }
     }
@@ -129,6 +131,11 @@ class SousDomaineController extends Controller
   public function destroy($id)
   {
     
+  }
+  public function delete(Request $request)
+  {
+      SousDomaine::destroy($request->id);
+
   }
   
 }

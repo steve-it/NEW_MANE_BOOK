@@ -1,6 +1,6 @@
 <div class="menu">
     <ul class="list">
-        <li class="header">TABLEAU DE BORD</li>
+        <li class="header">SERVICE DOCUMENTATION-ENAM</li>
         <li class="active">
             <a href='{!! url('#')!!}'>
 
@@ -11,62 +11,62 @@
 
        <li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons"></i>
+                <i class="material-icons">assignment</i>
                 <span>OUVRAGES</span>
             </a>
             <ul class="ml-menu">
                 <li>
                     <a href="{{ url('domaines') }}" class="mce-menu-item">
-                        <span>DOMAINES</span>
+                        <i class="material-icons">domain</i><span>DOMAINES</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="{{ url('sousdomaines') }}" class="mce-menu-item">
-                        <span>SOUS-DOMAINES</span>
+                        <i class="material-icons">folder</i><span>SOUS-DOMAINES</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="{{ url('categories') }}" class="mce-menu-item">
-                        <span>CATEGORIES-DOCS</span>
+                        <i class="material-icons">class</i><span>CATEGORIES-DOCS</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="{{ url('Auteurs') }}"  class="mce-menu-item">
-                        <span>AUTEURS</span>
+                        <i class="material-icons">people</i><span>AUTEURS</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="{{ url('documents') }}"  class="mce-menu-item">
-                        <span>DOCUMENTS</span>
+                        <i class="material-icons">insert_drive_file</i> <span>DOCUMENTS</span>
                     </a>
 
                 </li>
             </ul>
         </li><li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons"></i>
+                <i class="material-icons">local_grocery_store</i>
                 <span>MOUVEMENTS D'OUVRAGES</span>
             </a>
             <ul class="ml-menu">
                 <li>
                     <a href="{{ url('Consultations') }}" class="mce-menu-item">
-                        <span>CONSULTATIONS</span>
+                        <i class="material-icons">import_contacts</i><span>CONSULTATIONS</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{{url('Emprunts')}}" class="mce-menu-item">
+                        <i class="material-icons">transfer_within_a_station</i><span>EMPRUNTS</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>EMPRUNTS</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>RETOUR-EMPRUNTS</span>
+                        <i class="material-icons">restore</i><span>RETOUR-EMPRUNTS</span>
                     </a>
 
                 </li>
@@ -75,21 +75,21 @@
         </li>
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons"></i>
+                <i class="material-icons">computer</i>
                 <span>ADMINISTRATION</span>
             </a>
             <ul class="ml-menu">
 
 
                 <li>
-                    <a href="{!! url('test') !!}" class="mce-menu-item">
-                        <span>UTILISATEURS</span>
+                    <a href="{!! url('#') !!}" class="mce-menu-item">
+                        <i class="material-icons">account_circle</i> <span>UTILISATEURS</span>
                     </a>
 
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>PROFILS</span>
+                    <a href="{!! url('#') !!}" class="mce-menu-item">
+                        <i class="material-icons">person</i>  <span>PROFILS</span>
                     </a>
 
                 </li>
@@ -99,26 +99,26 @@
         </li>
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons"></i>
+                <i class="material-icons">pie_chart</i>
                 <span>STATISTIQUES</span>
             </a>
             <ul class="ml-menu">
 
                 <li>
                     <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>VEDETTES-AUTEURS</span>
+                        <i class="material-icons">nature_people</i><span>VEDETTES-AUTEURS</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>VEDETTES-MATIERES</span>
+                        <i class="material-icons">content_paste</i> <span>VEDETTES-MATIERES</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>ETATS-FOND-DOCUMENTAIRES</span>
+                        <i class="material-icons">dehaze</i><span>ETATS-FOND-DOCUMENTAIRES</span>
                     </a>
 
                 </li>
@@ -127,14 +127,20 @@
 
         <li class="header">AUTRES</li>
         <li>
-            <a href="javascript:void(0);">
+            <a href="{!! url('information') !!}">
                 <i class="material-icons col-red">donut_large</i>
                 <span>Important</span>
             </a>
         </li>
+        <li>
+            <a href="{!! url('planete') !!}">
+                <i class="material-icons col-amber">donut_large</i>
+                <span>Planete</span>
+            </a>
+        </li>
 
         <li>
-            <a href="javascript:void(0);">
+            <a href="{!! url('important') !!}">
                 <i class="material-icons col-light-blue">donut_large</i>
                 <span>Information</span>
             </a>

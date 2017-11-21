@@ -8,6 +8,10 @@
         }
     </style>
     {!! Html::style('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') !!}
+    <!-- Bootstrap Select Css -->
+    <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css")}} rel="stylesheet">
+    <!-- Wait Me Css -->
+    <link href={{asset("bower_components/adminbsb-materialdesign/plugins/waitme/waitMe.css")}} rel="stylesheet">
 
 @stop
 
@@ -62,7 +66,7 @@
                                     <tbody>
 
                                     @foreach($sousdomaines as $sousdomaine)
-                                        <tr id="membres{{$sousdomaine->id}}">
+                                        <tr id="sousdomaines{{$sousdomaine->id}}">
                                             <td>{{ $sousdomaine->NomDomaines }}</td>
                                             <td>{{ $sousdomaine->NomSousDomaines }}</td>
 
@@ -106,23 +110,27 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Informations Sous Domaines de Domaines </h4>
+                  <center>  <h4 class="modal-title">Informations Sous Domaines de Domaines </h4></center>
                 </div>
                 <div class="modal-body">
                     <form id="insert_form" method="POST" action="Nouveausousdomaines" >
                         {{ csrf_field() }}
-                        <input type="hidden" id="memberid" name="id">
-                        <h2> Choisir Le Domaine</h2>
+                        <input type="hidden" id="sousdomainesid" name="id">
+                        <h3> Choix Du Domaine</h3>
 
-                        <div id="base-member" class="row">
-                            <div class="form-group">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
                                 {{--{{ Form::select('domaines_id', $domaines, null, ['id'=>'id', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}--}}
                                 <select class="form-control show-tick" name="domaines_id" id="domaines_id">
-                                    <option value="">---------SVP Selectionner la domaine --</option>
+                                    <option value="">---------SVP Selectionner le domaine --</option>
                                     @foreach($domaines as $domaine)
                                         <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
                             </div>
                         </div>
 
@@ -175,7 +183,7 @@
                 var type = 'POST';
                 var statut = $('#save').val();
 
-                alert(data);
+                //alert(data);
                 if( statut == 'modifier')
                 {
                     type = 'PUT';
@@ -193,12 +201,13 @@
                         url: url,
                         data: data,
                         success:function (data) {
-                            console.log(data)
+                            console.log(data);
+
                             /*$('#insert_form')[0].reset();
                              $('#add_data_Modal').modal('hide');
                              $('#membre_table').html(data);*/
 
-                            var row = '<tr id="membres'+ data.id+'" >' +
+                            var row = '<tr id="sousdomaines'+ data.id+'" >' +
                                 '<td>' + data.NomSousDomaines + '</td>' +
                                 '<td>' +
                                 '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
@@ -210,7 +219,7 @@
                             }
                             else
                             {
-                                $('#membres'+ data.id).replaceWith(row);
+                                $('#sousdomaines'+ data.id).replaceWith(row);
                                 $('#add_data_Modal').modal('hide');
                             }
 
@@ -232,64 +241,7 @@
         });
 
 
-        /* $('#insert_form').on('submit', function (e) {
-            e.preventDefault();
-            var url = $('#insert_form').attr('action');
-            var data = $('#insert_form').serialize();
-            var type = 'POST';
-            var statut = $('#save').val();
 
-            alert(data);
-
-            if( statut == 'modifier')
-            {
-                type = 'PUT';
-                //data += '&id='+$(this).data('id');
-            }
-            if($('#NomSousDomaines').val()=='')
-            {
-                alert("Name SousDomaines is requred");
-            }
-            else
-            {
-
-                $.ajax({
-                    type: type,
-                    url: url,
-                    data: data,
-                    success:function (data) {
-                        console.log(data)
-                        $('#insert_form')[0].reset();
-                         $('#add_data_Modal').modal('hide');
-                         $('#membre_table').html(data);
-
-                        var row = '<tr id="membres'+ data.id+'" >' +
-                            '<td>' + data.NomSousDomaines + '</td>' +
-                            '<td>' +
-                            '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
-                            '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
-                            '</td>' +
-                            '</tr>';
-                        if (statut == 'save') {
-                            $('tbody').prepend(row);
-                        }
-                        else
-                        {
-                            $('#membres'+ data.id).replaceWith(row);
-                            $('#add_data_Modal').modal('hide');
-                        }
-
-
-                    }
-
-                });
-
-
-
-                //---------reset_formulaire--------------------
-                $(this).trigger('reset');
-            }
-        }); */
 
         //--------update-------------------------------
         $('tbody').delegate('.btn-info','click',function () {
@@ -322,11 +274,11 @@
         $('tbody').delegate('.btn-danger','click',function () {
 
             var value= $(this).data('id');
-            var url = '{{ URL::to('deleteMember') }}';
+            var url = '{{ URL::to('deleteSousdomaines') }}';
             if(confirm("etez vous sure de vouloir Supprimer")==true){
 
                 $.ajax({type : 'post',  url : url, data : {'id':value}, success:function () {
-                    $('#membres'+value).remove();
+                    $('#sousdomaines'+value).remove();
 
                 }
                 });

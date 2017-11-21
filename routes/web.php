@@ -12,24 +12,8 @@ use \Illuminate\Support\Facades\Input;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('page_model');
+Route::get('/','ParametrageController@acceuil');
 
-
-   /* $domainesous = SousDomaine::where('domaines_id','=',2)->get();
-
-    foreach($domainesous as $domainesous){
-
-        echo $domainesous->id;
-        echo $domainesous->NomSousDomaines;
-
-    }*/
-
-
-
-
-
-});
 
 //// Route in auteurs /////////////////////////////////////////////
 
@@ -86,12 +70,13 @@ Route::post('/deleteauteurs', 'AuteurController@delete');
     Route::get('/sousdomaines', 'SousDomaineController@index');
 
     Route::post('/Nouveausousdomaines', 'SousDomaineController@NewSousDomaines');
+     Route::post('/deleteSousdomaines', 'SousDomaineController@delete');
 
     /*Route::put('/Nouveausousdomaines', 'SousDomaineController@UpdateDomaines');
 
     Route::get('/listsousdomaines', 'SousDomaineController@show');
 
-    Route::post('/deletesousdomaines', 'SousDomaineController@delete');*/
+  */
 
 
 //// Fin Route in SousDomaines ///////////////////////////////////////////////// Fin Route in Domaines /////////////////////////////////////////////
@@ -122,17 +107,20 @@ Route::get('/documents', 'DocumentsController@index');
 
 Route::get('/Selectsousdomaine',function (){
 
-    $dom_id = Input::get('iddomain');
+  /*  $dom_id = Input::get('iddomain');
     $domainesous = SousDomaine::where('domaines_id','=',$dom_id)->get();
 
     $select = null;
     $select .= "<option>-----------------------------------</option>";
     foreach($domainesous as $data){
-        $select .= "<option value=".$data->id.">".$data->NomSousDomaines."</option>";
+        $select .= "<option value=".$datDB::table('sousdomaines')
+                ->join('domaines','domaines.id','=','sousdomaines.domaines_id')
+                 ->where('NomSousDomaines','=',$request->NomSousDomaines)
+                 ->get();a->id.">".$data->NomSousDomaines."</option>";
     }
     //return $select;
 
-    return Response::json($select);
+    return Response::json($select);*/
 });
 
 
@@ -159,16 +147,44 @@ Route::get('NouvelleConsultations', [
 
 Route::post('/NouvelleConsultations', 'ConsultationController@store');
 
-/*Route::put('/Nouveausousdomaines', 'SousDomaineController@UpdateDomaines');
-
-Route::get('/listsousdomaines', 'SousDomaineController@show');
-
-Route::post('/deletesousdomaines', 'SousDomaineController@delete');*/
 
 
 //// Fin Route in Consultations ///////////////////////////////////////////
 ///
 ///
+/// ///
+//// Route in Emprunts /////////////////////////////////////////////
+
+
+Route::get('/Emprunts', 'EmpruntController@index');
+Route::get('NouvelleEmprunts', [
+    'as' => 'addEmprunts',
+    'uses' => 'EmpruntController@create'
+]);
+
+Route::post('/NouvelleEmprunts', 'EmpruntController@store');
+
+
+
+//// Fin Route in Emprunts ///////////////////////////////////////////
+///
+///
+
+////// Route in information////////////////////////////////////////////////
+Route::get('/important',function (){
+   return view('layouts.important');
+});
+Route::get('/information',function (){
+   return view('layouts.informations');
+});
+Route::get('/planete',function (){
+   return view('layouts.planete');
+});
+
+
+
+////// End Route in information////////////////////////////////////////////////
+
 
 
 Auth::routes();

@@ -232,123 +232,12 @@
 
         });*/
 
-        $('#add').on('click',function () {
-            console.log('add-click', 'ça passe');
-
-            $('#add_data_Modal').modal('show');
-            $('#save').val('save');
-            $('#insert_form').trigger('reset');
-
-
-
-            $('#insert_form').on('submit', function (e) {
-                e.preventDefault();
-                var url = $('#insert_form').attr('action');
-                var data = $('#insert_form').serialize();
-                var type = 'POST';
-                var statut = $('#save').val();
-
-                if( statut == 'modifier')
-                {
-                    type = 'PUT';
-                    //data += '&id='+$(this).data('id');
-                }
-                if($('#NomDomaines').val()=='')
-                {
-                    alert("NomDomaines is requred");
-                }
-                else
-                {
-
-                    $.ajax({
-                        type: type,
-                        url: url,
-                        data: data,
-                        success:function (data) {
-                            console.log(data);
-                            /*$('#insert_form')[0].reset();
-                             $('#add_data_Modal').modal('hide');
-                             $('#membre_table').html(data);*/
-
-                            var row = '<tr id="domaines'+ data.id+'" >' +
-                                '<td>' + data.NomDomaines + '</td>' +
-                                '<td>' +
-                                '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
-                                '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
-                                '</td>'+
-                                '</tr>';
-                            if (statut == 'save') {
-                                $('tbody').prepend(row);
-                            }
-                            else
-                            {
-                                $('#domaines'+ data.id).replaceWith(row);
-                                $('#add_data_Modal').modal('hide');
-
-                            }
-
-                        }
-
-                    });
-
-
-
-                    //---------reset_formulaire--------------------
-                    //
-
-                }
-                $('#add').trigger('reset');
-
-            });
-
-        });
 
 
 
 
 
-        //--------update-------------------------------
-        $('tbody').delegate('.btn-info','click',function () {
 
-            var value = $(this).data('id');
-            var url = '{{ URL::to('listDomaines') }}';
-
-            // alert(value);
-
-            $.ajax({
-                type : 'get',
-                url : url,
-                data : {'id':value},
-
-                success:function (data) {
-                    $('#NomDomaines').val(data.NomDomaines);
-                    $('#domaineid').val(data.id);
-                    $('#save').val('modifier');
-                    $('#add_data_Modal').modal('show');
-
-                },error:function(){
-                    alert("error!!!!");
-                }
-
-            });
-
-        });
-
-        //------------------supprimer--------------------
-        $('tbody').delegate('.btn-danger','click',function () {
-
-            var value= $(this).data('id');
-            var url = '{{ URL::to('deleteDomaines') }}';
-            if(confirm("etez vous sure de vouloir Supprimer")==true){
-
-                $.ajax({type : 'post',  url : url, data : {'id':value}, success:function () {
-                    $('#domaines'+value).remove();
-
-                }
-                });
-            }
-
-        });
 
 
 
