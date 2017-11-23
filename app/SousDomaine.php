@@ -9,6 +9,10 @@ class SousDomaine extends Model
 
     protected $table = 'sousdomaines';
     public $timestamps = true;
+    protected $fillable = ['NomSousDomaines','domaines_id'];
+
+
+
 
     public function Domaines()
     {
@@ -19,5 +23,7 @@ class SousDomaine extends Model
     {
         return $this->hasMany('Documents');
     }
+
+
 
 }

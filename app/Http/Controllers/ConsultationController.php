@@ -1,9 +1,26 @@
 <?php 
 
 namespace App\Http\Controllers;
+use App\Consultation;
+use App\Documents;
+use App\SousDomaine;
+use App\Domaine;
+use App\Categorie;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 
 class ConsultationController extends Controller 
 {
+
+
+    protected $consultations;
+
+    public function __construct(Consultation $consultation)
+    {
+        $this->consultations= $consultation;
+    }
 
   /**
    * Display a listing of the resource.
@@ -12,7 +29,17 @@ class ConsultationController extends Controller
    */
   public function index()
   {
-    
+      $consultations = DB::table('documents')
+          ->join('categories', 'categories.id', '=', 'documents.categories_id')
+          ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
+          ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
+          ->join('consultations', 'documents.id', '=', 'consultations.documents_id')
+
+          ->get();
+
+
+      return view('consultations.list', compact('consultations'));
+
   }
 
   /**
@@ -22,7 +49,12 @@ class ConsultationController extends Controller
    */
   public function create()
   {
-    
+      $domaines = Domaine::all();
+      $categories = Categorie::all();
+      $sousdomaines = SousDomaine::all();
+      $documents = Documents::all();
+
+      return view('consultations.add',compact(['domaines','categories','sousdomaines','documents']));
   }
 
   /**
@@ -30,9 +62,20 @@ class ConsultationController extends Controller
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
-    
+
+
+      $consultant = new Consultation([
+          'DateConsultations' => $request['DateConsultations'],
+          'documents_id' => $request['document']
+
+      ]);
+      $consultant->save();
+
+
+
+     return Redirect('Consultations')->with("La consultation en Date de : a été ajoutée.");
   }
 
   /**

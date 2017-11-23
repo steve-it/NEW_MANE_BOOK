@@ -9,6 +9,7 @@ class Categorie extends Model
 
     protected $table = 'categories';
     public $timestamps = true;
+    protected $fillable = ['libelle'];
 
     public function Documents()
     {
