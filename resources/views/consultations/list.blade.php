@@ -25,7 +25,7 @@
                     <div align="right">
 
                         <div >
-                            {!! link_to_route('addConsultations', 'Ajouter une Consultations', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
+                            {!! link_to_route('addConsultations', 'Ajouter Une Consultation', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
                         </div>
                         {{--<button type="button" name="add" id="add" class="btn btn-warning" title="Ajouter"><i class="material-icons">add_box</i></button>--}}
                     </div>

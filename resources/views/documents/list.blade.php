@@ -16,7 +16,7 @@
                 <div class="table-responsive">
 
                     <div >
-                        {!! link_to_route('creerDocuments', 'Ajouter un nouveau documents', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
+                        {!! link_to_route('creerDocuments', 'Ajouter Un Nouveau Document', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
                     </div>
 
                 </div>
@@ -79,7 +79,7 @@
 
                                     <tbody>
 
-                                    @foreach($documents as $document)
+                                    @foreach($documentsauteur as $document)
                                         <tr id="dossiers{{$document->id}}">
                                             <td>{{ $document->NomDomaines }}</td>
                                             <td>{{ $document->NomSousDomaines }}</td>
@@ -100,7 +100,11 @@
                                             <td>{{ $document->IllustrationDocuments }}</td>
                                             <td>{{ $document->PeriodiciteDocuments }}</td>
                                             <td>{{ $document->ReliureDocuments }}</td>
-                                            <td>{{ $document->NomAuteur }}</td>
+                                            {{--<td>{{ $document->NomAuteur }}</td>--}}
+                                            <td>@foreach($document->Auteurs as $auteurs)
+                                                    {{ $auteurs->NomAuteur }} <br>
+                                                @endforeach
+                                            </td>
                                             {{--<td>@foreach($document->Auteurs as $auteur)--}}
                                                     {{--{{ $auteur->NomAuteur }} <br>--}}
                                                 {{--@endforeach--}}

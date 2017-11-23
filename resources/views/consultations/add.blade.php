@@ -139,7 +139,7 @@
                                                         {{--<option data-prix="5000 FCFA" value='Parakou'>Parakou</option>--}}
                                                         {{--<option data-prix="8300 FCFA" value='Natitingou'>Natitingou</option>--}}
                                                         {{--<option data-prix="3000 FCFA" value='Savalou'>Savalou</option>--}}
-                                                        {{--<option data-prix="3500 FCFA" value='Savè'>Savè</option>--}}
+                                                       {{--<option data-prix="3500 FCFA" value='Savè'>Savè</option>--}}
                                                         {{--<option data-prix="4600 FCFA" value='Tchaorou'>Tchaorou</option>--}}
 
                                                     {{--</select>--}}

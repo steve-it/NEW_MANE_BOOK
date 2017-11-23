@@ -264,9 +264,14 @@
 
             var value= $(this).data('id');
             var url = '{{ URL::to('deleteDomaines') }}';
+            //alert(value);
             if(confirm("etez vous sure de vouloir Supprimer")==true){
 
-                $.ajax({type : 'post',  url : url, data : {'id':value}, success:function () {
+                $.ajax({
+                    type : 'post',
+                    url : url,
+                    data : {'id':value},
+                    success:function () {
                     $('#domaines'+value).remove();
 
                 }

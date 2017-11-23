@@ -1,16 +1,25 @@
 <?php 
 
 namespace App\Http\Controllers;
+
+use App\Documents;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Categorie;
 use App\Domaine;
 use App\Emprunt;
 use App\SousDomaine;
-use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\DB;
+
 class EmpruntController extends Controller 
 {
 
+    protected $Emprunts;
+
+    public function __construct(Emprunt $emprunt)
+    {
+        $this->Emprunts = $emprunt;
+    }
   /**
    * Display a listing of the resource.
    *
@@ -22,7 +31,8 @@ class EmpruntController extends Controller
           ->join('categories', 'categories.id', '=', 'documents.categories_id')
           ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
           ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-          ->join('emprunts', 'documents.id', '=', 'emprunts.documents_id')
+          ->join('documents_emprunts', 'documents.id', '=', 'documents_emprunts.documents_id')
+          ->join('emprunts', 'emprunts.id', '=', 'documents_emprunts.emprunts_id')
 
           ->get();
 
@@ -37,7 +47,7 @@ class EmpruntController extends Controller
    */
   public function create()
   {
-    
+    return view('emprunts.add',['documents'=>Documents::pluck('TitreDocuments','id')]);
   }
 
   /**
@@ -45,9 +55,26 @@ class EmpruntController extends Controller
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
-    
+
+      $emprunt = new Emprunt([
+          'NomEmprunteur'=>$request['NomEmprunteur'],
+          'CniEmprunteur'=>$request['CniEmprunteur'],
+          'DateEmprunt'=>$request['DateEmprunt'],
+          'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
+          'ObservationEmprunt'=>$request['ObservationEmprunt'],
+          'ObservationRetour'=>$request['ObservationRetour'],
+          'statusEmprunteur'=>$request['destination'],
+          'cautionEmprunteur'=>$request['prix']
+
+      ]);
+      $emprunt->save();
+
+
+      $emprunt->Documents()->attach($request->membre_id);
+
+      return redirect('Emprunts')->withOk("Monsieur :" .$emprunt->NomEmprunteur. " Vient d effectuer un Emprunt.");
   }
 
   /**

@@ -269,22 +269,39 @@
                                 </div>
                             </div>
 
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select class="form-control show-tick" name="idauteur" id="auteur_id">
-                                                <option value="">---------SVP Selectionner l'auteur de l'ouvre --</option>
-                                                @foreach($auteurs as $auteur)
-                                                    <option value="{{ $auteur->id }}">{{ $auteur->NomAuteur }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
 
+
+                                <div id="member-block" class="header">
+                                    <h2> Choisir les Documents A Emprunter</h2>
+                                    <br>
+
+                                    <button id="insert-member" class="btn btn-success">Ajouter</button>
+
+                                    <div id="base-member" class="row">
+                                        <div class="form-group">
+                                            {{ Form::select('idauteur[]', $auteurs, null, ['id'=>'membre_id1', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}
+                                        </div>
                                     </div>
                                 </div>
 
-                              </div>
+
+                            {{--<div class="row clearfix">--}}
+                                {{--<div class="col-md-6">--}}
+                                    {{--<div class="form-group">--}}
+                                        {{--<div class="form-line">--}}
+                                            {{--<select class="form-control show-tick" name="idauteur" id="auteur_id">--}}
+                                                {{--<option value="">---------SVP Selectionner l'auteur de l'ouvre --</option>--}}
+                                                {{--@foreach($auteurs as $auteur)--}}
+                                                    {{--<option value="{{ $auteur->id }}">{{ $auteur->NomAuteur }}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                        {{--</div>--}}
+
+                                    {{--</div>--}}
+                                {{--</div>--}}
+
+                              {{--</div>--}}
+
 
 
                             <button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
@@ -312,6 +329,32 @@
                 }
             });
         });
+
+        //script plusieurs Auteurs
+
+        var counter=1;
+        $("#insert-member").click(function(e){
+            e.preventDefault()
+
+            var clone = $("#base-member").clone();
+
+            counter += 1;
+            clone.appendTo('#member-block');
+            clone.attr('id', 'member_id' + counter);
+            clone.find('.form-group').append(clone.find('select'))
+            clone.find('.bootstrap-select').remove();
+            clone.find('select')
+                .addClass('form-control')
+                .selectpicker();
+
+            var closeBtn = $('<button type="button" class="close delete-member-block" data-dismiss="modal">&times;</button>');
+            closeBtn.click(function () {
+                clone.remove();
+            });
+            clone.find('select')
+                .after(closeBtn);
+        });
+        //script plusieurs Auteurs
 
 
         $('#insert_form').on('submit', function (e) {

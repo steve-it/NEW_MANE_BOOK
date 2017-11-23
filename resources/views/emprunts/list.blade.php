@@ -25,7 +25,7 @@
                     <div align="right">
 
                         <div >
-                            {!! link_to_route('addEmprunts', 'Ajouter une Emprunts', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
+                            {!! link_to_route('addEmprunts', 'Ajouter Un Emprunt', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
                         </div>
                         {{--<button type="button" name="add" id="add" class="btn btn-warning" title="Ajouter"><i class="material-icons">add_box</i></button>--}}
                     </div>
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 'excel',
+                </div>
             </div>
         </div>
     </section>
@@ -122,102 +122,6 @@
 @stop
 
 
-{{--@section('modal_content')--}}
-
-
-
-{{--<div id="add_data_Modal" class="modal fade">--}}
-{{--<div class="modal-dialog">--}}
-{{--<div class="modal-content">--}}
-{{--<div class="modal-header">--}}
-{{--<h4 class="modal-title">Informations de Consultation </h4>--}}
-{{--</div>--}}
-{{--<div class="modal-body">--}}
-{{--<form id="insert_form" method="POST" action="NouveauDomaines" >--}}
-{{--{{ csrf_field() }}--}}
-
-{{--<!-- champ cache -->--}}
-{{--<input type="hidden"  id="consultationid" name="id">--}}
-
-{{--<!-- champ NomDomaines -->--}}
-{{--<div class="row clearfix">--}}
-{{--<div class="col-md-6">--}}
-{{--<div class="form-group">--}}
-{{--<div class="form-line">--}}
-{{--<select class="form-control show-tick" name="domaine_id" id="domaine_id" >--}}
-{{--<option value="value='-1' selected">---SVP Selectionner le Domaine deConnaissance ----</option>--}}
-{{--@foreach($domaines as $domaine)--}}
-{{--<option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>--}}
-{{--@endforeach--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--</div>--}}
-{{--<div class="col-md-6">--}}
-{{--<div class="form-group">--}}
-{{--<div class="form-line">--}}
-{{--<select class="form-control show-tick" name="sousdomaines_id" id="sous_domaine_id">--}}
-{{--<option value="">---------SVP Selectionner le Sous domaine --</option>--}}
-{{--@foreach($sousdomaines as $sousdomaine)--}}
-{{--<option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>--}}
-{{--@endforeach--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="form-group form-float">--}}
-{{--<div class="form-group">--}}
-{{--<div class="form-line">--}}
-{{--<select class="form-control show-tick" name="categories_id" id="categorie">--}}
-{{--<option value="">---------SVP Selectionner la Categorie --</option>--}}
-
-{{--@foreach($categories as $categorie)--}}
-{{--<option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>--}}
-{{--@endforeach--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="form-group form-float">--}}
-{{--<div class="form-group">--}}
-{{--<div class="form-line">--}}
-{{--<select class="form-control show-tick" name="categories_id" id="categorie">--}}
-{{--<option value="">---------SVP Selectionner l'Ouvrage --</option>--}}
-{{--@foreach($documents as $document)--}}
-{{--<option value="{{ $document->id }}">{{ $document->libelle }}</option>--}}
-{{--@endforeach--}}
-{{--</select>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-
-
-{{--<div class="form-group form-float">--}}
-{{--<div class="form-line{{ $errors->has('NomDomaines') ? ' has-error' : '' }}">--}}
-{{--<input type="date" id="DateConsultations" name="DateConsultations" class="form-control" placeholder="DateConsultations">--}}
-{{--@if ($errors->has('DateConsultations'))--}}
-{{--<span class="help-block">--}}
-{{--<strong>{{ $errors->first('DateConsultations') }}</strong>--}}
-{{--</span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-
-
-
-{{--<input type="submit" id="save" value="Save" class="btn btn-primary">--}}
-{{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
-{{--</form>--}}
-{{--</div>--}}
-
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>
-@stop--}}
 
 
 
@@ -230,16 +134,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        /*
-        $(document).ready(function () {
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-        });*/
 
 
 

@@ -28,16 +28,32 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-        $documents = DB::table('documents')
+
+       /* $dossierCorrectionnels = $this->dossierCorrectionnel
+            ->with('membres_tribunal')
+            ->orderBy('dossiers_correctionnels.created_at', 'desc')
+            ->paginate(4);
+        $links = $dossierCorrectionnels->setPath('')->render();
+        return view('dossiers.list', compact('dossierCorrectionnels', 'links'));*/
+
+
+        $documentsauteur = $this->documents
+            ->with('Auteurs')
+            ->join('categories', 'categories.id', '=', 'documents.categories_id')
+            ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
+            ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
+             ->get();
+
+      /*  $documents = DB::table('documents')
             ->join('categories', 'categories.id', '=', 'documents.categories_id')
             ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
             ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
             ->join('auteurs_documents', 'documents.id', '=', 'auteurs_documents.documents_id')
             ->join('auteurs', 'auteurs.id', '=', 'auteurs_documents.auteurs_id')
 
-            ->get();
+            ->get();*/
 
-        return view('documents.list', compact('documents'));
+        return view('documents.list', compact('documentsauteur'));
 
     }
 
@@ -53,7 +69,8 @@ class DocumentsController extends Controller
         $categories = Categorie::all();
         $auteurs = Auteur::all();
         $sousdomaines = SousDomaine::all();
-        return view('documents.simpleadd', compact(['domaines', 'categories','auteurs','sousdomaines']));
+        $auteurs = Auteur::pluck('NomAuteur','id');
+        return view('documents.simpleadd', compact(['auteurs','domaines', 'categories','auteurs','sousdomaines']));
 
     }
 

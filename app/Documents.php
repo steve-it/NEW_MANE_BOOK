@@ -34,7 +34,7 @@ class Documents extends Model
 
     public function Emprunts()
     {
-        return $this->hasMany('App\Emprunt');
+        return $this->belongsToMany('App\Emprunt');
     }
 
     public function SousDomaines()

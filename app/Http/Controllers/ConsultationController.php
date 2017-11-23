@@ -75,7 +75,7 @@ class ConsultationController extends Controller
 
 
 
-     return Redirect::route('Consultations')->with("La consultation en Date de :"," a été ajoutée.");
+     return Redirect('Consultations')->with("La consultation en Date de : a été ajoutée.");
   }
 
   /**

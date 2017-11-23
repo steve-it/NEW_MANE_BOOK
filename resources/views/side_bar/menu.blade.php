@@ -65,7 +65,7 @@
 
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{url('#')}}" class="mce-menu-item">
                         <i class="material-icons">restore</i><span>RETOUR-EMPRUNTS</span>
                     </a>
 
