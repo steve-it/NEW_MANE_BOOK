@@ -158,6 +158,36 @@ class DocumentsController extends Controller
     }
 
 
+    public function cities($id)
+    {
+        // Retour des villes pour le pays sélectionné
+        return SousDomaine::whereDomainesId($id)->get();
+
+
+    }
+
+    //fonction autocomplete
+
+    public function dataAjax(Request $request)
+    {
+
+        $query = $request->get('term','');
+
+        $products=Auteur::where('NomAuteur','LIKE','%'.$query.'%')->get();
+
+        $data=array();
+        foreach ($products as $product) {
+            $data[]=array('value'=>$product->NomAuteur,'id'=>$product->id);
+        }
+        if(count($data))
+            return $data;
+        else
+            return ['value'=>'No Result Found','id'=>''];
+    }
+
+
+
+
 
 }
 

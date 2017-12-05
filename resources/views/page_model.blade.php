@@ -145,7 +145,6 @@
 
         <!-- Demo Js
         <script src={{asset("bower_components/adminbsb-materialdesign/js/demo.js")}}></script>-->
-
         @yield('js')
 
     </body>
