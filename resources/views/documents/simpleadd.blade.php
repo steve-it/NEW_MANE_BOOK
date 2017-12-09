@@ -7,9 +7,13 @@
     <!-- Bootstrap Material Datetime Picker Css -->
     <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css")}} rel="stylesheet">
     <!-- Bootstrap Select Css -->
-    <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css")}} rel="stylesheet">
+    {{--<link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css")}} rel="stylesheet">--}}
     <!-- Wait Me Css -->
     <link href={{asset("bower_components/adminbsb-materialdesign/plugins/waitme/waitMe.css")}} rel="stylesheet">
+    {{--<link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/add.css")}} rel="stylesheet">--}}
+
+    <link href={{asset("css/select2.min.css")}} rel="stylesheet">
+    <link href={{asset("css/jquery.ui.autocomplete.css")}} rel="stylesheet">
 
     <style>
         .delete-member-block {
@@ -17,6 +21,8 @@
             right: 5px;
             z-index: 2;
         }
+
+
     </style>
 @stop
 
@@ -55,7 +61,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <select class="form-control show-tick" name="domaine_id" id="domaine_id" >
+                                            <select class="form-control show-tick" name="domaine" id="domaine" >
                                                 <option value="value='-1' selected">---SVP Selectionner le Domaine deConnaissance ----</option>
                                                 @foreach($domaines as $domaine)
                                                     <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
@@ -67,17 +73,18 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <select class="form-control show-tick" name="sousdomaines_id" id="sous_domaine_id">
-                                                <option value="">---------SVP Selectionner le Sous domaine --</option>
-                                                @foreach($sousdomaines as $sousdomaine)
-                                                    <option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        {{--<div class="form-line">--}}
+                                        <select class="form-control show-tick" name="sousdomaine" id="sousdomaine">
+                                            {{--<option value="">---------SVP Selectionner le Sous domaine --</option>--}}
+                                            {{--@foreach($sousdomaines as $sousdomaine)--}}
+                                            {{--<option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>--}}
+                                            {{--@endforeach--}}
+                                        </select>
+                                        {{--</div>--}}
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="row clearfix">
                                 <div class="col-md-6">
@@ -269,10 +276,23 @@
                                 </div>
                             </div>
 
+                                <div class="row clearfix">
+                                <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <input type="text" name="item" class="form-control" id="statnewname" placeholder="Enter item name">
+                                        </div>
+
+                                </div>
+                            </div>
+
+
+
+
 
 
                                 <div id="member-block" class="header">
-                                    <h2> Choisir les Documents A Emprunter</h2>
+                                    <h2> Choisir les Auteur(s) de cet ouvrage </h2>
                                     <br>
 
                                     <button id="insert-member" class="btn btn-success">Ajouter</button>
@@ -317,7 +337,6 @@
 @stop
 
 @section('js')
-
     <script type="text/javascript">
 
 
@@ -328,6 +347,27 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+
+            /*autocomplete */
+            {{--src = "{{ route('searchajax') }}";--}}
+            /*$("#statnewname").autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                        url: src,
+                        dataType: "json",
+                        data: {
+                            term : request.term
+                        },
+                        success: function(data) {
+                            response(data);
+
+                        }
+                    });
+                },
+                minLength: 3,
+
+            });*/
         });
 
         //script plusieurs Auteurs
@@ -379,15 +419,59 @@
 
        });
 
+/* Script de liste deroulante*/
+        $(function() {
+
+            // Récupération des id pour pays et ville
+            var domaineid = $('#domaine').val();
+            var sousdomaineid = $('#sousdomaine').val();
+            //alert(sousdomaine);
+
+            // Sélection du pays
+            $('#domaine').val(domaineid).prop('selected', true);
+            // Synchronisation des villes
+            cityUpdate(domaineid);
+
+            // Changement de pays
+            $('#domaine').on('change', function(e) {
+                var domaineid = e.target.value;
+                sousdomaineid = false;
+                cityUpdate(domaineid);
+            });
+
+            // Requête Ajax pour les villes
+            function cityUpdate(DomaineId) {
+                $.get('{{ url('cities') }}/'+ DomaineId + "'", function(data) {
+                    $('#sousdomaine').empty();
+                    $.each(data, function(index, cities) {
+                        alert(cities.NomSousDomaines);
+                        $('#sousdomaine').append($('<option>', {
+                            value: cities.id,
+                            text : cities.NomSousDomaines
+                        }));
+                    });
+                    if(sousdomaineid) {
+                        $('#sousdomaine').val(sousdomaineid).prop('selected', true);
+                    }
+                });
+            }
+
+        });
+
+
+
 
 
 
 
     </script>
+  <script>
+      {{--{!! Html::script('bower_components/adminbsb-materialdesign/plugins/bootstrap-select/js/bootstrap-select.js') !!}--}}
+      {{--{!! Html::script('js/jquery.js') !!}--}}
+      {{--{!! Html::script('js/jquery-ui.min.js') !!}--}}
 
 
-
-
+</script>
 
 
 @stop

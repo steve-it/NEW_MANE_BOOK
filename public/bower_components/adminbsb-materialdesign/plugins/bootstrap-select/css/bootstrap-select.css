@@ -185,6 +185,7 @@ select.selectpicker {
 }
 .bootstrap-select.btn-group.fit-width .dropdown-toggle .filter-option {
   position: static;
+
 }
 .bootstrap-select.btn-group.fit-width .dropdown-toggle .caret {
   position: static;

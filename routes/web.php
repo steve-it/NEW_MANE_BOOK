@@ -15,6 +15,7 @@ use \Illuminate\Support\Facades\Input;
 Route::get('/','ParametrageController@acceuil');
 
 
+
 //// Route in auteurs /////////////////////////////////////////////
 
 
@@ -130,6 +131,11 @@ Route::get('NewDocuments', [
 ]);
 Route::post('NewDocuments','DocumentsController@store');
 
+Route::get('cities/{id}', 'DocumentsController@cities');
+
+//Route::get('searchajax',array('as'=>'searchajax','uses'=>'DocumentsController@dataAjax'));
+
+//Route::get('select2-autocomplete-ajax', 'DocumentsController@dataAjax');
 
 
 
