@@ -61,8 +61,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <select class="form-control show-tick" name="domaine" id="domaine" >
-                                                <option value="value='-1' selected">---SVP Selectionner le Domaine deConnaissance ----</option>
+                                            <p>Domaine de connaissance</p>
+                                            <select class="ms" style="width:100%" name="domaine" id="domaine" >
+                                                <option value="value='-1' selected">---Selectionnez un Domaine de Connaissance ----</option>
                                                 @foreach($domaines as $domaine)
                                                     <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
                                                 @endforeach
@@ -74,8 +75,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         {{--<div class="form-line">--}}
-                                        <select class="form-control show-tick" name="sousdomaine" id="sousdomaine">
-                                            {{--<option value="">---------SVP Selectionner le Sous domaine --</option>--}}
+                                        <p>Sous domaine</p>
+                                        <select class="ms" style="width:100%" name="sousdomaine" id="sousdomaine">
+                                            {{--<option value="">---------Selectionnez un Sous domaine --</option>--}}
                                             {{--@foreach($sousdomaines as $sousdomaine)--}}
                                             {{--<option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>--}}
                                             {{--@endforeach--}}
@@ -90,8 +92,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <select class="form-control show-tick" name="categories_id" id="categorie">
-                                                <option value="">---------SVP Selectionner la Categorie --</option>
+                                            <p>Categorie</p>
+                                            <select class="ms" style="width:100%" name="categories_id" id="categorie">
+                                                <option value="">---------Selectionnez une Categorie --</option>
                                                 @foreach($categories as $categorie)
                                                     <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
                                                 @endforeach
@@ -104,9 +107,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="TitreDocuments"
-                                                   id="TitreDocuments" required>
-                                            <label class="form-label">Titre De l'Ouvrage</label>
+                                          <p></p>
+                                          <input type="text" class="form-control" name="TitreDocuments"
+                                                   id="TitreDocuments" required placeholder="Titre De l'Ouvrage">
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +279,7 @@
                                 </div>
                             </div>
 
-                                <div class="row clearfix">
+                                <!-- <div class="row clearfix">
                                 <div class="col-md-6">
 
                                         <div class="form-group">
@@ -284,7 +287,7 @@
                                         </div>
 
                                 </div>
-                            </div>
+                            </div> -->
 
 
 
@@ -296,10 +299,11 @@
                                     <br>
 
                                     <button id="insert-member" class="btn btn-success">Ajouter</button>
-
+                                  </br>
+                                  </br>
                                     <div id="base-member" class="row">
                                         <div class="form-group">
-                                            {{ Form::select('idauteur[]', $auteurs, null, ['id'=>'membre_id1', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}
+                                            {{ Form::select('idauteur[]', $auteurs, null, ['id'=>'membre_id1', 'class'=>'ms', 'placeholder' =>"-- Choisir le nom de l'auteur--", 'style'=>'width:60%']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -309,7 +313,7 @@
                                 {{--<div class="col-md-6">--}}
                                     {{--<div class="form-group">--}}
                                         {{--<div class="form-line">--}}
-                                            {{--<select class="form-control show-tick" name="idauteur" id="auteur_id">--}}
+                                            {{--<select class="ms" name="idauteur" id="auteur_id">--}}
                                                 {{--<option value="">---------SVP Selectionner l'auteur de l'ouvre --</option>--}}
                                                 {{--@foreach($auteurs as $auteur)--}}
                                                     {{--<option value="{{ $auteur->id }}">{{ $auteur->NomAuteur }}</option>--}}
