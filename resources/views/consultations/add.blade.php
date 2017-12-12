@@ -58,7 +58,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <select class="form-control show-tick" name="domaine_id" id="domaine_id" >
+                                                    <select class="ms" style="width:100%" name="domaine" id="domaine" >
                                                         <option value="value='-1' selected">---SVP Selectionner le Domaine deConnaissance ----</option>
                                                         @foreach($domaines as $domaine)
                                                             <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
@@ -71,11 +71,11 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <select class="form-control show-tick" name="sousdomaines_id" id="sous_domaine_id">
+                                                    <select class="ms"  style="width:100%" name="sousdomaine" id="sousdomaine">
                                                         <option value="">---------SVP Selectionner le Sous domaine --</option>
-                                                        @foreach($sousdomaines as $sousdomaine)
-                                                            <option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>
-                                                        @endforeach
+                                                        {{--@foreach($sousdomaines as $sousdomaine)--}}
+                                                            {{--<option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>--}}
+                                                        {{--@endforeach--}}
                                                     </select>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@
                                         <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control show-tick" name="categories_id" id="categorie">
+                                                <select class="ms"  style="width:100%" name="categories_id" id="categorie">
                                                     <option value="">---------SVP Selectionner la Categorie --</option>
 
                                                     @foreach($categories as $categorie)
@@ -99,7 +99,7 @@
                                         <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control show-tick" name="document" id="documentid">
+                                                <select class="ms"  style="width:100%" name="document" id="documentid">
                                                     <option value="">---------SVP Selectionner l'Ouvrage --</option>
                                                     @foreach($documents as $document)
                                                         <option value="{{ $document->id }}">{{ $document->TitreDocuments }}</option>
@@ -113,7 +113,7 @@
                                     <div class="row clearfix">
                                     <div class="col-md-6">
                                     <div class="form-group>
-                                        <div class="form-line{{ $errors->has('NomDomaines') ? ' has-error' : '' }}">
+                                        <div class="form-line{{ $errors->has('DateConsultations') ? ' has-error' : '' }}">
                                             <input type="date" id="DateConsultations" name="DateConsultations" class="form-control" placeholder="DateConsultations">
                                             @if ($errors->has('DateConsultations'))
                                                 <span class="help-block">
@@ -122,49 +122,6 @@
                                             @endif
                                         </div>
                                     </div>
-
-
-
-
-                                    {{--<div class="row clearfix">--}}
-                                        {{--<div class="col-md-6">--}}
-                                            {{--<div class="form-group">--}}
-                                                {{--<div class="form-line">--}}
-                                                    {{--<select class="form-control show-tick" name="destination" id="status">--}}
-                                                        {{--<option data-prix="Prix voyage" selected="selected" value='Choisissez'>Choisissez</option>--}}
-                                                        {{--<option data-prix="9000 FCFA" value='Bassila'>Bassila</option>--}}
-                                                        {{--<option data-prix="2500 FCFA" value='Bohicon'>Bohicon</option>--}}
-                                                        {{--<option data-prix="4500 FCFA" value='Dassa'>Dassa</option>--}}
-                                                        {{--<option data-prix="7500 FCFA" value='Djougou'>Djougou</option>--}}
-                                                        {{--<option data-prix="5000 FCFA" value='Parakou'>Parakou</option>--}}
-                                                        {{--<option data-prix="8300 FCFA" value='Natitingou'>Natitingou</option>--}}
-                                                        {{--<option data-prix="3000 FCFA" value='Savalou'>Savalou</option>--}}
-                                                       {{--<option data-prix="3500 FCFA" value='Savè'>Savè</option>--}}
-                                                        {{--<option data-prix="4600 FCFA" value='Tchaorou'>Tchaorou</option>--}}
-
-                                                    {{--</select>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="col-md-6">--}}
-                                            {{--<div class="form-group">--}}
-                                                    {{--         <input value="" type="text" name="prix" id="cardNumber" value="" autocomplete="off" placeholder="prix voyage" readonly onFocus="this.blur()" required />--}}
-
-                                                {{--<div class="form-line">--}}
-                                                    {{--<input type="text" class="form-control" name="prix"--}}
-                                                           {{--id="cardNumber" required>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-
-
-
-
-
-
-
-
                                     <button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
                                 {{--{{ Form::close() }}--}}
                             </form>
@@ -197,7 +154,7 @@
         });
 
 
-        $('#insert_form').on('submit', function (e) {
+        /*$('#insert_form').on('submit', function (e) {
             e.preventDefault();
 
             var data= $(this).serialize();
@@ -217,7 +174,48 @@
                 }
             });
 
+        });*/
+
+        /* Script de listy dynamique domaine et Sousdomaine */
+        $(function() {
+
+            // Récupération des id pour pays et ville
+            var domaineid = $('#domaine').val();
+            var sousdomaineid = $('#sousdomaine').val();
+            //alert(sousdomaine);
+
+            // Sélection du pays
+            $('#domaine').val(domaineid).prop('selected', true);
+            // Synchronisation des villes
+            cityUpdate(domaineid);
+
+            // Changement de pays
+            $('#domaine').on('change', function(e) {
+                var domaineid = e.target.value;
+                sousdomaineid = false;
+                cityUpdate(domaineid);
+            });
+
+            // Requête Ajax pour les villes
+            function cityUpdate(DomaineId) {
+                $.get('{{ url('cities') }}/'+ DomaineId + "'", function(data) {
+                    $('#sousdomaine').empty();
+                    $.each(data, function(index, cities) {
+                        alert(cities.NomSousDomaines);
+                        $('#sousdomaine').append($('<option>', {
+                            value: cities.id,
+                            text : cities.NomSousDomaines
+                        }));
+                    });
+                    if(sousdomaineid) {
+                        $('#sousdomaine').val(sousdomaineid).prop('selected', true);
+                    }
+                });
+            }
+
         });
+        /* Script de listy dynamique domaine et Sousdomaine */
+
 
 
 

@@ -16,18 +16,24 @@
 
 @section('main_content')
 
-    <section class="content">
+    <section class="content" style="width: 120%">
+        <div class="col-sm-offset-4 col-sm-4" >
+            <div class=" alert" ><span style="position: relative; left: 100px;  color: green; height: 50px; border: 1px solid inherit;">{!! session('ok') !!}</span></div>
+        </div>
         <div class="container-fluid">
+            {{--<div style="position: relative;  top: -10px; left:-78%; text-align: center"><button class="btn btn-success bars">Afficher/Cacher le Menu</button><br></div>--}}
+
             <div class="block-header">
 
                 <br />
                 <div class="table-responsive">
                     <div align="right">
 
-                        <div >
-                            {!! link_to_route('addConsultations', 'Ajouter Une Consultation', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}
-                        </div>
+                        {{--<div >--}}
+                            {{--{!! link_to_route('addConsultations', 'Ajouter Une Consultation', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}--}}
+                        {{--</div>--}}
                         {{--<button type="button" name="add" id="add" class="btn btn-warning" title="Ajouter"><i class="material-icons">add_box</i></button>--}}
+
                     </div>
                 </div>
             </div>
@@ -62,6 +68,7 @@
                                         <th>SousDomaines</th>
                                         <th>Categories</th>
                                         <th>Titre Ouvrages</th>
+                                        <th>Cote de l'ouvre</th>
                                         <th>Date Consultées</th>
                                         <th class="noExport">Action</th>
                                     </tr>
@@ -76,6 +83,7 @@
                                             <td>{{ $consultation->NomSousDomaines }}</td>
                                             <td>{{ $consultation->libelle }}</td>
                                             <td>{{ $consultation->TitreDocuments }}</td>
+                                            <td>{{$consultation->CoteDocuments}}</td>
                                             <td>{{ $consultation->DateConsultations }}</td>
 
                                             <td>
@@ -95,6 +103,7 @@
                                         <th>SousDomaines</th>
                                         <th>Categories</th>
                                         <th>Titre Ouvrages</th>
+                                        <th>Cote de l'ouvre</th>
                                         <th>Date Consultées</th>
                                         <th class="noExport">Action</th>
                                     </tr>

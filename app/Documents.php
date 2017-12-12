@@ -16,9 +16,9 @@ class Documents extends Model
 
     public $timestamps = true;
 
-    public function categories()
+    public function Categories()
     {
-        return $this->belongsTo('Categorie');
+        return $this->belongsTo('App\Categorie');
     }
 
     public function consultations()
@@ -28,18 +28,17 @@ class Documents extends Model
 
     public function Auteurs()
     {
-
         return $this->belongsToMany('App\Auteur','auteurs_documents','documents_id','auteurs_id');
     }
 
     public function Emprunts()
     {
-        return $this->belongsToMany('App\Emprunt');
+        return $this->hasMany('App\Emprunt');
     }
 
     public function SousDomaines()
     {
-        return $this->belongsTo('SousDomaine');
+        return $this->belongsTo('App\SousDomaine','sousdomaines_id')->with('domaines');
     }
 
 }

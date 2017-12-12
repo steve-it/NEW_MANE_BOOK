@@ -33,6 +33,7 @@ class CreateDocumentsTable extends Migration
             $table->string('IllustrationDocuments', 255);
             $table->string('PeriodiciteDocuments', 255);
             $table->string('ReliureDocuments', 255);
+            $table->integer('nbre_emprunt')->nullable();
 
             $table->integer('categories_id')->unsigned();
             $table->integer('sousdomaines_id')->unsigned();

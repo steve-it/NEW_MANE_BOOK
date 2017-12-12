@@ -57,6 +57,20 @@ class ConsultationController extends Controller
       return view('consultations.add',compact(['domaines','categories','sousdomaines','documents']));
   }
 
+    public function consulter(Request $r)
+    {
+
+
+        $ouvre =  DB::table('documents')
+            ->where('id', $r->id)
+            ->select('documents.id', 'documents.TitreDocuments','documents.CoteDocuments')
+            ->get();
+
+        return view('consultations.add1', ['ouvre'=> $ouvre[0] ]);
+//   dd($dossier);
+
+    }
+
   /**
    * Store a newly created resource in storage.
    *
@@ -65,6 +79,7 @@ class ConsultationController extends Controller
   public function store(Request $request)
   {
 
+     dump($request);
 
       $consultant = new Consultation([
           'DateConsultations' => $request['DateConsultations'],
@@ -73,9 +88,12 @@ class ConsultationController extends Controller
       ]);
       $consultant->save();
 
+      return redirect('Consultations')->withOk("Consultation du document enregistrer en date du:" .$request['DateConsultations'] . "  En Base");
 
 
-     return Redirect('Consultations')->with("La consultation en Date de : a été ajoutée.");
+
+
+      return Redirect('Consultations')->with("La consultation en Date de : a été ajoutée.");
   }
 
   /**

@@ -163,8 +163,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="EditionsDocuments"
-                                                   id="EditionsDocuments" required>
-                                            <label class="form-label">Edition Du Documents</label>
+                                                   id="EditionsDocuments" placeholder="Edition Du Documents" required>
                                         </div>
                                     </div>
                                 </div>
@@ -173,8 +172,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="IllustrationDocuments"
-                                                   id="IllustrationDocuments" required>
-                                            <label class="form-label">Illustration Du Document</label>
+                                                   id="IllustrationDocuments" placeholder="Illustration Du Document" required>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +237,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="LargeurEditionDocuments"
+                                            <input type="number" class="form-control" name="LargeurEditionDocuments"
                                                    id="LargeurEditionDocuments" placeholder="Largeur Edition Documents"
                                                    required>
                                         </div>
@@ -249,7 +247,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" name="LongueurEditionDocuments"
+                                            <input type="number" class="form-control" name="LongueurEditionDocuments"
                                                    id="LongueurEditionDocuments"
                                                    placeholder="Longueur Edition Documents" required>
                                         </div>
@@ -401,7 +399,7 @@
         //script plusieurs Auteurs
 
 
-        $('#insert_form').on('submit', function (e) {
+       /* $('#insert_form').on('submit', function (e) {
             e.preventDefault();
 
             var data= $(this).serialize();
@@ -421,7 +419,7 @@
                 }
             });
 
-       });
+       });*/
 
 /* Script de liste deroulante*/
         $(function() {

@@ -52,18 +52,21 @@
                                     <thead>
 
                                     <tr>
-                                        <th>Numero d'ordre</th>
+                                        <th class="noExport">Action</th>
+                                        <th>Cote</th>
+                                        <th>Titres</th>
+                                        <th>AUTEURS</th>
+                                        <th>NBRE DISPONIBLE</th>
                                         <th>Domaine</th>
                                         <th>Sous Domaine</th>
+                                        <th>NBRE EXEMPLAIRE INITIAL</th>
                                         <th>Categorie</th>
-                                        <th>Titres</th>
                                         <th>ISBN</th>
                                         <th>ISSN</th>
                                         <th>NUMERO ENTREE</th>
                                         <th>ANNEE PUBLICATION</th>
                                         <th>EDITION</th>
                                         <th>ANNEE EDITION</th>
-                                        <th>NBRE EXEMPLAIRE EDITION</th>
                                         <th>MAISON EDITION</th>
                                         <th>LARGEUR EDITION</th>
                                         <th>LONGUEUR EDITION</th>
@@ -71,8 +74,6 @@
                                         <th>ILLUSTRATION</th>
                                         <th>PERIODICITE</th>
                                         <th>RELUIRE</th>
-                                        <th>AUTEURS</th>
-                                        <th class="noExport">Action</th>
                                     </tr>
 
                                     </thead>
@@ -81,18 +82,29 @@
 
                                     @foreach($documentsauteur as $document)
                                         <tr id="dossiers{{$document->id}}">
-                                            <td>{{ $document->NomDomaines }}</td>
-                                            <td>{{ $document->NomSousDomaines }}</td>
-                                            <td>{{ $document->libelle }}</td>
+                                            <td>
+                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $document->id }}" title="voir"><i class="material-icons">list</i></button>
+                                                <button class="btn btn-xs btn-danger" data-id="{{ $document->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
+                                                <a class="btn btn-xs btn-warning " href ="{{ action('ConsultationController@consulter', ['id' => $document->id]) }}" title="Consulter Cet Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
+                                                <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@emprunt', ['id' => $document->id]) }}" title="Emprunter Cet Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
+                                            </td>
+                                            <td>{{ $document->CoteDocuments }}</td>
                                             <td>{{ $document->TitreDocuments }}</td>
+                                            <td>@foreach($document->Auteurs as $auteurs)
+                                                {{ $auteurs->NomAuteur }} <br>
+                                            @endforeach
+                                            </td>
+                                            <td>{{ $document->NbreExemplaireEdition - $document->nbre_emprunt }}</td>
+                                            <td>{{ $document->SousDomaines->Domaines->NomDomaines }}</td>
+                                            <td>{{ $document->SousDomaines->NomSousDomaines }}</td>
+                                            <td>{{ $document->NbreExemplaireEdition }}</td>
+                                            <td>{{ $document->Categories->libelle }}</td>
                                             <td>{{ $document->IsbnDocuments }}</td>
                                             <td>{{ $document->IssnDocuments }}</td>
-                                            <td>{{ $document->CoteDocuments }}</td>
                                             <td>{{ $document->NumeroEntresDocuments }}</td>
                                             <td>{{ $document->AnneePublicationDocuments }}</td>
                                             <td>{{ $document->EditionsDocuments }}</td>
                                             <td>{{ $document->AnneeEditionDocuments }}</td>
-                                            <td>{{ $document->NbreExemplaireEdition }}</td>
                                             <td>{{ $document->MaisonEditionDocuments }}</td>
                                             <td>{{ $document->LargeurEditionDocuments }}</td>
                                             <td>{{ $document->LongueurEditionDocuments }}</td>
@@ -101,21 +113,10 @@
                                             <td>{{ $document->PeriodiciteDocuments }}</td>
                                             <td>{{ $document->ReliureDocuments }}</td>
                                             {{--<td>{{ $document->NomAuteur }}</td>--}}
-                                            <td>@foreach($document->Auteurs as $auteurs)
-                                                    {{ $auteurs->NomAuteur }} <br>
-                                                @endforeach
-                                            </td>
                                             {{--<td>@foreach($document->Auteurs as $auteur)--}}
-                                                    {{--{{ $auteur->NomAuteur }} <br>--}}
-                                                {{--@endforeach--}}
+                                            {{--{{ $auteur->NomAuteur }} <br>--}}
+                                            {{--@endforeach--}}
                                             {{--</td>--}}
-                                            <td>
-                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $document->id }}" title="voir"><i class="material-icons">list</i></button>
-                                                <button class="btn btn-xs btn-danger" data-id="{{ $document->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
-                                                {{--<a class="btn btn-xs btn-warning " href ="{{ action('RenvoiController@edit', ['id' => $document->id]) }}" title="Renvoyez le dossier"> <i class="material-icons">call_missed_outgoing</i></a>--}}
-
-
-                                            </td>
                                         </tr>
                                     @endforeach
 
@@ -123,19 +124,23 @@
 
                                     <tfoot>
 
+
                                     <tr>
-                                        <th>Numero d'ordre</th>
+                                        <th class="noExport">Action</th>
+                                        <th>Cote</th>
+                                        <th>Titres</th>
+                                        <th>AUTEURS</th>
+                                        <th>NBRE DISPONIBLE</th>
                                         <th>Domaine</th>
                                         <th>Sous Domaine</th>
+                                        <th>NBRE EXEMPLAIRE INITIAL</th>
                                         <th>Categorie</th>
-                                        <th>Titres</th>
                                         <th>ISBN</th>
                                         <th>ISSN</th>
                                         <th>NUMERO ENTREE</th>
                                         <th>ANNEE PUBLICATION</th>
                                         <th>EDITION</th>
                                         <th>ANNEE EDITION</th>
-                                        <th>NBRE EXEMPLAIRE EDITION</th>
                                         <th>MAISON EDITION</th>
                                         <th>LARGEUR EDITION</th>
                                         <th>LONGUEUR EDITION</th>
@@ -143,8 +148,6 @@
                                         <th>ILLUSTRATION</th>
                                         <th>PERIODICITE</th>
                                         <th>RELUIRE</th>
-                                        <th>AUTEURS</th>
-                                        <th class="noExport">Action</th>
                                     </tr>
                                     </tfoot>
 
@@ -202,9 +205,9 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
-                    'csv',
-                    'excel',
+                    /*  'copy',
+                  'csv',
+                    'excel',*/
                     {
                         extend:'pdf',
                         exportOptions:{

@@ -16,12 +16,12 @@ class SousDomaine extends Model
 
     public function Domaines()
     {
-        return $this->belongsTo('Domaine');
+        return $this->belongsTo('App\Domaine');
     }
 
     public function Documents()
     {
-        return $this->hasMany('Documents');
+        return $this->hasMany('App\Documents');
     }
 
 

@@ -152,7 +152,7 @@ Route::get('NouvelleConsultations', [
 ]);
 
 Route::post('/NouvelleConsultations', 'ConsultationController@store');
-
+Route::get('consulter','ConsultationController@consulter');
 
 
 //// Fin Route in Consultations ///////////////////////////////////////////
@@ -161,7 +161,9 @@ Route::post('/NouvelleConsultations', 'ConsultationController@store');
 /// ///
 //// Route in Emprunts /////////////////////////////////////////////
 
-
+Route::get('emprunt','EmpruntController@emprunt');
+Route::get('retour','EmpruntController@retouremprunt');
+Route::post('RetourEmprunt','EmpruntController@storeretour');
 Route::get('/Emprunts', 'EmpruntController@index');
 Route::get('NouvelleEmprunts', [
     'as' => 'addEmprunts',

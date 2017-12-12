@@ -37,12 +37,14 @@ class DocumentsController extends Controller
         return view('dossiers.list', compact('dossierCorrectionnels', 'links'));*/
 
 
-        $documentsauteur = $this->documents
-            ->with('Auteurs')
-            ->join('categories', 'categories.id', '=', 'documents.categories_id')
-            ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
-            ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-             ->get();
+        $documentsauteur = Documents::with('Auteurs')
+            ->with('Categories')
+            //->join('categories', 'categories.id', '=', 'documents.categories_id')
+            ->with('SousDomaines')
+            //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
+            //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
+            ->get();
+        dump($documentsauteur);
 
       /*  $documents = DB::table('documents')
             ->join('categories', 'categories.id', '=', 'documents.categories_id')
@@ -100,7 +102,7 @@ class DocumentsController extends Controller
             'PeriodiciteDocuments' => $request['PeriodiciteDocuments'],
             'ReliureDocuments' => $request['ReliureDocuments'],
             'categories_id' => $request['categories_id'],
-            'sousdomaines_id' => $request['sousdomaines_id'],
+            'sousdomaines_id' => $request['sousdomaine'],
         ]);
 
         $ouvrage->save();

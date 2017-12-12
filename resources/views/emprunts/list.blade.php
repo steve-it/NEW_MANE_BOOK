@@ -58,15 +58,15 @@
                                     <thead>
 
                                     <tr>
+                                        <th class="noExport">Action</th>
+                                        <th>Titre Ouvrages</th>
+                                        <th>Nom de l'Emprunteur</th>
+                                        <th>Date d'Emprunt</th>
+                                        <th>Date Effectif de Retour</th>
                                         <th>Domaines</th>
                                         <th>SousDomaines</th>
                                         <th>Categories</th>
-                                        <th>Titre Ouvrages</th>
-                                        <th>Date d'Emprunt</th>
-                                        <th>Date Effectif de Retour</th>
-                                        <th>Nom de l'Emprunteur</th>
                                         <th>Status de l'Emprunteur</th>
-                                        <th class="noExport">Action</th>
                                     </tr>
 
                                     </thead>
@@ -75,20 +75,20 @@
 
                                     @foreach($emprunts as $emprunt)
                                         <tr id="emprunts{{$emprunt->id}}">
-                                            <td>{{ $emprunt->NomDomaines }}</td>
-                                            <td>{{ $emprunt->NomSousDomaines }}</td>
-                                            <td>{{ $emprunt->libelle }}</td>
-                                            <td>{{ $emprunt->TitreDocuments }}</td>
-                                            <td>{{ $emprunt->DateEmprunt }}</td>
-                                            <td>{{ $emprunt->DateEffRetourEmprunt }}</td>
-                                            <td>{{ $emprunt->NomEmprunteur }}</td>
-                                            <td>{{ $emprunt->statusEmprunteur }}</td>
-
                                             <td>
                                                 <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $emprunt->id }}"title="voir"><i class="material-icons">list</i></button>
                                                 <button class="btn btn-xs btn-danger" data-id="{{ $emprunt->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
-
+                                                <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@retouremprunt', ['id' => $emprunt->id]) }}" title="Retour Emprunter Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
                                             </td>
+                                            <td>{{ $emprunt->TitreDocuments }}</td>
+                                            <td>{{ $emprunt->NomEmprunteur }}</td>
+                                            <td>{{ $emprunt->DateEmprunt }}</td>
+                                            <td>{{ $emprunt->DateEffRetourEmprunt }}</td>
+                                            <td>{{ $emprunt->NomDomaines }}</td>
+                                            <td>{{ $emprunt->NomSousDomaines }}</td>
+                                            <td>{{ $emprunt->libelle }}</td>
+                                            <td>{{ $emprunt->statusEmprunteur }}</td>
+
                                         </tr>
                                     @endforeach
 
@@ -97,15 +97,15 @@
                                     <tfoot>
 
                                     <tr>
+                                        <th class="noExport">Action</th>
+                                        <th>Titre Ouvrages</th>
+                                        <th>Nom de l'Emprunteur</th>
+                                        <th>Date d'Emprunt</th>
+                                        <th>Date Effectif de Retour</th>
                                         <th>Domaines</th>
                                         <th>SousDomaines</th>
                                         <th>Categories</th>
-                                        <th>Titre Ouvrages</th>
-                                        <th>Date d'Emprunt</th>
-                                        <th>Date Effectif de Retour</th>
-                                        <th>Nom de l'Emprunteur</th>
                                         <th>Status de l'Emprunteur</th>
-                                        <th class="noExport">Action</th>
                                     </tr>
                                     </tfoot>
 
@@ -160,7 +160,7 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
+                    /*'copy',*/
 
 
                     {

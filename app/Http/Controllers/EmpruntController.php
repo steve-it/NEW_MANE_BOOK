@@ -31,9 +31,7 @@ class EmpruntController extends Controller
           ->join('categories', 'categories.id', '=', 'documents.categories_id')
           ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
           ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-          ->join('documents_emprunts', 'documents.id', '=', 'documents_emprunts.documents_id')
-          ->join('emprunts', 'emprunts.id', '=', 'documents_emprunts.emprunts_id')
-
+          ->leftjoin('emprunts','documents.id','=','emprunts.documents_id')
           ->get();
 
 
@@ -50,6 +48,35 @@ class EmpruntController extends Controller
     return view('emprunts.add',['documents'=>Documents::pluck('TitreDocuments','id')]);
   }
 
+
+    public function emprunt(Request $r)
+    {
+
+
+        $ouvre =  DB::table('documents')
+            ->where('documents.id', $r->id)
+            ->select('documents.id', 'documents.TitreDocuments','documents.CoteDocuments')
+            ->get();
+
+        return view('emprunts.add1', ['ouvre'=> $ouvre[0] ]);
+//   dd($dossier);
+
+    }
+
+    public function retouremprunt(Request $r)
+    {
+
+
+        $retour =  DB::table('documents')
+            ->join('emprunts','documents.id','=','emprunts.documents_id')
+            ->where('emprunts.id', $r->id)
+            ->select('emprunts.*', 'documents.TitreDocuments')
+            ->get();
+
+        return view('emprunts.addretour', ['retouremprunt'=> $retour[0] ]);
+//   dd($dossier);
+
+    }
   /**
    * Store a newly created resource in storage.
    *
@@ -57,24 +84,115 @@ class EmpruntController extends Controller
    */
   public function store(Request $request)
   {
-
-      $emprunt = new Emprunt([
-          'NomEmprunteur'=>$request['NomEmprunteur'],
-          'CniEmprunteur'=>$request['CniEmprunteur'],
-          'DateEmprunt'=>$request['DateEmprunt'],
-          'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
-          'ObservationEmprunt'=>$request['ObservationEmprunt'],
-          'ObservationRetour'=>$request['ObservationRetour'],
-          'statusEmprunteur'=>$request['destination'],
-          'cautionEmprunteur'=>$request['prix']
-
-      ]);
-      $emprunt->save();
+      //dump($request);
 
 
-      $emprunt->Documents()->attach($request->membre_id);
 
-      return redirect('Emprunts')->withOk("Monsieur :" .$emprunt->NomEmprunteur. " Vient d effectuer un Emprunt.");
+      //update du nbreemprunt de l'ouvrage
+      $nbre_emprunt_initial = DB::table('documents')
+          ->where('documents.id', $request['document'])
+          ->select('documents.*')
+          ->get();
+      //dump();
+
+      $nbre_emprunt_actuel = $nbre_emprunt_initial[0]->nbre_emprunt;
+
+      if($nbre_emprunt_actuel == $nbre_emprunt_initial[0]->NbreExemplaireEdition) {
+          $stock =$nbre_emprunt_initial[0]->NbreExemplaireEdition - $nbre_emprunt_actuel;
+          return view('emprunts.erreur',compact('stock'));
+
+      }else{
+          $nbre_emprunt = $nbre_emprunt_actuel + 1;
+
+          DB::table('documents')
+              ->where('id', $request['document'])
+              ->update(['nbre_emprunt' => $nbre_emprunt]);
+          //
+          //
+
+          $emprunt = new Emprunt([
+              'NomEmprunteur'=>$request['NomEmprunteur'],
+              'CniEmprunteur'=>$request['CniEmprunteur'],
+              'DateEmprunt'=>$request['DateEmprunt'],
+              'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
+              'ObservationEmprunt'=>$request['ObservationEmprunt'],
+              'ObservationRetour'=>$request['ObservationRetour'],
+              'statusEmprunteur'=>$request['destination'],
+              'cautionEmprunteur'=>$request['prix'],
+              'Date_Retour' => null,
+              'documents_id' => $request['document']
+
+          ]);
+          $emprunt->save();
+
+
+          // $emprunt->Documents()->attach($request->membre_id);
+
+          return redirect('Emprunts')->withOk("Monsieur :" .$emprunt['NomEmprunteur']. " Vient d effectuer un Emprunt.");
+
+      }
+
+
+  }
+
+  public function storeretour(Request $request)
+  {
+      dd($request);
+
+
+
+      //update du nbreemprunt de l'ouvrage
+      $nbre_emprunt_initial = DB::table('documents')
+          ->join('emprunts','documents.id','=','emprunts.documents_id')
+          ->where('emprunts.id', $request['retour'])
+          ->select('documents.*')
+          ->get();
+   dump($nbre_emprunt_initial);
+
+      //dump();'documents.nbre_emprunt' => $nbre_emprunt,
+
+      $nbre_emprunt_actuel = $nbre_emprunt_initial[0]->nbre_emprunt;
+
+
+      if($nbre_emprunt_actuel>0) {
+          $stock =$nbre_emprunt_initial[0]->NbreExemplaireEdition - $nbre_emprunt_actuel;
+          return view('emprunts.erreur',compact('stock'));
+          $nbre_emprunt = $nbre_emprunt_actuel - 1;
+          DB::table('emprunts')
+              ->where('emprunts.id', $request['retour'])
+              ->update(['emprunts.Date_Retour'=>$request['Date_Retour'],
+                    'ObservationRetour'=>$request['ObservationRetour']]);
+
+          return redirect('Emprunts')->withOk("Un exemplaire de l'ouvrage de Titre :" .$nbre_emprunt_initial[0]->TitreDocuments. "a été retourner.");
+
+      }
+
+     /* else{
+
+          //
+          //
+
+          $emprunt = new Emprunt([
+              'NomEmprunteur'=>$request['NomEmprunteur'],
+              'CniEmprunteur'=>$request['CniEmprunteur'],
+              'DateEmprunt'=>$request['DateEmprunt'],
+              'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
+              'ObservationEmprunt'=>$request['ObservationEmprunt'],
+              'ObservationRetour'=>$request['ObservationRetour'],
+              'statusEmprunteur'=>$request['destination'],
+              'cautionEmprunteur'=>$request['prix'],
+              'Date_Retour' => null,
+              'documents_id' => $request['document']
+
+          ]);
+          $emprunt->save();*/
+
+
+          // $emprunt->Documents()->attach($request->membre_id);
+
+
+
+
   }
 
   /**

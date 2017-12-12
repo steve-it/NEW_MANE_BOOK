@@ -25,6 +25,14 @@ class CreateEmpruntsTable extends Migration
             $table->text('ObservationRetour');
             $table->string('statusEmprunteur',50);
             $table->integer('cautionEmprunteur');
+            $table->date('Date_Retour');
+
+            $table->integer('documents_id')->unsigned();
+            $table->foreign('documents_id')
+                ->references('id')
+                ->on('documents')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
 
         });
     }
@@ -36,6 +44,9 @@ class CreateEmpruntsTable extends Migration
      */
     public function down()
     {
+        Schema::table('emprunts', function(Blueprint $table) {
+            $table->dropForeign('emprunts_documents_id_foreign');
+        });
 
         Schema::drop('emprunts');
     }

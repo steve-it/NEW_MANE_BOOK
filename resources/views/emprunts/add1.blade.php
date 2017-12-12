@@ -21,12 +21,13 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2> Enregistrement D'un Emprunt</h2>
+                            <h2> Emprunt de l'ouvrage Titre:  {{ $ouvre->TitreDocuments }}</h2>
 
                         </div>
                         <div class="body">
                             {{ Form::open(['id'=>'ajout','url'=>'NouvelleEmprunts', 'method'=>'POST']) }}
 
+                            <input type="hidden" name="document" id="document" value="{{ $ouvre->id }}">
 
 
                             <div class="body">
@@ -55,7 +56,7 @@
                                             <div class="form-line">
                                                 <label>Date D'emprunt</label>
                                                 <input type="date" class="form-control" name="DateEmprunt"
-                                                       id="DateEmprunt" placeholder="DateEmprunt" required>
+                                                       id="DateEmprunt" placeholder="DateEmprunt"  value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +66,7 @@
                                             <div class="form-line">
                                                 <label>Date Effectif Retour Emprunt</label>
                                                 <input type="date" class="form-control" name="DateEffRetourEmprunt"
-                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" required>
+                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +90,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                                   <input value="" type="text" name="prix" id="cardNumber" autocomplete="off" placeholder="Montant Caution" readonly
-                                                            onFocus="this.blur()" required/>FCFA
+                                                         onFocus="this.blur()" required/>FCFA
                                         </div>
                                     </div>
                                 </div>
@@ -115,28 +116,17 @@
                                     </div>
                                 </div>
 
-                            <div id="member-block" class="header">
-                                <h2> Choisir les Documents A Emprunter</h2>
-                                <br>
 
-                                <button id="insert-member" class="btn btn-success">Ajouter</button>
 
-                                <div id="base-member" class="row">
-                                    <div class="form-group">
-                                        {{ Form::select('membre_id[]', $documents, null, ['id'=>'membre_id1', 'class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}
-                                    </div>
-                                </div>
+
+                                <input type="submit" onsubmit="swal('hello');" value="Save" class="btn btn-primary m-t-15 waves-effect">
+
+                                {{ Form::close() }}
                             </div>
-
-
-                            <input type="submit" onsubmit="swal('hello');" value="Save" class="btn btn-primary m-t-15 waves-effect">
-
-                            {{ Form::close() }}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @stop
@@ -157,6 +147,7 @@
             var url = $(this).attr('action');
             var post = $(this).attr('method');
 
+            /*
             alert(data);
 
             $.ajax({
@@ -168,6 +159,7 @@
 
                 }
             });
+            */
         });
 
 
@@ -176,27 +168,6 @@
         });
 
 
-        var counter=1;
-        $("#insert-member").click(function(e){
-            e.preventDefault()
 
-            var clone = $("#base-member").clone();
-
-            counter += 1;
-            clone.appendTo('#member-block');
-            clone.attr('id', 'member_id' + counter);
-            clone.find('.form-group').append(clone.find('select'))
-            clone.find('.bootstrap-select').remove();
-            clone.find('select')
-                .addClass('form-control')
-                .selectpicker();
-
-            var closeBtn = $('<button type="button" class="close delete-member-block" data-dismiss="modal">&times;</button>');
-            closeBtn.click(function () {
-                clone.remove();
-            });
-            clone.find('select')
-                .after(closeBtn);
-        });
     </script>
 @stop
