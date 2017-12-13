@@ -182,7 +182,7 @@ class EmpruntController extends Controller
           ->where('emprunts.id', $request['idretouremprunt'])
           ->select('documents.*','emprunts.*')
           ->get();
-      dump($nbre_emprunt_initial);
+     // dump($nbre_emprunt_initial);
       //'documents.nbre_emprunt' => $nbre_emprunt,
 
       $nbre_emprunt_actuel = $nbre_emprunt_initial[0]->nbre_emprunt;
