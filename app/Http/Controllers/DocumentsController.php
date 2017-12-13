@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
@@ -44,7 +44,7 @@ class DocumentsController extends Controller
             //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
             //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
             ->get();
-        dump($documentsauteur);
+        // dump($documentsauteur);
 
       /*  $documents = DB::table('documents')
             ->join('categories', 'categories.id', '=', 'documents.categories_id')

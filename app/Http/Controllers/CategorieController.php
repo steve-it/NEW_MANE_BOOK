@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
@@ -7,7 +7,7 @@ use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CategorieController extends Controller 
+class CategorieController extends Controller
 {
 
   /**
@@ -28,8 +28,8 @@ class CategorieController extends Controller
 
     public function NewCategories(Request $request)
     {
-        dump($_POST);
-        echo "[".$request->libelle."]";
+        //dump($_POST);
+        //echo "[".$request->libelle."]";
 
         if($request->ajax())
         {
@@ -49,7 +49,7 @@ class CategorieController extends Controller
    */
   public function create()
   {
-    
+
   }
 
   /**
@@ -59,7 +59,7 @@ class CategorieController extends Controller
    */
   public function store()
   {
-    
+
   }
 
   /**
@@ -70,7 +70,7 @@ class CategorieController extends Controller
    */
   public function show($id)
   {
-    
+
   }
 
   /**
@@ -81,7 +81,7 @@ class CategorieController extends Controller
    */
   public function edit($id)
   {
-    
+
   }
 
   /**
@@ -92,7 +92,7 @@ class CategorieController extends Controller
    */
   public function update($id)
   {
-    
+
   }
 
   /**
@@ -104,7 +104,7 @@ class CategorieController extends Controller
   public function destroy($id)
   {
 
-    
+
   }
 
     public function delete(Request $request)

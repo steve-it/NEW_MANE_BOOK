@@ -446,7 +446,7 @@
                 $.get('{{ url('cities') }}/'+ DomaineId + "'", function(data) {
                     $('#sousdomaine').empty();
                     $.each(data, function(index, cities) {
-                        alert(cities.NomSousDomaines);
+                        // alert(cities.NomSousDomaines);
                         $('#sousdomaine').append($('<option>', {
                             value: cities.id,
                             text : cities.NomSousDomaines

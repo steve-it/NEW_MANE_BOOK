@@ -20,12 +20,12 @@ class CreateEmpruntsTable extends Migration
             $table->string('NomEmprunteur', 255);
             $table->string('CniEmprunteur', 100);
             $table->date('DateEmprunt');
-            $table->date('DateEffRetourEmprunt');
+            $table->date('DateEffRetourEmprunt')->nullable();
             $table->text('ObservationEmprunt');
-            $table->text('ObservationRetour');
+            $table->text('ObservationRetour')->nullable();
             $table->string('statusEmprunteur',50);
             $table->integer('cautionEmprunteur');
-            $table->date('Date_Retour');
+            $table->date('Date_Retour')->nullable();
 
             $table->integer('documents_id')->unsigned();
             $table->foreign('documents_id')
