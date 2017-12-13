@@ -60,10 +60,10 @@
                         <div class="body">
 
                             {{--  <form id="add_documents" method="POST"> --}}
-                            <form id="insert_form" method="POST" action="RetourEmprunt" >
+                            {{--<form id="insert_form" method="POST" action="empruntretour" >--}}
                                 {{ csrf_field() }}
-                                {{--  {{ Form::open(['url'=>'NewDocuments', 'method'=>'POST']) }}--}}
-                                <input type="hidden" name="retour" id="retour" value="{{ $retouremprunt->id }}">
+                                {{ Form::open(['id'=>'ajout','url'=>'Empruntretour', 'method'=>'POST']) }}
+                                <input type="hidden" name="idretouremprunt" id="retour" value="{{ $retouremprunt->id }}">
 
                                 <div class="row clearfix">
                                     <div class="col-md-6">
@@ -96,8 +96,8 @@
 
 
                                 <br><button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
-                                {{--{{ Form::close() }}--}}
-                            </form>
+                                {{ Form::close() }}
+
 
                         </div>
                     </div>
@@ -133,7 +133,7 @@
               var url = $(this).attr('action');
               var post = $(this).attr('method');
 
-             alert(url);
+             alert(data);
 
             /*   $.ajax({
                   type : post, // method of route get, post.....

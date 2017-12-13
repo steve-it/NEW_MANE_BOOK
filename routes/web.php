@@ -163,7 +163,7 @@ Route::get('consulter','ConsultationController@consulter');
 
 Route::get('emprunt','EmpruntController@emprunt');
 Route::get('retour','EmpruntController@retouremprunt');
-Route::post('RetourEmprunt','EmpruntController@storeretour');
+Route::post('/Empruntretour','EmpruntController@update');
 Route::get('/Emprunts', 'EmpruntController@index');
 Route::get('NouvelleEmprunts', [
     'as' => 'addEmprunts',

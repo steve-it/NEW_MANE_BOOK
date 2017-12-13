@@ -12,7 +12,7 @@ class Documents extends Model
     protected $fillable = ['TitreDocuments','IsbnDocuments','IssnDocuments','CoteDocuments','NumeroEntresDocuments',
         'AnneePublicationDocuments','EditionsDocuments','NbreExemplaireEdition','AnneeEditionDocuments','MaisonEditionDocuments',
         'LargeurEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments',
-        'ReliureDocuments','categories_id','sousdomaines_id'];
+        'ReliureDocuments','nbre_emprunt','categories_id','sousdomaines_id'];
 
     public $timestamps = true;
 

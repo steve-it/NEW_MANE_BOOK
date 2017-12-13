@@ -59,10 +59,12 @@
 
                                     <tr>
                                         <th class="noExport">Action</th>
+                                        <th>Status Retour Ouvrage</th>
                                         <th>Titre Ouvrages</th>
                                         <th>Nom de l'Emprunteur</th>
                                         <th>Date d'Emprunt</th>
                                         <th>Date Effectif de Retour</th>
+                                        <th>Date de Retour</th>
                                         <th>Domaines</th>
                                         <th>SousDomaines</th>
                                         <th>Categories</th>
@@ -80,10 +82,16 @@
                                                 <button class="btn btn-xs btn-danger" data-id="{{ $emprunt->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
                                                 <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@retouremprunt', ['id' => $emprunt->id]) }}" title="Retour Emprunter Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
                                             </td>
+                                            <td> @if($emprunt->Date_Retour == null)
+                                                    Non Retourner
+                                                @else
+                                                    Retourner
+                                              @endif</td>
                                             <td>{{ $emprunt->TitreDocuments }}</td>
                                             <td>{{ $emprunt->NomEmprunteur }}</td>
                                             <td>{{ $emprunt->DateEmprunt }}</td>
                                             <td>{{ $emprunt->DateEffRetourEmprunt }}</td>
+                                            <td>{{$emprunt->Date_Retour}}</td>
                                             <td>{{ $emprunt->NomDomaines }}</td>
                                             <td>{{ $emprunt->NomSousDomaines }}</td>
                                             <td>{{ $emprunt->libelle }}</td>
@@ -98,10 +106,12 @@
 
                                     <tr>
                                         <th class="noExport">Action</th>
+                                        <th>Status Retour Ouvrage</th>
                                         <th>Titre Ouvrages</th>
                                         <th>Nom de l'Emprunteur</th>
                                         <th>Date d'Emprunt</th>
                                         <th>Date Effectif de Retour</th>
+                                        <th>Date de Retour</th>
                                         <th>Domaines</th>
                                         <th>SousDomaines</th>
                                         <th>Categories</th>
