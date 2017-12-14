@@ -165,6 +165,7 @@ Route::get('emprunt','EmpruntController@emprunt');
 Route::get('retour','EmpruntController@retouremprunt');
 Route::post('/Empruntretour','EmpruntController@update');
 Route::get('/Emprunts', 'EmpruntController@index');
+Route::get('/EmpruntsRetour', 'EmpruntController@indexretouremprunt');
 Route::get('NouvelleEmprunts', [
     'as' => 'addEmprunts',
     'uses' => 'EmpruntController@create'

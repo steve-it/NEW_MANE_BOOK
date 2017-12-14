@@ -278,9 +278,9 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
+                   /* 'copy',
                     'csv',
-                    'excel',
+                    'excel',*/
                     {
                         extend:'pdf',
                         exportOptions:{

@@ -26,7 +26,11 @@
     <section class="content">
         <div class="container" style="width: 90%;">
             <!-- Advanced Validation -->
+            <div align="right">
+                <a class="btn btn-xs btn-warning " href ="{{ action('DocumentsController@index') }}" title="Retour à la Liste des Ouvrages">  <i class="material-icons">compare_arrows</i></a>
+            </div>
             <div class="row clearfix">
+
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">

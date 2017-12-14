@@ -85,7 +85,7 @@
                                     <div class="form-group>
                                         <div class="form-line{{ $errors->has('ObservationRetour') ? ' has-error' : '' }}">
                                     <label>Observation Retour d'Emprunt De L'Ouvrage</label>
-                                    <input type="text" id="ObservationRetour" name="ObservationRetour" class="form-control" placeholder="Observation Retour" value="Ouvrage en etat emprunter">
+                                    <textarea rows="4" class="form-control no-resize" id="ObservationRetour" name="ObservationRetour" placeholder="Observation Retour" value="Ouvrage en etat emprunter"></textarea>
                                     @if ($errors->has('ObservationRetour'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('ObservationRetour') }}</strong>

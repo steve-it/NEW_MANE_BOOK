@@ -28,6 +28,9 @@
                 <br />
                 <div class="table-responsive">
                     <div align="right">
+                        <div align="right">
+                            <a class="btn btn-xs btn-warning " href ="{{ action('DocumentsController@index') }}" title="Retour à la Liste des Ouvrages">  <i class="material-icons">compare_arrows</i></a>
+                        </div>
 
                         {{--<div >--}}
                             {{--{!! link_to_route('addConsultations', 'Ajouter Une Consultation', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}--}}
@@ -266,9 +269,9 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
+                    /*'copy',
                     'csv',
-                    'excel',
+                    'excel',*/
                     {
                         extend:'pdf',
                         exportOptions:{

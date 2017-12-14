@@ -39,6 +39,20 @@ class EmpruntController extends Controller
       return view('emprunts.list', compact('emprunts'));
   }
 
+  public function indexretouremprunt()
+  {
+      $emprunts = DB::table('documents')
+          ->join('categories', 'categories.id', '=', 'documents.categories_id')
+          ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
+          ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
+          ->join('emprunts','documents.id','=','emprunts.documents_id')
+          ->where('emprunts.Date_Retour','<>',null)
+          ->get();
+
+
+      return view('emprunts.listretouremprunt', compact('emprunts'));
+  }
+
   /**
    * Show the form for creating a new resource.
    *
@@ -117,7 +131,7 @@ class EmpruntController extends Controller
               'DateEmprunt'=>$request['DateEmprunt'],
               'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
               'ObservationEmprunt'=>$request['ObservationEmprunt'],
-              'ObservationRetour'=>$request['ObservationRetour'],
+             // 'ObservationRetour'=>$request['ObservationRetour'],
               'statusEmprunteur'=>$request['destination'],
               'cautionEmprunteur'=>$request['prix'],
               'Date_Retour' => null,

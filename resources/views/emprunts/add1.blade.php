@@ -16,6 +16,9 @@
 @section('main_content')
     <section class="content">
         <div class="container" style="width: 90%;">
+            <div align="right">
+                <a class="btn btn-xs btn-warning " href ="{{ action('DocumentsController@index') }}" title="Retour à la Liste des Ouvrages">  <i class="material-icons">compare_arrows</i></a>
+            </div>
             <!-- Vertical Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -55,8 +58,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>Date D'emprunt</label>
-                                                <input type="date" class="form-control" name="DateEmprunt"
-                                                       id="DateEmprunt" placeholder="DateEmprunt"  value="{{ date('Y-m-d') }}" required>
+                                                <input type="date" class="form-control" name="DateEmprunt" id="DateEmprunt"  value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -65,12 +67,12 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>Date Effectif Retour Emprunt</label>
-                                                <input type="date" class="form-control" name="DateEffRetourEmprunt"
-                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
+                                                <input type="date" class="form-control" name="DateEffRetourEmprunt" id="DateEffRetourEmprunt"  value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
 
                                 <div class="row clearfix">
                                     <div class="col-md-6">
@@ -100,20 +102,20 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="ObservationEmprunt"
-                                                       id="ObservationEmprunt" placeholder="ObservationEmprunt" required>
+                                                <textarea rows="4" class="form-control no-resize" name="ObservationEmprunt"
+                                                          id="ObservationEmprunt" placeholder="Observation d'Emprunt" required></textarea>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="ObservationRetour"
-                                                       id="ObservationRetour" placeholder="ObservationRetour" required>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<div class="form-line">--}}
+                                                {{--<input type="text" class="form-control" name="ObservationRetour"--}}
+                                                       {{--id="ObservationRetour" placeholder="ObservationRetour" required>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
                                 </div>
 
 

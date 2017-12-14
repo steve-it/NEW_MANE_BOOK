@@ -49,13 +49,14 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row clearfix">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>Date D'emprunt</label>
                                                 <input type="date" class="form-control" name="DateEmprunt"
-                                                       id="DateEmprunt" placeholder="DateEmprunt" required>
+                                                       id="DateEmprunt" placeholder="DateEmprunt" value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +66,7 @@
                                             <div class="form-line">
                                                 <label>Date Effectif Retour Emprunt</label>
                                                 <input type="date" class="form-control" name="DateEffRetourEmprunt"
-                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" required>
+                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
                                             </div>
                                         </div>
                                     </div>

@@ -24,10 +24,10 @@
                 <div class="table-responsive">
                     <div align="right">
                         <div align="right">
-                            <a class="btn btn-xs btn-warning " href ="{{ action('DocumentsController@index') }}" title="Retour à la Liste des Ouvrages">  <i class="material-icons">compare_arrows</i></a>
+                            <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@index') }}" title="Retour à la Liste des Emprunts">  <i class="material-icons">compare_arrows</i></a>
                         </div>
                         {{--<div >--}}
-                            {{--{!! link_to_route('addEmprunts', 'Ajouter Un Emprunt', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}--}}
+                        {{--{!! link_to_route('addEmprunts', 'Ajouter Un Emprunt', [], ['class' => 'btn btn-large btn-primary', 'style' =>"position: absolute;  top: 80px; right: 120px;" ]) !!}--}}
                         {{--</div>--}}
                         {{--<button type="button" name="add" id="add" class="btn btn-warning" title="Ajouter"><i class="material-icons">add_box</i></button>--}}
                     </div>
@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                LISTE DES EMPRUNTS
+                                LISTE DES EMPRUNTS RETOURNER
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -60,7 +60,6 @@
                                     <thead>
 
                                     <tr>
-                                        <th class="noExport">Action</th>
                                         <th>Status Retour Ouvrage</th>
                                         <th>Titre Ouvrages</th>
                                         <th>Nom de l'Emprunteur</th>
@@ -82,23 +81,18 @@
 
                                         <!-- Test de retour de Ouvrage emprunter  -->
                                         <?php
-                                        $valeurretour = "NonRetourner";
+                                        $valeurretour = " ";
 
-                                        if($emprunt->Date_Retour == null)
+                                        if($emprunt->Date_Retour != null)
 
-                                            $valeurretour = "NonRetourner";
-                                        else
                                             $valeurretour = "Retourner";
+
                                         ?>
                                         <!--  Fin Test de retour de Ouvrage emprunter  -->
 
 
                                         <tr id="emprunts{{$emprunt->id}}">
-                                            <td>
-                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $emprunt->id }}"title="voir"><i class="material-icons">list</i></button>
-                                                <button class="btn btn-xs btn-danger" data-id="{{ $emprunt->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
-                                                <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@retouremprunt', ['id' => $emprunt->id]) }}" title="Retour Emprunter Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
-                                            </td>
+
                                             <td> {{$valeurretour}}</td>
                                             <td>{{ $emprunt->TitreDocuments }}</td>
                                             <td>{{ $emprunt->NomEmprunteur }}</td>
@@ -118,7 +112,6 @@
                                     <tfoot>
 
                                     <tr>
-                                        <th class="noExport">Action</th>
                                         <th>Status Retour Ouvrage</th>
                                         <th>Titre Ouvrages</th>
                                         <th>Nom de l'Emprunteur</th>
