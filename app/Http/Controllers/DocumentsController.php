@@ -29,36 +29,16 @@ class DocumentsController extends Controller
     public function index()
     {
 
-       /* $dossierCorrectionnels = $this->dossierCorrectionnel
-            ->with('membres_tribunal')
-            ->orderBy('dossiers_correctionnels.created_at', 'desc')
-            ->paginate(4);
-        $links = $dossierCorrectionnels->setPath('')->render();
-        return view('dossiers.list', compact('dossierCorrectionnels', 'links'));*/
 
-
-        $documentsauteur = Documents::with('Auteurs')
-            ->with('Categories')
+        $documentsauteur = Documents::with('Categories')
             //->join('categories', 'categories.id', '=', 'documents.categories_id')
             ->with('SousDomaines')
             //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
             //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
             ->get();
 
-        //dump($documentsauteur);
 
-        // dump($documentsauteur);
-
-      /*  $documents = DB::table('documents')
-            ->join('categories', 'categories.id', '=', 'documents.categories_id')
-            ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
-            ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-            ->join('auteurs_documents', 'documents.id', '=', 'auteurs_documents.documents_id')
-            ->join('auteurs', 'auteurs.id', '=', 'auteurs_documents.auteurs_id')
-
-            ->get();*/
-
-        return view('documents.list', compact('documentsauteur'));
+        return view('documents.list',compact('documentsauteur'));
 
     }
 
@@ -72,10 +52,10 @@ class DocumentsController extends Controller
 
         $domaines = Domaine::all();
         $categories = Categorie::all();
-        $auteurs = Auteur::all();
+       // $auteurs = Auteur::all();
         $sousdomaines = SousDomaine::all();
-        $auteurs = Auteur::pluck('NomAuteur','id');
-        return view('documents.simpleadd', compact(['auteurs','domaines', 'categories','auteurs','sousdomaines']));
+        //$auteurs = Auteur::pluck('NomAuteur','id');
+        return view('documents.simpleadd', compact(['domaines', 'categories','sousdomaines']));
 
     }
 
@@ -87,23 +67,32 @@ class DocumentsController extends Controller
     public function store(Request $request)
     {
 
+ //dd($request->all());
+
+
+
         $ouvrage = new Documents([
             'TitreDocuments' => $request['TitreDocuments'],
             'IsbnDocuments' => $request['IsbnDocuments'],
             'IssnDocuments' => $request['IssnDocuments'],
             'CoteDocuments' => $request['CoteDocuments'],
+            'Section'=>$request['Section'],
+            'Auteur'=>$request['Auteur'],
+            'NumeroDecret'=>$request['NumeroDecret'],
+            'DateEditionDocuments'=>$request['DateEditionDocuments'],
+            'LieuEditionDocuments'=>$request['LieuEditionDocuments'],
+            'EditeurDocuments'=>$request['EditeurDocuments'],
             'NumeroEntresDocuments' => $request['NumeroEntresDocuments'],
             'AnneePublicationDocuments' => $request['AnneePublicationDocuments'],
             'EditionsDocuments' => $request['EditionsDocuments'],
             'NbreExemplaireEdition' => $request['NbreExemplaireEdition'],
-            'AnneeEditionDocuments' => $request['AnneeEditionDocuments'],
             'MaisonEditionDocuments' => $request['MaisonEditionDocuments'],
-            'LargeurEditionDocuments' => $request['LargeurEditionDocuments'],
             'LongueurEditionDocuments' => $request['LongueurEditionDocuments'],
             'AdresseMaisonEdition' => $request['AdresseMaisonEdition'],
             'IllustrationDocuments' => $request['IllustrationDocuments'],
             'PeriodiciteDocuments' => $request['PeriodiciteDocuments'],
             'ReliureDocuments' => $request['ReliureDocuments'],
+
             'categories_id' => $request['categories_id'],
             'sousdomaines_id' => $request['sousdomaine'],
         ]);

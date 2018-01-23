@@ -38,9 +38,6 @@ class CreateDocumentsTable extends Migration
             $table->string('Section',255);
             $table->string('Auteur',255);
             $table->string('NumeroDecret',255);
-            $table->string('NumeroEntreesPeriodiRevu',255);
-           ;
-
             $table->integer('categories_id')->unsigned();
             $table->integer('sousdomaines_id')->unsigned();
 

@@ -79,7 +79,7 @@
                                     </thead>
 
                                     <tbody>
-
+                                   {{--{{ dd($documentsauteur) }}--}}
                                     @foreach($documentsauteur as $document)
                                         <tr id="dossiers{{$document->id}}">
                                             <td>
@@ -90,9 +90,8 @@
                                             </td>
                                             <td>{{ $document->CoteDocuments }}</td>
                                             <td>{{ $document->TitreDocuments }}</td>
-                                            <td>@foreach($document->Auteurs as $auteurs)
-                                                {{ $auteurs->NomAuteur }} <br>
-                                            @endforeach
+                                            <td>
+                                                {{ $document->Auteur }}
                                             </td>
                                             <td>{{ $document->NbreExemplaireEdition - $document->nbre_emprunt }}</td>
                                             <td>{{ $document->SousDomaines->Domaines->NomDomaines }}</td>
@@ -112,11 +111,7 @@
                                             <td>{{ $document->IllustrationDocuments }}</td>
                                             <td>{{ $document->PeriodiciteDocuments }}</td>
                                             <td>{{ $document->ReliureDocuments }}</td>
-                                            {{--<td>{{ $document->NomAuteur }}</td>--}}
-                                            {{--<td>@foreach($document->Auteurs as $auteur)--}}
-                                            {{--{{ $auteur->NomAuteur }} <br>--}}
-                                            {{--@endforeach--}}
-                                            {{--</td>--}}
+
                                         </tr>
                                     @endforeach
 

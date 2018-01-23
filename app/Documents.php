@@ -8,11 +8,12 @@ use App\Auteur;
 class Documents extends Model 
 {
 
+
     protected $table = 'documents';
     protected $fillable = ['TitreDocuments','IsbnDocuments','IssnDocuments','CoteDocuments','NumeroEntresDocuments',
-        'AnneePublicationDocuments','EditionsDocuments','NbreExemplaireEdition','AnneeEditionDocuments','MaisonEditionDocuments',
-        'LargeurEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments',
-        'ReliureDocuments','nbre_emprunt','categories_id','sousdomaines_id'];
+        'AnneePublicationDocuments','EditionsDocuments','EditeurDocuments','NbreExemplaireEdition','DateEditionDocuments','LieuEditionDocuments',
+        'MaisonEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments',
+        'ReliureDocuments','nbre_emprunt','Section','Auteur','NumeroDecret','categories_id','sousdomaines_id'];
 
     public $timestamps = true;
 

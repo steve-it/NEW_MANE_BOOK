@@ -29,16 +29,16 @@
                 </li>
                 <li>
                     <a href="{{ url('categories') }}" class="mce-menu-item">
-                        <i class="material-icons">class</i><span>CATEGORIES-DOCS</span>
+                        <i class="material-icons">class</i><span>TYPE-OUVRAGES</span>
                     </a>
 
                 </li>
-                <li>
+                <!--<li>
                     <a href="{{ url('Auteurs') }}"  class="mce-menu-item">
                         <i class="material-icons">people</i><span>AUTEURS</span>
                     </a>
 
-                </li>
+                </li>-->
                 <li>
                     <a href="{{ url('documents') }}"  class="mce-menu-item">
                         <i class="material-icons">insert_drive_file</i> <span>DOCUMENTS</span>
