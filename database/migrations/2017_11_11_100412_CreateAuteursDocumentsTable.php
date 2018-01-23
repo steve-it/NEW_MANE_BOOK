@@ -11,7 +11,7 @@ class CreateAuteursDocumentsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    /*public function up()
     {
         //
         Schema::create('auteurs_documents', function(Blueprint $table) {
@@ -39,7 +39,7 @@ class CreateAuteursDocumentsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    /*public function down()
     {
         //
         Schema::table('auteurs_documents', function(Blueprint $table) {
@@ -50,5 +50,5 @@ class CreateAuteursDocumentsTable extends Migration
         });
 
         Schema::drop('auteurs_documents');
-    }
+    }*/
 }

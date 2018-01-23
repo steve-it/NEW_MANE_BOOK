@@ -26,10 +26,10 @@ class Documents extends Model
         return $this->hasMany('App\Consultation');
     }
 
-    public function Auteurs()
+    /*public function Auteurs()
     {
         return $this->belongsToMany('App\Auteur','auteurs_documents','documents_id','auteurs_id');
-    }
+    }*/
 
     public function Emprunts()
     {

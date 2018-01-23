@@ -24,16 +24,22 @@ class CreateDocumentsTable extends Migration
             $table->string('NumeroEntresDocuments', 255);
             $table->date('AnneePublicationDocuments');
             $table->string('EditionsDocuments', 255);
+            $table->string('EditeurDocuments',255);
             $table->integer('NbreExemplaireEdition');
-            $table->date('AnneeEditionDocuments');
+            $table->date('DateEditionDocuments');
+            $table->string('LieuEditionDocuments');
             $table->string('MaisonEditionDocuments', 255);
-            $table->integer('LargeurEditionDocuments');
             $table->string('LongueurEditionDocuments', 200);
             $table->string('AdresseMaisonEdition', 255);
             $table->string('IllustrationDocuments', 255);
             $table->string('PeriodiciteDocuments', 255);
             $table->string('ReliureDocuments', 255);
             $table->integer('nbre_emprunt')->nullable();
+            $table->string('Section',255);
+            $table->string('Auteur',255);
+            $table->string('NumeroDecret',255);
+            $table->string('NumeroEntreesPeriodiRevu',255);
+           ;
 
             $table->integer('categories_id')->unsigned();
             $table->integer('sousdomaines_id')->unsigned();

@@ -14,7 +14,7 @@ class AuteurController extends Controller
    *
    * @return Response
    */
-  public function index()
+  /*public function index()
   {
     $auteurs = Auteur::all();
    return view('auteurs.list',compact('auteurs'));
@@ -39,7 +39,7 @@ class AuteurController extends Controller
    *
    * @return Response
    */
-  public function create()
+  /*public function create()
   {
     
   }
@@ -49,7 +49,7 @@ class AuteurController extends Controller
    *
    * @return Response
    */
-  public function store()
+  /*public function store()
   {
     
   }
@@ -60,7 +60,7 @@ class AuteurController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show($id)
+  /*public function show($id)
   {
     
   }
@@ -71,7 +71,7 @@ class AuteurController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  /*public function edit($id)
   {
     
   }
@@ -82,7 +82,7 @@ class AuteurController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  /*public function update($id)
   {
     
   }
@@ -93,10 +93,10 @@ class AuteurController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function delete(Request $request)
+  /*public function delete(Request $request)
   {
     Auteur::destroy($request->id);
-  }
+  }*/
   
 }
 
