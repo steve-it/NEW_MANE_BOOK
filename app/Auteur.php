@@ -12,9 +12,9 @@ class Auteur extends Model
 
     public $timestamps = true;
 
-    public function Documents()
+    /*public function Documents()
     {
         return $this->belongsToMany('Documents');
-    }
+    }*/
 
 }

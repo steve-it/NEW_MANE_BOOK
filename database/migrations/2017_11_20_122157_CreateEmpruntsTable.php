@@ -19,6 +19,7 @@ class CreateEmpruntsTable extends Migration
             $table->timestamps();
             $table->string('NomEmprunteur', 255);
             $table->string('CniEmprunteur', 100);
+            $table->string('adresse',255);
             $table->date('DateEmprunt');
             $table->date('DateEffRetourEmprunt')->nullable();
             $table->text('ObservationEmprunt');

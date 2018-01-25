@@ -57,23 +57,72 @@
                                 {{ csrf_field() }}
                                 {{--  {{ Form::open(['url'=>'NewDocuments', 'method'=>'POST']) }}--}}
 
-                                 <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <p>Type d'Ouvrage</p>
+                                                <select class="ms" style="width:100%" name="categories_id" id="categorie">
+                                                    <option value="">---------Selectionnez une Categorie --</option>
+                                                    @foreach($categories as $categorie)
+                                                        <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <p></p>
+                                                <input type="text" class="form-control" name="TitreDocuments"
+                                                id="TitreDocuments" required placeholder="Titre De l'Ouvrage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <p></p>
+                                                <input type="text" class="form-control" name="Auteur"
+                                                       id="Auteur" required placeholder="Auteurs De l'Ouvrage">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="CoteDocuments"
+                                                       placeholder="Cote Documents" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                         <div class="form-group">
                                         <div class="form-line">
                                             <p>Domaine de connaissance</p>
                                             <select class="ms" style="width:100%" name="domaine" id="domaine" >
                                                 <option value="value='-1' selected">---Selectionnez un Domaine de Connaissance ----</option>
-                                                @foreach($domaines as $domaine)
+                                            @foreach($domaines as $domaine)
                                                     <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                     </div>
+                                    <div class="col-md-6">
+                                         <div class="form-group">
                                         {{--<div class="form-line">--}}
                                         <p>Sous domaine</p>
                                         <select class="ms" style="width:100%" name="sousdomaine" id="sousdomaine">
@@ -84,98 +133,121 @@
                                         </select>
                                         {{--</div>--}}
                                     </div>
+                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="row clearfix">
 
 
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <p>Categorie</p>
-                                            <select class="ms" style="width:100%" name="categories_id" id="categorie">
-                                                <option value="">---------Selectionnez une Categorie --</option>
-                                                @foreach($categories as $categorie)
-                                                    <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
-                                                @endforeach
-                                            </select>
+                                </div>
+
+
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <p>Section-Filère</p>
+                                                <select class="ms" style="width:100%" name="Section" id="Section">
+                                                    <option value="">---------Selectionnez une Section --</option>
+                                                    <optgroup label="DIVISION ADMINISTRATIVE ">
+                                                    <option value="ADMINISTRATION GENERALE">ADMINISTRATION GENERALE</option>
+                                                    <option value="ADMINISTRATION DU TRAVAIL">ADMINISTRATION DU TRAVAIL</option>
+                                                    <option value="ECONOMIE ET FINANCE ">ECONOMIE ET FINANCE </option>
+
+                                                    <option value="ADMINISTRATION DES AFFAIRES SOCIALES">ADMINISTRATION DES AFFAIRES SOCIALES</option>
+                                                    </optgroup>
+                                                  <optgroup label="DIVISION DE LA MAGISTRATURE ET DES GREFFES">
+                                                        <option value="ADMINISTRATEUR DE GREFFES">ADMINISTRATEUR DE GREFFES</option>
+                                                    <option value="AUDITEURS DE JUSTICE ADMINISTRATIVE"> AUDITEURS DE JUSTICE ADMINISTRATIVE  </option>
+                                                    <option value="AUDITEURS DE JUSTICE DES COMPTES">  AUDITEURS DE JUSTICE DES COMPTES</option>
+                                                    <option value="AUDIETEURS DE JUSTICE JUDICIAIRE"> AUDIETEURS DE JUSTICE JUDICIAIRE</option>
+                                                      <option value="TRESOR">TRESOR</option>
+                                                  </optgroup>
+                                                    <optgroup label="DIVISION DES REGIES FINANCIERES">
+                                                    <option value="DOUANE">DOUANE</option>
+                                                    <option value="GREFFES">GREFFES</option>
+                                                    <option value="IMPOT">IMPOT</option>
+                                                    <option value="PRIX POIDS ET MESURES">PRIX POIDS ET MESURES</option>
+
+                                                    </optgroup>
+
+                                                </select>
+
+                                            </div>
+
                                         </div>
+                                    </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="NumeroEntresDocuments"
+                                                       placeholder="Numero Entres Documents ">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                          <p></p>
-                                          <input type="text" class="form-control" name="TitreDocuments"
-                                                   id="TitreDocuments" required placeholder="Titre De l'Ouvrage">
+
+
+
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="NumeroDecret"
+                                                       placeholder="NumeroDecret">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="IllustrationDocuments"
+                                                       id="IllustrationDocuments" placeholder="Illustration Du Document">
+                                            </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-                            </div>
 
-
-                            <div class="row clearfix">
-                                <div class="col-md-6">
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="IsbnDocuments"
-                                                   placeholder="Isbn Du Documents" required>
+                                                   placeholder="Isbn Du Documents" >
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="IssnDocuments"
-                                                   placeholder="Issn Du Documents" required>
+                                                   placeholder="Issn Du Documents" >
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="CoteDocuments"
-                                                   placeholder="Cote Documents" required>
-                                        </div>
-                                    </div>
                                 </div>
-                            <div class="form-group">
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="NumeroEntresDocuments"
-                                                   placeholder="Numero Entres Documents " required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="row clearfix">
+
+                                <div class="row clearfix">
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="EditionsDocuments"
-                                                   id="EditionsDocuments" placeholder="Edition Du Documents" required>
+                                                   id="EditionsDocuments" placeholder="Edition Du Documents">
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="IllustrationDocuments"
-                                                   id="IllustrationDocuments" placeholder="Illustration Du Document" required>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
 
                             <div class="row clearfix">
@@ -192,9 +264,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <label>Annee Edition Documents</label>
-                                            <input type="date" class="form-control" name="AnneeEditionDocuments"
-                                                   placeholder="Annee Edition Documents" required>
+                                            <label>Date Edition Documents</label>
+                                            <input type="date" class="form-control" name="DateEditionDocuments"
+                                                   placeholder="DateEditionDocuments">
                                         </div>
                                     </div>
                                 </div>
@@ -202,32 +274,42 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <label>Nombre Exemplaire Edition</label>
-                                            <input type="number" class="form-control" name="NbreExemplaireEdition"
-                                                   placeholder="Nombre Exemplaire Edition" required>
+                                            <label>Lieu Edition</label>
+                                            <input type="text" class="form-control" name="LieuEditionDocuments"
+                                                   placeholder="LieuEditionDocuments">
                                         </div>
                                     </div>
                                 </div>
+
+
+
                             </div>
 
 
                             <div class="row clearfix">
-                                <div class="col-md-6">
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control" name="NbreExemplaireEdition"
+                                                   placeholder="Nombre Exemplaire Edition">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="MaisonEditionDocuments"
-                                                   id="MaisonEditionDocuments" placeholder="Maison Edition Documents"
-                                                   required>
+                                                   id="MaisonEditionDocuments" placeholder="Maison Edition Documents">
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="AdresseMaisonEdition"
-                                                   id="AdresseMaisonEdition" placeholder="Adresse Maison Edition"
-                                                   required>
+                                                   id="AdresseMaisonEdition" placeholder="Adresse Maison Edition">
                                         </div>
                                     </div>
                                 </div>
@@ -237,9 +319,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" name="LargeurEditionDocuments"
-                                                   id="LargeurEditionDocuments" placeholder="Largeur Edition Documents"
-                                                   required>
+                                            <input type="text" class="form-control" name="EditeurDocuments"
+                                                   id="EditeurDocuments" placeholder="Editeur Documents">
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +330,7 @@
                                         <div class="form-line">
                                             <input type="number" class="form-control" name="LongueurEditionDocuments"
                                                    id="LongueurEditionDocuments"
-                                                   placeholder="Longueur Edition Documents" required>
+                                                   placeholder="Longueur Edition Documents">
                                         </div>
                                     </div>
                                 </div>
@@ -261,8 +342,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="PeriodiciteDocuments"
-                                                   id="PeriodiciteDocuments" placeholder="Periodicite Documents"
-                                                   required>
+                                                   id="PeriodiciteDocuments" placeholder="Periodicite Documents">
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +351,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="ReliureDocuments"
-                                                   id="ReliureDocuments" placeholder="Reliure Documents" required>
+                                                   id="ReliureDocuments" placeholder="Reliure Documents">
                                         </div>
                                     </div>
                                 </div>
@@ -292,22 +372,22 @@
 
 
 
-                                <div id="member-block" class="header">
-                                    <h2> Choisir les Auteur(s) de cet ouvrage </h2>
-                                    <br>
+                                {{--    <div id="member-block" class="header">
+                                        <h2> Choisir les Auteur(s) de cet ouvrage </h2>
+                                        <br>
 
-                                    <button id="insert-member" class="btn btn-success">Ajouter</button>
-                                  </br>
-                                  </br>
-                                    <div id="base-member" class="row">
-                                        <div class="form-group">
-                                            {{ Form::select('idauteur[]', $auteurs, null, ['id'=>'membre_id1', 'class'=>'ms', 'placeholder' =>"-- Choisir le nom de l'auteur--", 'style'=>'width:60%']) }}
+                                        <button id="insert-member" class="btn btn-success">Ajouter</button>
+                                      </br>
+                                      </br>
+                                        <div id="base-member" class="row">
+                                            <div class="form-group">
+                                                {{ Form::select('idauteur[]', $auteurs, null, ['id'=>'membre_id1', 'class'=>'ms', 'placeholder' =>"-- Choisir le nom de l'auteur--", 'style'=>'width:60%']) }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                            {{--<div class="row clearfix">--}}
+                                <div class="row clearfix">--}}
                                 {{--<div class="col-md-6">--}}
                                     {{--<div class="form-group">--}}
                                         {{--<div class="form-line">--}}

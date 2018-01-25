@@ -26,40 +26,26 @@ class DocumentsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
-       /* $dossierCorrectionnels = $this->dossierCorrectionnel
-            ->with('membres_tribunal')
-            ->orderBy('dossiers_correctionnels.created_at', 'desc')
-            ->paginate(4);
-        $links = $dossierCorrectionnels->setPath('')->render();
-        return view('dossiers.list', compact('dossierCorrectionnels', 'links'));*/
-
-
-        $documentsauteur = Documents::with('Auteurs')
-            ->with('Categories')
+        $query = Documents::with('Categories')
             //->join('categories', 'categories.id', '=', 'documents.categories_id')
-            ->with('SousDomaines')
+            ->with('SousDomaines');
             //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
             //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-            ->get();
 
-        //dump($documentsauteur);
+        $vue = 'documents.list.generale'; //vue gennerale
+        if(isset($request['cat'])) {
+            $query->where('categories_id', '=', $request->cat);
 
-        // dump($documentsauteur);
+            if($request->cat == 1) $vue = 'documents.list.memoires';
+            if($request->cat == 2) $vue = 'documents.list.revues';
+            if($request->cat == 3) $vue = 'documents.list.texts';
+            if($request->cat == 4) $vue = 'documents.list.livres';
+        }
 
-      /*  $documents = DB::table('documents')
-            ->join('categories', 'categories.id', '=', 'documents.categories_id')
-            ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
-            ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-            ->join('auteurs_documents', 'documents.id', '=', 'auteurs_documents.documents_id')
-            ->join('auteurs', 'auteurs.id', '=', 'auteurs_documents.auteurs_id')
-
-            ->get();*/
-
-        return view('documents.list', compact('documentsauteur'));
-
+        $documentsauteur = $query->get();
+        return view($vue, compact('documentsauteur'));
     }
 
     /**
@@ -72,10 +58,10 @@ class DocumentsController extends Controller
 
         $domaines = Domaine::all();
         $categories = Categorie::all();
-        $auteurs = Auteur::all();
+       // $auteurs = Auteur::all();
         $sousdomaines = SousDomaine::all();
-        $auteurs = Auteur::pluck('NomAuteur','id');
-        return view('documents.simpleadd', compact(['auteurs','domaines', 'categories','auteurs','sousdomaines']));
+        //$auteurs = Auteur::pluck('NomAuteur','id');
+        return view('documents.simpleadd', compact(['domaines', 'categories','sousdomaines']));
 
     }
 
@@ -87,35 +73,40 @@ class DocumentsController extends Controller
     public function store(Request $request)
     {
 
+        //dd($request->all());
         $ouvrage = new Documents([
             'TitreDocuments' => $request['TitreDocuments'],
             'IsbnDocuments' => $request['IsbnDocuments'],
             'IssnDocuments' => $request['IssnDocuments'],
             'CoteDocuments' => $request['CoteDocuments'],
+            'Section'=>$request['Section'],
+            'Auteur'=>$request['Auteur'],
+            'NumeroDecret'=>$request['NumeroDecret'],
+            'DateEditionDocuments'=>$request['DateEditionDocuments'],
+            'LieuEditionDocuments'=>$request['LieuEditionDocuments'],
+            'EditeurDocuments'=>$request['EditeurDocuments'],
             'NumeroEntresDocuments' => $request['NumeroEntresDocuments'],
             'AnneePublicationDocuments' => $request['AnneePublicationDocuments'],
             'EditionsDocuments' => $request['EditionsDocuments'],
             'NbreExemplaireEdition' => $request['NbreExemplaireEdition'],
-            'AnneeEditionDocuments' => $request['AnneeEditionDocuments'],
             'MaisonEditionDocuments' => $request['MaisonEditionDocuments'],
-            'LargeurEditionDocuments' => $request['LargeurEditionDocuments'],
             'LongueurEditionDocuments' => $request['LongueurEditionDocuments'],
             'AdresseMaisonEdition' => $request['AdresseMaisonEdition'],
             'IllustrationDocuments' => $request['IllustrationDocuments'],
             'PeriodiciteDocuments' => $request['PeriodiciteDocuments'],
             'ReliureDocuments' => $request['ReliureDocuments'],
+
             'categories_id' => $request['categories_id'],
             'sousdomaines_id' => $request['sousdomaine'],
         ]);
 
         $ouvrage->save();
 
-//    $membres = MembreTribunal::find($request->membre_id);
-//    $dossier->membres_tribunal()->save($membres);
+        // $membres = MembreTribunal::find($request->membre_id);
+        // $dossier->membres_tribunal()->save($membres);
         $ouvrage->Auteurs()->attach($request->idauteur);
 
-       return redirect('documents')->withOk("le document ayant pour titre:" . $ouvrage->TitreDocuments. " a été créé.");
-
+        return redirect('documents')->withOk("le document ayant pour titre:" . $ouvrage->TitreDocuments. " a été créé.");
     }
 
     /**

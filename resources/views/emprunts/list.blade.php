@@ -59,16 +59,16 @@
 
                                     <tr>
                                         <th class="noExport">Action</th>
-                                        <th>Status Retour Ouvrage</th>
+                                        <th>Status Ouvrage</th>
                                         <th>Titre Ouvrages</th>
-                                        <th>Nom de l'Emprunteur</th>
-                                        <th>Date d'Emprunt</th>
-                                        <th>Date Effectif de Retour</th>
-                                        <th>Date de Retour</th>
-                                        <th>Domaines</th>
-                                        <th>SousDomaines</th>
-                                        <th>Categories</th>
-                                        <th>Status de l'Emprunteur</th>
+                                        <th>Emprunteur</th>
+                                        <th>Date Emprunt</th>
+                                        <th>Date Effectif Retour</th>
+                                        <th>Date Prevue Retour</th>
+                                        {{--<th>Domaines</th>--}}
+                                        {{--<th>SousDomaines</th>--}}
+                                        {{--<th>Categories</th>--}}
+                                        {{--<th>Status de l'Emprunteur</th>--}}
                                     </tr>
 
                                     </thead>
@@ -83,19 +83,19 @@
                                                 <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@retouremprunt', ['id' => $emprunt->id]) }}" title="Retour Emprunter Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
                                             </td>
                                             <td> @if($emprunt->Date_Retour == null)
-                                                    Non Retourner
+                                                    sortie
                                                 @else
-                                                    Retourner
+                                                    rendu
                                               @endif</td>
                                             <td>{{ $emprunt->TitreDocuments }}</td>
                                             <td>{{ $emprunt->NomEmprunteur }}</td>
                                             <td>{{ $emprunt->DateEmprunt }}</td>
                                             <td>{{ $emprunt->DateEffRetourEmprunt }}</td>
                                             <td>{{$emprunt->Date_Retour}}</td>
-                                            <td>{{ $emprunt->NomDomaines }}</td>
-                                            <td>{{ $emprunt->NomSousDomaines }}</td>
-                                            <td>{{ $emprunt->libelle }}</td>
-                                            <td>{{ $emprunt->statusEmprunteur }}</td>
+                                            {{--<td>{{ $emprunt->NomDomaines }}</td>--}}
+                                            {{--<td>{{ $emprunt->NomSousDomaines }}</td>--}}
+{{--                                            <td>{{ $emprunt->libelle }}</td>--}}
+                                            {{--<td>{{ $emprunt->statusEmprunteur }}</td>--}}
 
                                         </tr>
                                     @endforeach
@@ -108,14 +108,14 @@
                                         <th class="noExport">Action</th>
                                         <th>Status Retour Ouvrage</th>
                                         <th>Titre Ouvrages</th>
-                                        <th>Nom de l'Emprunteur</th>
-                                        <th>Date d'Emprunt</th>
-                                        <th>Date Effectif de Retour</th>
-                                        <th>Date de Retour</th>
-                                        <th>Domaines</th>
-                                        <th>SousDomaines</th>
-                                        <th>Categories</th>
-                                        <th>Status de l'Emprunteur</th>
+                                        <th>Emprunteur</th>
+                                        <th>Date Emprunt</th>
+                                        <th>Date Effectif Retour</th>
+                                        <th>Date Prevue Retour</th>
+                                        {{--<th>Domaines</th>--}}
+                                        {{--<th>SousDomaines</th>--}}
+                                        {{--<th>Categories</th>--}}
+                                        {{--<th>Status de l'Emprunteur</th>--}}
                                     </tr>
                                     </tfoot>
 
