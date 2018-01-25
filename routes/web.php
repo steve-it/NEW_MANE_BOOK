@@ -198,3 +198,10 @@ Route::get('/planete',function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/fiches','DocumentGenerator@ficheCatalographique');
+Route::get('/choixfiches',function (){
+    return view('fichesCatalographiques.choix');
+ });
+
+ 
