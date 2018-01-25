@@ -42,11 +42,6 @@
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -56,7 +51,7 @@
                                     <thead>
 
                                     <tr>
-                                        <th>Nom du Domaines</th>
+                                        <th>Domaines</th>
                                         <th>Sous Domaines</th>
                                         <th class="noExport">Action</th>
                                     </tr>
@@ -85,7 +80,7 @@
                                     <tfoot>
 
                                     <tr>
-                                        <th>Nom du Domaines</th>
+                                        <th>Domaines</th>
                                         <th>Sous Domaines</th>
                                         <th class="noExport">Action</th>
                                     </tr>
@@ -202,12 +197,14 @@
                         data: data,
                         success:function (data) {
                             console.log(data);
+                            // var domain = $('#domaines_id').value;
 
                             /*$('#insert_form')[0].reset();
                              $('#add_data_Modal').modal('hide');
                              $('#membre_table').html(data);*/
 
                             var row = '<tr id="sousdomaines'+ data.id+'" >' +
+                                '<td>' + $('#domaines_id > option[value='+data.domaines_id+']').text()  + '</td>' +
                                 '<td>' + data.NomSousDomaines + '</td>' +
                                 '<td>' +
                                 '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +

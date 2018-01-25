@@ -1,7 +1,7 @@
 <?php
-use Illuminate\Support\Facades\DB;
-use App\SousDomaine;
-use \Illuminate\Support\Facades\Input;
+//use Illuminate\Support\Facades\DB;
+//use App\SousDomaine;
+//use \Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,7 +112,7 @@ Route::get('/Selectsousdomaine',function (){
     $domainesous = SousDomaine::where('domaines_id','=',$dom_id)->get();
 
     $select = null;
-    $select .= "<option>-----------------------------------</option>";
+$select .= "<option>-----------------------------------</option>";
     foreach($domainesous as $data){
         $select .= "<option value=".$datDB::table('sousdomaines')
                 ->join('domaines','domaines.id','=','sousdomaines.domaines_id')
@@ -124,12 +124,9 @@ Route::get('/Selectsousdomaine',function (){
     return Response::json($select);*/
 });
 
+Route::get('NewDocuments', ['as' => 'creerDocuments','uses' => 'DocumentsController@create']);
 
-Route::get('NewDocuments', [
-    'as' => 'creerDocuments',
-    'uses' => 'DocumentsController@create'
-]);
-Route::post('NewDocuments','DocumentsController@store');
+Route::post('NewDocuments', 'DocumentsController@store');
 
 Route::get('cities/{id}', 'DocumentsController@cities');
 

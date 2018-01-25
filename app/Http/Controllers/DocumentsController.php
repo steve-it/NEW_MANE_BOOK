@@ -26,20 +26,26 @@ class DocumentsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
-
-        $documentsauteur = Documents::with('Categories')
+        $query = Documents::with('Categories')
             //->join('categories', 'categories.id', '=', 'documents.categories_id')
-            ->with('SousDomaines')
+            ->with('SousDomaines');
             //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
             //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
-            ->get();
 
+        $vue = 'documents.list.generale'; //vue gennerale
+        if(isset($request['cat'])) {
+            $query->where('categories_id', '=', $request->cat);
 
-        return view('documents.list',compact('documentsauteur'));
+            if($request->cat == 1) $vue = 'documents.list.memoires';
+            if($request->cat == 2) $vue = 'documents.list.revues';
+            if($request->cat == 3) $vue = 'documents.list.texts';
+            if($request->cat == 4) $vue = 'documents.list.livres';
+        }
 
+        $documentsauteur = $query->get();
+        return view($vue, compact('documentsauteur'));
     }
 
     /**
@@ -67,10 +73,7 @@ class DocumentsController extends Controller
     public function store(Request $request)
     {
 
- //dd($request->all());
-
-
-
+        //dd($request->all());
         $ouvrage = new Documents([
             'TitreDocuments' => $request['TitreDocuments'],
             'IsbnDocuments' => $request['IsbnDocuments'],
@@ -99,12 +102,11 @@ class DocumentsController extends Controller
 
         $ouvrage->save();
 
-//    $membres = MembreTribunal::find($request->membre_id);
-//    $dossier->membres_tribunal()->save($membres);
+        // $membres = MembreTribunal::find($request->membre_id);
+        // $dossier->membres_tribunal()->save($membres);
         $ouvrage->Auteurs()->attach($request->idauteur);
 
-       return redirect('documents')->withOk("le document ayant pour titre:" . $ouvrage->TitreDocuments. " a été créé.");
-
+        return redirect('documents')->withOk("le document ayant pour titre:" . $ouvrage->TitreDocuments. " a été créé.");
     }
 
     /**

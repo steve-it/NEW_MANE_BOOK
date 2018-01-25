@@ -73,12 +73,31 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <p></p>
                                                 <input type="text" class="form-control" name="TitreDocuments"
-                                                       id="TitreDocuments" required placeholder="Titre De l'Ouvrage">
+                                                id="TitreDocuments" required placeholder="Titre De l'Ouvrage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <p></p>
+                                                <input type="text" class="form-control" name="Auteur"
+                                                       id="Auteur" required placeholder="Auteurs De l'Ouvrage">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="CoteDocuments"
+                                                       placeholder="Cote Documents" required>
                                             </div>
                                         </div>
                                     </div>
@@ -87,24 +106,23 @@
 
 
 
-
-                                 <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                         <div class="form-group">
                                         <div class="form-line">
                                             <p>Domaine de connaissance</p>
                                             <select class="ms" style="width:100%" name="domaine" id="domaine" >
                                                 <option value="value='-1' selected">---Selectionnez un Domaine de Connaissance ----</option>
-                                                @foreach($domaines as $domaine)
+                                            @foreach($domaines as $domaine)
                                                     <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                     </div>
+                                    <div class="col-md-6">
+                                         <div class="form-group">
                                         {{--<div class="form-line">--}}
                                         <p>Sous domaine</p>
                                         <select class="ms" style="width:100%" name="sousdomaine" id="sousdomaine">
@@ -115,21 +133,12 @@
                                         </select>
                                         {{--</div>--}}
                                     </div>
+                                     </div>
                                 </div>
-                            </div>
 
                                 <div class="row clearfix">
 
 
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <p></p>
-                                                <input type="text" class="form-control" name="Auteur"
-                                                       id="Auteur" required placeholder="Auteurs De l'Ouvrage">
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
 
@@ -205,7 +214,7 @@
                                 </div>
 
                                 <div class="row clearfix">
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="IsbnDocuments"
@@ -215,7 +224,7 @@
 
                                 </div>
 
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control" name="IssnDocuments"
@@ -223,19 +232,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-
-
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="CoteDocuments"
-                                                   placeholder="Cote Documents" required>
-                                        </div>
-                                    </div>
                                 </div>
+
+
+
+                                <div class="row clearfix">
 
                                 <div class="col-md-6">
                                     <div class="form-group">
