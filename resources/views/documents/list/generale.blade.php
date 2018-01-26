@@ -47,12 +47,18 @@ LISTE GENERALE DES OUVRAGES
                 </td>
                 <td>{{ $document->CoteDocuments }}</td>
                 <td>{{ $document->TitreDocuments }}</td>
-                <td>
-                    {{ $document->Auteur }}
-                </td>
+                <td>{{ $document->Auteur }}</td>
                 <td>{{ $document->NbreExemplaireEdition - $document->nbre_emprunt }}</td>
-                <td>{{ $document->SousDomaines->Domaines->NomDomaines }}</td>
-                <td>{{ $document->SousDomaines->NomSousDomaines }}</td>
+                <td>
+                    @if ($document->SousDomaines)
+                        {{ $document->SousDomaines->Domaines->NomDomaines }}
+                    @endif
+                </td>
+                <td>
+                    @if ($document->SousDomaines)
+                        {{ $document->SousDomaines->NomSousDomaines }}
+                    @endif
+                </td>
                 <td>{{ $document->NbreExemplaireEdition }}</td>
                 <td>{{ $document->Categories->libelle }}</td>
                 <td>{{ $document->IsbnDocuments }}</td>

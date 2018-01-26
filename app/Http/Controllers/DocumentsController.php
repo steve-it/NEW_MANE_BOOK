@@ -45,6 +45,7 @@ class DocumentsController extends Controller
         }
 
         $documentsauteur = $query->get();
+
         return view($vue, compact('documentsauteur'));
     }
 
@@ -104,7 +105,7 @@ class DocumentsController extends Controller
 
         // $membres = MembreTribunal::find($request->membre_id);
         // $dossier->membres_tribunal()->save($membres);
-        $ouvrage->Auteurs()->attach($request->idauteur);
+        // $ouvrage->Auteurs()->attach($request->idauteur);
 
         return redirect('documents')->withOk("le document ayant pour titre:" . $ouvrage->TitreDocuments. " a été créé.");
     }
