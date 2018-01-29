@@ -7,9 +7,6 @@
 
 @section('main_content')
     <section class="content" style="width: 120%">
-        <div class="col-sm-offset-4 col-sm-4" >
-            <div class=" alert" ><span style="position: relative; left: -630px;  color: #2980b9; height: 50px; border: 1px solid inherit;">{!! session('ok') !!}</span></div>
-        </div>
         <div class="container-fluid">
 
             <div class="block-header">

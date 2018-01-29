@@ -35,19 +35,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>OUVRAGE DOCUMENTAIRE</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                       role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <div style="color: #0b6701;padding: 20px 2px;" >{!! session('ok') !!}</div>
                         </div>
 
                         <div class="body">
@@ -60,10 +48,10 @@
                                 <div class="row clearfix">
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            Type du document
                                             <div class="form-line">
-                                                <p>Type d'Ouvrage</p>
                                                 <select class="ms" style="width:100%" name="categories_id" id="categorie">
-                                                    <option value="">---------Selectionnez une Categorie --</option>
+                                                    <option value="">Choisir le Type du document</option>
                                                     @foreach($categories as $categorie)
                                                         <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
                                                     @endforeach
@@ -78,7 +66,7 @@
                                             <div class="form-line">
                                                 <p></p>
                                                 <input type="text" class="form-control" name="TitreDocuments"
-                                                id="TitreDocuments" required placeholder="Titre De l'Ouvrage">
+                                                id="TitreDocuments" required placeholder="Entrez le Titre ou le Theme">
                                             </div>
                                         </div>
                                     </div>
@@ -88,86 +76,55 @@
                                             <div class="form-line">
                                                 <p></p>
                                                 <input type="text" class="form-control" name="Auteur"
-                                                       id="Auteur" required placeholder="Auteurs De l'Ouvrage">
+                                                       id="Auteur" required placeholder="Entrez le(s) nom(s) de(s) l'auteur(s)">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <div class="form-line">
+                                                <label>Cote du document</label>
                                                 <input type="text" class="form-control" name="CoteDocuments"
-                                                       placeholder="Cote Documents" required>
+                                                       placeholder="Cote du document" required>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-
-
-
-                                <div class="row clearfix">
-                                    <div class="col-md-6">
-                                         <div class="form-group">
-                                        <div class="form-line">
-                                            <p>Domaine de connaissance</p>
-                                            <select class="ms" style="width:100%" name="domaine" id="domaine" >
-                                                <option value="value='-1' selected">---Selectionnez un Domaine de Connaissance ----</option>
-                                            @foreach($domaines as $domaine)
-                                                    <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
-                                                @endforeach
-                                            </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Nombre d'exemplaire</label>
+                                                <input type="number" class="form-control" value="1" name="NbreExemplaireEdition"
+                                                       placeholder="Nombre d'exemplaire">
+                                            </div>
                                         </div>
                                     </div>
 
-                                     </div>
-                                    <div class="col-md-6">
-                                         <div class="form-group">
-                                        {{--<div class="form-line">--}}
-                                        <p>Sous domaine</p>
-                                        <select class="ms" style="width:100%" name="sousdomaine" id="sousdomaine">
-                                            {{--<option value="">---------Selectionnez un Sous domaine --</option>--}}
-                                            {{--@foreach($sousdomaines as $sousdomaine)--}}
-                                            {{--<option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>--}}
-                                            {{--@endforeach--}}
-                                        </select>
-                                        {{--</div>--}}
-                                    </div>
-                                     </div>
-                                </div>
-
-                                <div class="row clearfix">
-
-
-                                </div>
-
-
-                                <div class="row clearfix">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <p>Section-Filère</p>
                                                 <select class="ms" style="width:100%" name="Section" id="Section">
-                                                    <option value="">---------Selectionnez une Section --</option>
+                                                    <option value="">Choisir la Section</option>
                                                     <optgroup label="DIVISION ADMINISTRATIVE ">
-                                                    <option value="ADMINISTRATION GENERALE">ADMINISTRATION GENERALE</option>
-                                                    <option value="ADMINISTRATION DU TRAVAIL">ADMINISTRATION DU TRAVAIL</option>
-                                                    <option value="ECONOMIE ET FINANCE ">ECONOMIE ET FINANCE </option>
+                                                        <option value="ADMINISTRATION GENERALE">ADMINISTRATION GENERALE</option>
+                                                        <option value="ADMINISTRATION DU TRAVAIL">ADMINISTRATION DU TRAVAIL</option>
+                                                        <option value="ECONOMIE ET FINANCE ">ECONOMIE ET FINANCE </option>
 
-                                                    <option value="ADMINISTRATION DES AFFAIRES SOCIALES">ADMINISTRATION DES AFFAIRES SOCIALES</option>
+                                                        <option value="ADMINISTRATION DES AFFAIRES SOCIALES">ADMINISTRATION DES AFFAIRES SOCIALES</option>
                                                     </optgroup>
-                                                  <optgroup label="DIVISION DE LA MAGISTRATURE ET DES GREFFES">
+                                                    <optgroup label="DIVISION DE LA MAGISTRATURE ET DES GREFFES">
                                                         <option value="ADMINISTRATEUR DE GREFFES">ADMINISTRATEUR DE GREFFES</option>
-                                                    <option value="AUDITEURS DE JUSTICE ADMINISTRATIVE"> AUDITEURS DE JUSTICE ADMINISTRATIVE  </option>
-                                                    <option value="AUDITEURS DE JUSTICE DES COMPTES">  AUDITEURS DE JUSTICE DES COMPTES</option>
-                                                    <option value="AUDIETEURS DE JUSTICE JUDICIAIRE"> AUDIETEURS DE JUSTICE JUDICIAIRE</option>
-                                                      <option value="TRESOR">TRESOR</option>
-                                                  </optgroup>
+                                                        <option value="AUDITEURS DE JUSTICE ADMINISTRATIVE"> AUDITEURS DE JUSTICE ADMINISTRATIVE  </option>
+                                                        <option value="AUDITEURS DE JUSTICE DES COMPTES">  AUDITEURS DE JUSTICE DES COMPTES</option>
+                                                        <option value="AUDIETEURS DE JUSTICE JUDICIAIRE"> AUDIETEURS DE JUSTICE JUDICIAIRE</option>
+                                                        <option value="TRESOR">TRESOR</option>
+                                                    </optgroup>
                                                     <optgroup label="DIVISION DES REGIES FINANCIERES">
-                                                    <option value="DOUANE">DOUANE</option>
-                                                    <option value="GREFFES">GREFFES</option>
-                                                    <option value="IMPOT">IMPOT</option>
-                                                    <option value="PRIX POIDS ET MESURES">PRIX POIDS ET MESURES</option>
+                                                        <option value="DOUANE">DOUANE</option>
+                                                        <option value="GREFFES">GREFFES</option>
+                                                        <option value="IMPOT">IMPOT</option>
+                                                        <option value="PRIX POIDS ET MESURES">PRIX POIDS ET MESURES</option>
 
                                                     </optgroup>
 
@@ -177,185 +134,200 @@
 
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                         <div class="form-group">
+                                            <div class="form-line">
+                                                <p>Domaine de connaissance</p>
+                                                <select class="ms" style="width:100%" name="domaine" id="domaine" >
+                                                    <option value="value='-1' selected">Selectionnez un Domaine de Connaissance</option>
+                                                @foreach($domaines as $domaine)
+                                                        <option value="{{ $domaine->id }}">{{ $domaine->NomDomaines  }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                         <div class="form-group">
+                                            {{--<div class="form-line">--}}
+                                            <p>Sous domaine</p>
+                                            <select class="ms" style="width:100%" name="sousdomaine" id="sousdomaine">
+                                                {{--<option value="">---------Selectionnez un Sous domaine --</option>--}}
+                                                {{--@foreach($sousdomaines as $sousdomaine)--}}
+                                                {{--<option value="{{ $sousdomaine->id }}">{{ $sousdomaine->NomSousDomaines }}</option>--}}
+                                                {{--@endforeach--}}
+                                            </select>
+                                            {{--</div>--}}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row clearfix">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Annee Publication Documents</label>
+                                                <input type="number" class="form-control" name="AnneePublicationDocuments"
+                                                       placeholder="Annee Publication Documents">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Date d'edition du document</label>
+                                                <input type="number" class="form-control" name="DateEditionDocuments"
+                                                       placeholder="Date d'edition du document">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Lieu d'edition</label>
+                                                <input type="text" class="form-control" name="LieuEditionDocuments"
+                                                       placeholder="Lieu d'edition du document">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="EditionsDocuments"
+                                                       id="EditionsDocuments" placeholder="Edition du document">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="MaisonEditionDocuments"
+                                                       id="MaisonEditionDocuments" placeholder="Maison d'edition du document">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="AdresseMaisonEdition"
+                                                       id="AdresseMaisonEdition" placeholder="Adresse de la maison d'edition">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="IsbnDocuments"
+                                                       placeholder="ISBN du document" >
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="IssnDocuments"
+                                                       placeholder="ISSN du document" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row clearfix">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Reliure du document</label>
+                                                <select class="ms" style="width:100%" name="ReliureDocuments" id="ReliureDocuments" >
+                                                    <option value='-1' selected></option>
+                                                    <option value="brochet">Brochet</option>
+                                                    <option value="reliure">Reliure</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Illustration du document</label>
+                                                <select class="ms" style="width:100%" name="IllustrationDocuments" id="IllustrationDocuments" >
+                                                    <option value='-1' selected></option>
+                                                    <option value="il">il</option>
+                                                    <option value="il en coule">il en coule</option>
+                                                    <option value="sans il">sans il</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="NumeroDecret"
+                                                       placeholder="Numero du decret">
+                                            </div>
+                                        </div>
+
+                                    </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="NumeroEntresDocuments"
-                                                       placeholder="Numero Entres Documents ">
+                                                       placeholder="Numéro d'entrée du document">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-
-
-
-                                <div class="row clearfix">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="NumeroDecret"
-                                                       placeholder="NumeroDecret">
+                                                <input type="text" class="form-control" name="EditeurDocuments"
+                                                       id="EditeurDocuments" placeholder="Editeur Documents">
                                             </div>
                                         </div>
-
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="IllustrationDocuments"
-                                                       id="IllustrationDocuments" placeholder="Illustration Du Document">
+                                                <input type="number" class="form-control" name="LongueurEditionDocuments"
+                                                       id="LongueurEditionDocuments"
+                                                       placeholder="Longueur Edition Documents">
                                             </div>
                                         </div>
                                     </div>
 
-
-                                </div>
-
-                                <div class="row clearfix">
                                     <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="IsbnDocuments"
-                                                   placeholder="Isbn Du Documents" >
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="PeriodiciteDocuments"
+                                                       id="PeriodiciteDocuments" placeholder="Periodicite Documents">
+                                            </div>
                                         </div>
                                     </div>
 
                                 </div>
-
-                                    <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="IssnDocuments"
-                                                   placeholder="Issn Du Documents" >
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-
-
-
-                                <div class="row clearfix">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="EditionsDocuments"
-                                                   id="EditionsDocuments" placeholder="Edition Du Documents">
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <label>Annee Publication Documents</label>
-                                            <input type="date" class="form-control" name="AnneePublicationDocuments"
-                                                   placeholder="Annee Publication Documents">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <label>Date Edition Documents</label>
-                                            <input type="date" class="form-control" name="DateEditionDocuments"
-                                                   placeholder="DateEditionDocuments">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <label>Lieu Edition</label>
-                                            <input type="text" class="form-control" name="LieuEditionDocuments"
-                                                   placeholder="LieuEditionDocuments">
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-
-
-                            <div class="row clearfix">
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="number" class="form-control" name="NbreExemplaireEdition"
-                                                   placeholder="Nombre Exemplaire Edition">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="MaisonEditionDocuments"
-                                                   id="MaisonEditionDocuments" placeholder="Maison Edition Documents">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="AdresseMaisonEdition"
-                                                   id="AdresseMaisonEdition" placeholder="Adresse Maison Edition">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="EditeurDocuments"
-                                                   id="EditeurDocuments" placeholder="Editeur Documents">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="number" class="form-control" name="LongueurEditionDocuments"
-                                                   id="LongueurEditionDocuments"
-                                                   placeholder="Longueur Edition Documents">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="PeriodiciteDocuments"
-                                                   id="PeriodiciteDocuments" placeholder="Periodicite Documents">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="ReliureDocuments"
-                                                   id="ReliureDocuments" placeholder="Reliure Documents">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                                 <!-- <div class="row clearfix">
                                 <div class="col-md-6">
