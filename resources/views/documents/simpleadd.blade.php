@@ -3,9 +3,6 @@
 @section('css')
     <link href={{asset("css/sweetalert2.min.css")}} rel="stylesheet"/>
 
-
-    <!-- Bootstrap Material Datetime Picker Css -->
-    <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css")}} rel="stylesheet">
     <!-- Bootstrap Select Css -->
     {{--<link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css")}} rel="stylesheet">--}}
     <!-- Wait Me Css -->

@@ -19,19 +19,16 @@
                     <a href="{{ url('domaines') }}" class="mce-menu-item">
                         <i class="material-icons">domain</i><span>DOMAINES</span>
                     </a>
-
                 </li>
                 <li>
                     <a href="{{ url('sousdomaines') }}" class="mce-menu-item">
                         <i class="material-icons">folder</i><span>SOUS-DOMAINES</span>
                     </a>
-
                 </li>
                 <li>
                     <a href="{{ url('categories') }}" class="mce-menu-item">
                         <i class="material-icons">class</i><span>TYPE-OUVRAGES</span>
                     </a>
-
                 </li>
                 <!--<li>
                     <a href="{{ url('Auteurs') }}"  class="mce-menu-item">
@@ -40,38 +37,44 @@
 
                 </li>-->
                 <li>
-                <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">insert_drive_file</i>
-                <span>DOCUMENTS</span>
-                </a>
-                <ul class="ml-menu">
-                    <li>
-                        <a href="/documents?cat=4">
-                            <span>Livres</span>
-                        </a>
-                    </li>
-                    <li>
-                    <a href="/documents?cat=1">
-                            <span>Memoires</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/documents?cat=2">
-                            <span>Periodiques et Revues</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/documents?cat=3">
-                            <span>Textes et decrets</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('documents') }}">
-                            <span>Toutes</span>
-                        </a>
-                    </li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">insert_drive_file</i>
+                        <span>DOCUMENTS</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="/documents?cat=4">
+                                <span>Livres</span>
+                            </a>
+                        </li>
+                        <li>
+                        <a href="/documents?cat=1">
+                                <span>Memoires</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/documents?cat=2">
+                                <span>Periodiques et Revues</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/documents?cat=3">
+                                <span>Textes et decrets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('documents') }}">
+                                <span>Toutes</span>
+                            </a>
+                        </li>
                     </ul>
-            </li>
+                </li>
+
+                <li>
+                    <a href="{{ url('choixfiches') }}" class="mce-menu-item">
+                        <i class="material-icons">payment</i><span>FICHES CAT.</span>
+                    </a>
+                </li>
             </ul>
         </li><li>
             <a href="javascript:void(0);" class="menu-toggle">

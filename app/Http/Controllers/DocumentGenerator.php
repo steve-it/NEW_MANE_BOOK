@@ -30,9 +30,9 @@ class DocumentGenerator extends Controller
         $contains .= '</table>';
         
         $style = '<style>
-        table td{font-size: 1em;}
-        .maintable{border: none; border-spacing: 15px;}
-        .block{padding: 10px; border: 1px solid #000;}
+        table td{ font-size: 1em; }
+        .maintable{ table-layout: fixed; border: none; border-spacing: 15px;}
+        .block{ width: 50%; padding: 10px; border: 1px solid #000;}
         </style>';
         $html = '<html><body>'.$style.$header.$contains.'</body></html>';
 

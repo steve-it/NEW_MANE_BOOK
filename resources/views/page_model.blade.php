@@ -27,6 +27,9 @@
         <!-- Morris Chart Css-->
         <link href={{asset("bower_components/adminbsb-materialdesign/plugins/morrisjs/morris.css")}} rel="stylesheet" />
 
+        <!-- Bootstrap Material Datetime Picker Css -->
+        <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css")}} rel="stylesheet">
+
         <!-- Custom Css -->
         <link href={{asset("bower_components/adminbsb-materialdesign/css/style.css")}} rel="stylesheet">
 
@@ -156,7 +159,7 @@
         <script>
             $(function () {
                 $('.datetimepicker').bootstrapMaterialDatePicker({
-                    format: 'dddd DD MMMM YYYY - HH:mm',
+                    format: 'YYYY-MM-DD hh:mm',
                     clearButton: true,
                     weekStart: 1
                 });
