@@ -22,11 +22,11 @@ class CreateDocumentsTable extends Migration
             $table->string('IssnDocuments', 255)->nullable();
             $table->string('CoteDocuments', 255)->nullable();
             $table->string('NumeroEntresDocuments', 255)->nullable();
-            $table->date('AnneePublicationDocuments')->nullable();
+            $table->integer('AnneePublicationDocuments')->nullable();
             $table->string('EditionsDocuments', 255)->nullable();
             $table->string('EditeurDocuments',255)->nullable();
             $table->integer('NbreExemplaireEdition')->nullable();
-            $table->date('DateEditionDocuments')->nullable();
+            $table->integer('DateEditionDocuments')->nullable();
             $table->string('LieuEditionDocuments')->nullable();
             $table->string('MaisonEditionDocuments', 255)->nullable();
             $table->string('LongueurEditionDocuments', 200)->nullable();

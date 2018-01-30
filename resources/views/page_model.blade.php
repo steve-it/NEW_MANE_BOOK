@@ -139,6 +139,12 @@
         <!-- Sparkline Chart Plugin Js -->
         <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js")}}></script>
 
+        <!-- Moment Plugin Js -->
+        <script src={{asset("bower_components/adminbsb-materialdesign/plugins/momentjs/moment.js")}}></script>
+
+        <!-- Bootstrap Material Datetime Picker Plugin Js -->
+        <script src={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js")}}></script>
+
         <!-- Custom Js -->
         <script src={{asset("bower_components/adminbsb-materialdesign/js/admin.js")}}></script>
         <!--<script src={{asset("bower_components/adminbsb-materialdesign/js/pages/index.js")}}></script>-->
@@ -146,6 +152,29 @@
         <!-- Demo Js
         <script src={{asset("bower_components/adminbsb-materialdesign/js/demo.js")}}></script>-->
         @yield('js')
+
+        <script>
+            $(function () {
+                $('.datetimepicker').bootstrapMaterialDatePicker({
+                    format: 'dddd DD MMMM YYYY - HH:mm',
+                    clearButton: true,
+                    weekStart: 1
+                });
+
+                $('.datepicker').bootstrapMaterialDatePicker({
+                    format: 'dddd DD MMMM YYYY',
+                    clearButton: true,
+                    weekStart: 1,
+                    time: false
+                });
+
+                $('.timepicker').bootstrapMaterialDatePicker({
+                    format: 'HH:mm',
+                    clearButton: true,
+                    date: false
+                });
+            });
+        </script>
 
     </body>
 

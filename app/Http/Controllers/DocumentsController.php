@@ -107,7 +107,7 @@ class DocumentsController extends Controller
         // $dossier->membres_tribunal()->save($membres);
         // $ouvrage->Auteurs()->attach($request->idauteur);
 
-        return redirect('documents')->withOk("le document ayant pour titre:" . $ouvrage->TitreDocuments. " a été créé.");
+        return redirect('NewDocuments')->withOk( '<strong>'. $ouvrage->TitreDocuments. '</strong> a été enregistré.');
     }
 
     /**
