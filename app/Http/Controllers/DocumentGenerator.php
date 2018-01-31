@@ -17,7 +17,11 @@ class DocumentGenerator extends Controller
         $debut = $request->debut;
         $fin   = $request->fin;
 
-        $docs = Documents::with('Categories')->with('SousDomaines')->get();
+        $docs = Documents::with('Categories')
+                           ->with('SousDomaines')
+                           ->where('created_at', '>=', $debut)
+                           ->where('created_at', '<=', $fin)
+                           ->get();
 
         $header = "Fiche des documents enregistrées entre le $debut et le $fin<br><br>";
         
@@ -50,20 +54,21 @@ class DocumentGenerator extends Controller
     }
 
     private function buildBlock($doc){
+        $domaine_intitle = '';
+        if(isset($doc->SousDomaines)) {
+            $domaine_intitle  = $doc->SousDomaines->NomSousDomaines;
+            $domaine_intitle .= ','. $doc->SousDomaines->Domaines->NomDomaines;
+        }
 
-    $block = <<<"ENDHTML"
-    <td class='block'>
-            <table>
-            <tr>
-                <td>$doc->TitreDocuments, $doc->Auteur, $doc->AnneePublicationDocuments<br><br><td>
-            </tr>
-            <tr>
-                <td>
-                $doc->Section<br>
-                $doc->CoteDocuments<br><td>
-            </tr>
-            </table>
-    </td>
+        $block = <<<"ENDHTML"
+        <td class='block'>
+                <div>
+                        $doc->CoteDocuments<br>
+                        $doc->Section<br>
+                        $domaine_intitle<br>  
+                        $doc->TitreDocuments, $doc->Auteur, $doc->AnneePublicationDocuments<br>
+                </div>
+        </td>
 ENDHTML;
 
         return $block;
