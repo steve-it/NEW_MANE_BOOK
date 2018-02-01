@@ -22,17 +22,17 @@ class DomainsSousDomainsSeeder extends Seeder
                 ]
             ],
             [
-                'parent'   => ['id' => 1, 'NomDomaines' => 'Politique'],
+                'parent'   => ['id' => 2, 'NomDomaines' => 'Politique'],
                 'children' => [
-                    ['id'=>1, 'domaines_id' => 1, 'NomSousDomaines' => 'Geo-Polique'],
-                    ['id'=>2, 'domaines_id' => 1, 'NomSousDomaines' => 'Science Politique'],
+                    ['id'=>3, 'domaines_id' => 2, 'NomSousDomaines' => 'Geo-Polique'],
+                    ['id'=>4, 'domaines_id' => 2, 'NomSousDomaines' => 'Science Politique'],
                 ]
             ],
             [
-                'parent'   => ['id' => 2, 'NomDomaines' => 'Administration'],
+                'parent'   => ['id' => 3, 'NomDomaines' => 'Administration'],
                 'children' => [
-                    ['id'=>3, 'domaines_id' => 2, 'NomSousDomaines' => 'Administration du travail'],
-                    ['id'=>4, 'domaines_id' => 2, 'NomSousDomaines' => 'Administration parlementaire'],
+                    ['id'=>5, 'domaines_id' => 3, 'NomSousDomaines' => 'Administration du travail'],
+                    ['id'=>6, 'domaines_id' => 3, 'NomSousDomaines' => 'Administration parlementaire'],
                 ]
             ],
         ];
