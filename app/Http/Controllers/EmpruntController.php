@@ -85,7 +85,7 @@ class EmpruntController extends Controller
    */
   public function store(Request $request)
   {
-      //dump($request);
+      //dd($request->all());
 
 
 
@@ -94,7 +94,7 @@ class EmpruntController extends Controller
           ->where('documents.id', $request['document'])
           ->select('documents.*')
           ->get();
-      //dump();
+      //dd($nbre_emprunt_initial);
 
       $nbre_emprunt_actuel = $nbre_emprunt_initial[0]->nbre_emprunt;
 
@@ -114,6 +114,7 @@ class EmpruntController extends Controller
           $emprunt = new Emprunt([
               'NomEmprunteur'=>$request['NomEmprunteur'],
               'CniEmprunteur'=>$request['CniEmprunteur'],
+              'adresse' =>$request['adresse'],
               'DateEmprunt'=>$request['DateEmprunt'],
               'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
               'ObservationEmprunt'=>$request['ObservationEmprunt'],
