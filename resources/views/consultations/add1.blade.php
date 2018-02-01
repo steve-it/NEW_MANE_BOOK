@@ -30,59 +30,44 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2><center>CONSULTATION DE L'OUVRAGE DE L'EDITION</center>
-                                <br> <br>
-                               <center> TITRE : <strong>{{ $ouvre->TitreDocuments }}</strong></center>
-                                <br>
-                                <center> COTE :  <strong>{{ $ouvre->CoteDocuments }}</strong></center>
+                            <h2>
+                                <center>CONSULTATION DE: <span style="font-weight: bold">{{ $ouvre->TitreDocuments }}</span></center>
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                       role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
 
                         <div class="body">
 
                             {{--  <form id="add_documents" method="POST"> --}}
-                            <form id="insert_form" method="POST" action="NouvelleConsultations" >
-                            {{ csrf_field() }}
-                            {{--  {{ Form::open(['url'=>'NewDocuments', 'method'=>'POST']) }}--}}
+                            <form id="insert_form" method="POST" action="NouvelleConsultations">
+                                {{ csrf_field() }}
+                                {{--  {{ Form::open(['url'=>'NewDocuments', 'method'=>'POST']) }}--}}
                                 <input type="hidden" name="document" id="document" value="{{ $ouvre->id }}">
 
                                 <div class="row clearfix">
                                     <div class="col-md-6">
-                                        <div class="form-group>
-                                        <div class="form-line{{ $errors->has('DateConsultations') ? ' has-error' : '' }}">
-                                        <label>Date De Consultation De L'Ouvrage</label>
-                                        <input type="date" id="DateConsultations" name="DateConsultations" class="form-control" placeholder="DateConsultations" value="{{ date('Y-m-d') }}">
-                                        @if ($errors->has('DateConsultations'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('DateConsultations') }}</strong>
-                                            </span>
-                                        @endif
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                            {{ $errors->has('DateConsultations') ? ' has-error' : '' }}
+
+                                            <label>Date de consultation</label>
+                                            <input type="date" class="form-control" id="DateConsultations"
+                                                   name="DateConsultations" placeholder="DateConsultations"
+                                                   value="{{ date('Y-m-d') }}" required>
+
+                                        </div>
                                     </div>
                                 </div>
-
+                                </div>
 
                                 <button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
                                 {{--{{ Form::close() }}--}}
                             </form>
 
+                        </div>
                     </div>
                 </div>
+                <!-- #END# Advanced Validation -->
             </div>
-            <!-- #END# Advanced Validation -->
-        </div>
     </section>
 @stop
 
@@ -101,38 +86,31 @@
         });
 
 
+        /*  $('#insert_form').on('submit', function (e) {
+              e.preventDefault();
 
+              var data= $(this).serialize();
 
+              var url = $(this).attr('action');
+              var post = $(this).attr('method');
 
-      /*  $('#insert_form').on('submit', function (e) {
-            e.preventDefault();
+             alert(data);
 
-            var data= $(this).serialize();
+              $.ajax({
+                  type : post, // method of route get, post.....
+                  url : url,
+                  data : data , //  JSon Array
+                  success:function (data) { console.log(data) },
+                  error : function(resultat, statut, erreur){
 
-            var url = $(this).attr('action');
-            var post = $(this).attr('method');
+                  }
+              });
 
-           alert(data);
-
-            $.ajax({
-                type : post, // method of route get, post.....
-                url : url,
-                data : data , //  JSon Array
-                success:function (data) { console.log(data) },
-                error : function(resultat, statut, erreur){
-
-                }
-            });
-
-        });*/
+          });*/
 
         /* Script de listy dynamique domaine et Sousdomaine */
 
         /* Script de listy dynamique domaine et Sousdomaine */
-
-
-
-
 
 
     </script>

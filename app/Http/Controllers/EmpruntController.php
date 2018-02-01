@@ -121,7 +121,8 @@ class EmpruntController extends Controller
               'statusEmprunteur'=>$request['destination'],
               'cautionEmprunteur'=>$request['prix'],
               'Date_Retour' => null,
-              'documents_id' => $request['document']
+              'documents_id' => $request['document'],
+              'adresse' => $request['adresse']
 
           ]);
           $emprunt->save();

@@ -79,7 +79,7 @@ class ConsultationController extends Controller
   public function store(Request $request)
   {
 
-     dump($request);
+//     dump($request);
 
       $consultant = new Consultation([
           'DateConsultations' => $request['DateConsultations'],
@@ -88,12 +88,7 @@ class ConsultationController extends Controller
       ]);
       $consultant->save();
 
-      return redirect('Consultations')->withOk("Consultation du document enregistrer en date du:" .$request['DateConsultations'] . "  En Base");
-
-
-
-
-      return Redirect('Consultations')->with("La consultation en Date de : a été ajoutée.");
+      return redirect('Consultations')->withOk("Consultation du document effectué");
   }
 
   /**

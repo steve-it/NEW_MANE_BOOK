@@ -17,9 +17,6 @@
 @section('main_content')
 
     <section class="content" style="width: 120%">
-        <div class="col-sm-offset-4 col-sm-4" >
-            <div class=" alert" ><span style="position: relative; left: 100px;  color: green; height: 50px; border: 1px solid inherit;">{!! session('ok') !!}</span></div>
-        </div>
         <div class="container-fluid">
             {{--<div style="position: relative;  top: -10px; left:-78%; text-align: center"><button class="btn btn-success bars">Afficher/Cacher le Menu</button><br></div>--}}
 
@@ -45,19 +42,8 @@
                             <h2>
                                 LISTE DES CONSULTATIONS
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                            <div style="color: #0b6701;padding: 20px 2px;" >{!! session('ok') !!}</div>
+                           </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
