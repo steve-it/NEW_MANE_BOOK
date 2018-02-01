@@ -243,12 +243,6 @@ class DocumentsController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
-    {
-
-    }
-
-
     public function cities($id)
     {
         // Retour des villes pour le pays sélectionné
@@ -275,6 +269,14 @@ class DocumentsController extends Controller
         else
             return ['value'=>'No Result Found','id'=>''];
     }
+
+    public function destroy(Request $r)
+    {
+        $document =  Documents::find($r->id);
+        $document->delete();
+        return redirect()->back();
+    }
+
 
 
 

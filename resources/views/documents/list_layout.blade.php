@@ -96,5 +96,22 @@
                 ]
             });
         });
+
+        //------------------supprimer--------------------
+        $('.btn-danger').click(function () {
+
+            var value= $(this).data('id');
+            var url = '{{ URL::to('deleteDcoument') }}';
+            if(confirm("Voulez vous supprimer ce document ?")==true){
+
+                $.ajax({type : 'get',  url : url, data : {'id':value}, success:function (data) {
+                        console.log(data);
+                        $('#document'+value).remove();
+
+                    }
+                });
+            }
+
+        });
     </script>
 @stop

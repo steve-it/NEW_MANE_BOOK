@@ -9,7 +9,8 @@ class Emprunt extends Model
 
     protected $table = 'emprunts';
     public $timestamps = true;
-    protected $fillable = ['NomEmprunteur','CniEmprunteur','adresse','DateEmprunt','DateEffRetourEmprunt',
+
+    protected $fillable = ['NomEmprunteur','CniEmprunteur','DateEmprunt','DateEffRetourEmprunt','adresse',
         'ObservationEmprunt','ObservationRetour','statusEmprunteur','cautionEmprunteur','Date_Retour','documents_id'];
 
     /*public function Documents()

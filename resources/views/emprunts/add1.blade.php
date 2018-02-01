@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>Date D'emprunt</label>
@@ -61,12 +61,22 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Date effective du Retour</label>
+                                                <input type="date" class="form-control" name="DateEffRetourEmprunt"
+                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <label>Date Effectif Retour Emprunt</label>
-                                                <input type="date" class="form-control" name="DateEffRetourEmprunt"
-                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
+                                                <label>Adresse de l'empreinteur</label>
+                                                <input type="text" class="form-control" name="adresse"
+                                                       id="adresse"  required>
                                             </div>
                                         </div>
                                     </div>
