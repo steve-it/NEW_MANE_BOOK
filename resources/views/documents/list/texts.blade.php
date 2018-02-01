@@ -41,13 +41,14 @@ LISTE DES TEXTS ET LOIS
         {{--{{ dd($documentsauteur) }}--}}
         @foreach($documentsauteur as $document)
 {{--            {{ dd($document->id) }}--}}
-            <tr id="dossiers{{$document->id}}">
+            <tr id="document{{$document->id}}">
                 <td>
                     {{--<button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $document->id }}" title="voir"><i class="material-icons">list</i></button>--}}
                     {{--<button class="btn btn-xs btn-danger" data-id="{{ $document->id }}" title="Supprimer"><i class="material-icons">remove</i></button>--}}
                     <a class="btn btn-xs btn-info " href ="{{ action('ConsultationController@consulter', ['id' => $document->id]) }}" title="Consulter Cet Ouvrage"> <i class="material-icons">forum</i></a>
                     <a class="btn btn-xs btn-info"  href ="{{ action('DocumentsController@edit', ['id' => $document->id]) }}" title="Modifier le dossier" ><i class="material-icons">create</i></a>
                     <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@emprunt', ['id' => $document->id]) }}" title="Emprunter Cet Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
+                    <a class="btn btn-xs btn-danger" data-id="{{  $document->id }}" title="Supprimer le document"><i class="material-icons">clear</i></a>
                 </td>
                 <td>{{ $document->CoteDocuments }}</td>
                 <td>{{ $document->TitreDocuments }}</td>

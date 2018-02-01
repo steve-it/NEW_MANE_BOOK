@@ -133,6 +133,8 @@ Route::get('ModifierDocuments', 'DocumentsController@edit');
 Route::get('cities/{id}', 'DocumentsController@cities');
 
 Route::post('UpdateDocument', 'DocumentsController@update');
+
+Route::get('deleteDcoument', 'DocumentsController@destroy');
 //Route::get('searchajax',array('as'=>'searchajax','uses'=>'DocumentsController@dataAjax'));
 
 //Route::get('select2-autocomplete-ajax', 'DocumentsController@dataAjax');
