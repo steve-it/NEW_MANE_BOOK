@@ -17,30 +17,39 @@ class DocumentGenerator extends Controller
         $debut = $request->debut;
         $fin   = $request->fin;
 
-        $docs = Documents::with('Categories')->with('SousDomaines')->get();
+        $docs = Documents::with('Categories')
+                           ->with('SousDomaines')
+                           ->where('created_at', '>=', $debut)
+                           ->where('created_at', '<=', $fin)
+                           ->get();
 
-        $header = "Fiche des documents enregistrées entre le $debut et le $fin<br><br>";
+        $header = "";//"<h4 align='center'>Fiche des documents enregistrées entre le $debut et le $fin<br><br></h4>";
         
         $contains = '<table class="maintable" width="100%">';
-        foreach ($docs as $key => $doc) {
-            if($key%2==0) $contains .= '<tr>'; 
-            $contains .= $this->buildBlock($doc);
-            if($key%2==1) $contains .= '</tr>';
+        $contains .= '<tr><td/><td/></tr><tr>';
+        //for($i=0;$i<5;$i++) {
+        for($i=0; $i<count($docs); $i++) {
+            $contains .= $this->buildBlock($docs[$i%count($docs)], $i);
+            if($i>0 && $i%2==1) $contains .= '</tr><tr>';
         }
+        $contains .= '</tr>'; //close at the closed
+                
         $contains .= '</table>';
         
         $style = '<style>
-        table td{ font-size: 1em; }
-        .maintable{ table-layout: fixed; border: none; border-spacing: 15px;}
-        .block{ width: 50%; padding: 10px; border: 1px solid #000;}
+        html, body, table {margin:0;}
+        .maintable td{ font-size: 1.2em; }
+        .maintable{ table-layout: fixed; border: none; border-spacing: 0px;}
+        .block{ overflow:hidden; line-height:2; width:125mm; height:88.5mm; page-break-inside: avoid; border: 1px dashed #999;}
         </style>';
-        $html = '<html><body>'.$style.$header.$contains.'</body></html>';
+        $html = '<html><head>'.$style.'</head><body>'.$header.$contains.'</body></html>';
 
         if(isset($request['debug'])) return $html;
 
+        $html = preg_replace('/>\s+</', "><", $html);
         $dompdf->loadHtml($html);
         
-        // $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper('A4', 'landscape');
 
         // Render the HTML as PDF
         $dompdf->render();
@@ -49,21 +58,46 @@ class DocumentGenerator extends Controller
         return $dompdf->stream('Fiches Catalographiques.pdf',array('Attachment'=>0));
     }
 
-    private function buildBlock($doc){
+    private function buildBlock($doc, $i){
+        $domaine = '';
+        $sousdomaine = '';
+        if(isset($doc->SousDomaines)) {
+            $domaine = $doc->SousDomaines->Domaines->NomDomaines;
+            $sousdomaine     = $doc->SousDomaines->NomSousDomaines;
+        }
 
-    $block = <<<"ENDHTML"
-    <td class='block'>
-            <table>
-            <tr>
-                <td>$doc->TitreDocuments, $doc->Auteur, $doc->AnneePublicationDocuments<br><br><td>
-            </tr>
-            <tr>
-                <td>
-                $doc->Section<br>
-                $doc->CoteDocuments<br><td>
-            </tr>
-            </table>
-    </td>
+        $displayHack = '';// ($i==7)?'style="page-break-after:always;background:red;height:50mm;"':'';
+
+        $block = <<<"ENDHTML"
+        <td class='block' valign='top' $displayHack>
+            <div style='position:relative; width:100%; height:87.5mm; overflow:hidden; padding: 30px;'>
+                <table style='position:absolute;' width='100%' height='100%'>
+                    <tr>
+                        <td style='text-align:left;'>
+                            $doc->CoteDocuments
+                        </td>
+                        <td style='text-align:right;'>
+                        $domaine
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>$doc->Section</td>
+                    </tr>
+                    <tr>
+                        <td>$doc->TitreDocuments</td>
+                    </tr>
+                    <tr>
+                        <td>$doc->Auteur, $doc->AnneePublicationDocuments</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style='text-align:right;'>
+                            $sousdomaine
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
 ENDHTML;
 
         return $block;
