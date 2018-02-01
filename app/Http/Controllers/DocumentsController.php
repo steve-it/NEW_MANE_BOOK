@@ -59,11 +59,15 @@ class DocumentsController extends Controller
 
         $domaines = Domaine::all();
         $categories = Categorie::all();
-       // $auteurs = Auteur::all();
         $sousdomaines = SousDomaine::all();
-        //$auteurs = Auteur::pluck('NomAuteur','id');
-        return view('documents.simpleadd', compact(['domaines', 'categories','sousdomaines']));
 
+        $buildOption = $this->makeOptionBuilder();
+
+        $document = new Documents();
+
+        //dd($document['TitreDocuments']);
+
+        return view('documents.simpleadd', compact(['domaines', 'categories','sousdomaines','buildOption', 'document']));
     }
 
     /**
@@ -74,40 +78,111 @@ class DocumentsController extends Controller
     public function store(Request $request)
     {
 
-        //dd($request->all());
-        $ouvrage = new Documents([
-            'TitreDocuments' => $request['TitreDocuments'],
-            'IsbnDocuments' => $request['IsbnDocuments'],
-            'IssnDocuments' => $request['IssnDocuments'],
-            'CoteDocuments' => $request['CoteDocuments'],
-            'Section'=>$request['Section'],
-            'Auteur'=>$request['Auteur'],
-            'NumeroDecret'=>$request['NumeroDecret'],
-            'DateEditionDocuments'=>$request['DateEditionDocuments'],
-            'LieuEditionDocuments'=>$request['LieuEditionDocuments'],
-            'EditeurDocuments'=>$request['EditeurDocuments'],
-            'NumeroEntresDocuments' => $request['NumeroEntresDocuments'],
-            'AnneePublicationDocuments' => $request['AnneePublicationDocuments'],
-            'EditionsDocuments' => $request['EditionsDocuments'],
-            'NbreExemplaireEdition' => $request['NbreExemplaireEdition'],
-            'MaisonEditionDocuments' => $request['MaisonEditionDocuments'],
-            'LongueurEditionDocuments' => $request['LongueurEditionDocuments'],
-            'AdresseMaisonEdition' => $request['AdresseMaisonEdition'],
-            'IllustrationDocuments' => $request['IllustrationDocuments'],
-            'PeriodiciteDocuments' => $request['PeriodiciteDocuments'],
-            'ReliureDocuments' => $request['ReliureDocuments'],
+        if (isset($request->id)) {
+            $doc = Documents::find($request->id);
+//            dd($request->id);
+            if (isset($request->TitreDocuments)) {
+                $doc->TitreDocuments = $request->TitreDocuments;
+            }
+            if (isset($request->IsbnDocuments)) {
+                $doc->IsbnDocuments = $request->IsbnDocuments;
+            }
+            if (isset($request->IssnDocuments)) {
+                $doc->IssnDocuments = $request->IssnDocuments;
+            }
+            if (isset($request->CoteDocuments)) {
+                $doc->CoteDocuments = $request->CoteDocuments;
+            }
+            if (isset($request->NumeroEntresDocuments)) {
+                $doc->NumeroEntresDocuments = $request->NumeroEntresDocuments;
+            }
+            if (isset($request->AnneePublicationDocuments)) {
+                $doc->AnneePublicationDocuments = $request->AnneePublicationDocuments;
+            }
+            if (isset($request->EditionsDocuments)) {
+                $doc->EditionsDocuments = $request->EditionsDocuments;
+            }
+            if (isset($request->EditeurDocuments)) {
+                $doc->EditeurDocuments = $request->EditeurDocuments;
+            }
+            if (isset($request->NbreExemplaireEdition)) {
+                $doc->NbreExemplaireEdition = $request->NbreExemplaireEdition;
+            }
+            if (isset($request->DateEditionDocuments)) {
+                $doc->DateEditionDocuments = $request->DateEditionDocuments;
+            }
+            if (isset($request->LieuEditionDocuments)) {
+                $doc->LieuEditionDocuments = $request->LieuEditionDocuments;
+            }
+            if (isset($request->MaisonEditionDocuments)) {
+                $doc->MaisonEditionDocuments = $request->MaisonEditionDocuments;
+            }
+            if (isset($request->LongueurEditionDocuments)) {
+                $doc->LongueurEditionDocuments = $request->LongueurEditionDocuments;
+            }
+            if (isset($request->AdresseMaisonEdition)) {
+                $doc->AdresseMaisonEdition = $request->AdresseMaisonEdition;
+            }
+            if (isset($request->IllustrationDocuments)) {
+                $doc->IllustrationDocuments = $request->IllustrationDocuments;
+            }
+            if (isset($request->PeriodiciteDocuments)) {
+                $doc->PeriodiciteDocuments = $request->PeriodiciteDocuments;
+            }
+            if (isset($request->origine)) {
+                $doc->origine = $request->origine;
+            }
+            if (isset($request->ReliureDocuments)) {
+                $doc->ReliureDocuments = $request->ReliureDocuments;
+            }
+            if (isset($request->Section)) {
+                $doc->Section = $request->Section;
+            }
+            if (isset($request->Auteur)) {
+                $doc->Auteur = $request->Auteur;
+            }
+            if (isset($request->NumeroDecret)) {
+                $doc->NumeroDecret = $request->NumeroDecret;
+            }
+            if (isset($request->categories_id)) {
+                $doc->categories_id = $request->categories_id;
+            }
 
-            'categories_id' => $request['categories_id'],
-            'sousdomaines_id' => $request['sousdomaine'],
-        ]);
+            if (isset($request->sousdomaine) && $request->sousdomaine != $doc->sousdomaines_id ) {
+                $doc->sousdomaines_id = (int)$request->sousdomaine;
+                }
+        } else {
+            //dd($request->all());
+            $doc = new Documents([
+                'TitreDocuments' => $request['TitreDocuments'],
+                'IsbnDocuments' => $request['IsbnDocuments'],
+                'IssnDocuments' => $request['IssnDocuments'],
+                'CoteDocuments' => $request['CoteDocuments'],
+                'Section' => $request['Section'],
+                'Auteur' => $request['Auteur'],
+                'NumeroDecret' => $request['NumeroDecret'],
+                'DateEditionDocuments' => $request['DateEditionDocuments'],
+                'LieuEditionDocuments' => $request['LieuEditionDocuments'],
+                'EditeurDocuments' => $request['EditeurDocuments'],
+                'NumeroEntresDocuments' => $request['NumeroEntresDocuments'],
+                'AnneePublicationDocuments' => $request['AnneePublicationDocuments'],
+                'EditionsDocuments' => $request['EditionsDocuments'],
+                'NbreExemplaireEdition' => $request['NbreExemplaireEdition'],
+                'MaisonEditionDocuments' => $request['MaisonEditionDocuments'],
+                'LongueurEditionDocuments' => $request['LongueurEditionDocuments'],
+                'AdresseMaisonEdition' => $request['AdresseMaisonEdition'],
+                'IllustrationDocuments' => $request['IllustrationDocuments'],
+                'PeriodiciteDocuments' => $request['PeriodiciteDocuments'],
+                'ReliureDocuments' => $request['ReliureDocuments'],
+                'origine' => $request['origine'],
 
-        $ouvrage->save();
+                'categories_id' => $request['categories_id'],
+                'sousdomaines_id' => $request['sousdomaine'],
+            ]);
+        }
+        $doc->save();
 
-        // $membres = MembreTribunal::find($request->membre_id);
-        // $dossier->membres_tribunal()->save($membres);
-        // $ouvrage->Auteurs()->attach($request->idauteur);
-
-        return redirect('NewDocuments')->withOk( '<strong>'. $ouvrage->TitreDocuments. '</strong> a été enregistré.');
+        return redirect('NewDocuments')->withOk( (isset($request->id))?'<strong>'. $doc->TitreDocuments. '</strong> a été modifié.':'<strong>'. $doc->TitreDocuments. '</strong> a été enregistré.');
     }
 
     /**
@@ -127,9 +202,27 @@ class DocumentsController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $r)
     {
+        $document = Documents::with('Categories')
+            ->with('SousDomaines')
+            ->where('id', '=', $r->id)
+            ->get()[0];
 
+        $domaines = Domaine::all();
+        $categories = Categorie::all();
+        $sousdomaines = SousDomaine::all();
+
+        $buildOption = $this->makeOptionBuilder($document->Section);
+
+        return view('documents.simpleadd', compact(['document', 'domaines', 'categories', 'sousdomaines', 'buildOption']));
+    }
+
+    public function makeOptionBuilder($targetValue = false) {
+        return function($text) use ($targetValue) {
+            $selectionValue = ($targetValue && $targetValue == $text)?'selected':'';
+            return "<option value='$text' $selectionValue>$text</option>";
+        };
     }
 
     /**
@@ -138,8 +231,9 @@ class DocumentsController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $r)
     {
+        dd($r->all());
 
     }
 

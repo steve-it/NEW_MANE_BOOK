@@ -128,8 +128,11 @@ Route::get('NewDocuments', ['as' => 'creerDocuments','uses' => 'DocumentsControl
 
 Route::post('NewDocuments', 'DocumentsController@store');
 
+Route::get('ModifierDocuments', 'DocumentsController@edit');
+
 Route::get('cities/{id}', 'DocumentsController@cities');
 
+Route::post('UpdateDocument', 'DocumentsController@update');
 //Route::get('searchajax',array('as'=>'searchajax','uses'=>'DocumentsController@dataAjax'));
 
 //Route::get('select2-autocomplete-ajax', 'DocumentsController@dataAjax');
