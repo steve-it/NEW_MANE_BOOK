@@ -26,9 +26,9 @@ class DocumentGenerator extends Controller
         $header = "";//"<h4 align='center'>Fiche des documents enregistrées entre le $debut et le $fin<br><br></h4>";
         
         $contains = '<table class="maintable" width="100%">';
-        $contains .= '<tr>';
-        for($i=0;$i<200;$i++) {
-        //for($i=0; $i<count($docs); $i++) {
+        $contains .= '<tr><td/><td/></tr><tr>';
+        //for($i=0;$i<5;$i++) {
+        for($i=0; $i<count($docs); $i++) {
             $contains .= $this->buildBlock($docs[$i%count($docs)], $i);
             if($i>0 && $i%2==1) $contains .= '</tr><tr>';
         }
