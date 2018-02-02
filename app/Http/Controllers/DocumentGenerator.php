@@ -21,6 +21,7 @@ class DocumentGenerator extends Controller
                            ->with('SousDomaines')
                            ->where('created_at', '>=', $debut)
                            ->where('created_at', '<=', $fin)
+                           ->where('categories_id','=',4)
                            ->get();
 
         $header = "";//"<h4 align='center'>Fiche des documents enregistrées entre le $debut et le $fin<br><br></h4>";
