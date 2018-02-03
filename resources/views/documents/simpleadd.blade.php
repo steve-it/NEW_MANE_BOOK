@@ -178,9 +178,9 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <label>Date d'edition du document</label>
+                                                <label>Année d'edition du document</label>
                                                 <input type="number" class="form-control" name="DateEditionDocuments"
-                                                       placeholder="Date d'edition du document">
+                                                       placeholder="Année d'edition du document">
                                             </div>
                                         </div>
                                     </div>
@@ -297,7 +297,7 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="input-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="EditeurDocuments"
                                                        id="EditeurDocuments" placeholder="Editeur Documents">
@@ -306,13 +306,21 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Cm</span>
                                             <div class="form-line">
+                                                <input type="number" class="form-control" name="LongueurEditionDocuments"
+                                                       id="LongueurEditionDocuments"
+                                                placeholder="Longueur Edition Documents">                                            </div>
+                                        </div>
+                                        {{--<div class="form-group">
+                                            <div class="form-line">
+                                                <span class="input-group-addon">CM</span>
                                                 <input type="number" class="form-control" name="LongueurEditionDocuments"
                                                        id="LongueurEditionDocuments"
                                                        placeholder="Longueur Edition Documents">
                                             </div>
-                                        </div>
+                                        </div>--}}
                                     </div>
 
                                     <div class="col-md-6">
