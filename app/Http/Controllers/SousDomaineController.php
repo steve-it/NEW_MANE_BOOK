@@ -7,6 +7,7 @@ use App\SousDomaine;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SousDomaineResquest;
 class SousDomaineController extends Controller 
 {
 
@@ -46,20 +47,14 @@ class SousDomaineController extends Controller
      * Fonction permettant d'enregistrer un nouveau Domaines
      */
 
-    public function NewSousDomaines(Request $request)
+    public function NewSousDomaines(SousDomaineResquest $request)
     {
-       /* dump($_POST);
-        echo "[".$request->NomSousDomaines.$request->domaines_id."]";*/
+
 
         if($request->ajax())
         {
-            /*$sousdomaines = new SousDomaine();
-            $sousdomaines->NomSousDomaines = $request->NomSousDomaines;
-            $sousdomaines->save();*/
 
            $sousdomaines =  SousDomaine::create($request->all());
-
-
             return response()->json($sousdomaines);
         }
     }

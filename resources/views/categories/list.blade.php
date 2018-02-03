@@ -51,8 +51,8 @@
                                     <thead>
 
                                     <tr>
-                                        <th>Libelle de la Categorie</th>
-                                        <th class="noExport">Action</th>
+                                        <th align="center">Libelle de la Categorie</th>
+                                 {{--       <th class="noExport">Action</th> --}}
                                     </tr>
 
                                     </thead>
@@ -62,11 +62,11 @@
                                     @foreach($categories as $categorie)
                                         <tr id="categories{{$categorie->id}}">
                                             <td>{{ $categorie->libelle }}</td>
-                                            <td>
+                                            {{--<td>
                                                 <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $categorie->id }}"title="voir"><i class="material-icons">list</i></button>
                                                 <button class="btn btn-xs btn-danger" data-id="{{ $categorie->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
 
-                                            </td>
+                                            </td>--}}
                                         </tr>
                                     @endforeach
 
@@ -76,7 +76,7 @@
 
                                     <tr>
                                         <th>Libelle de la Categorie</th>
-                                        <th class="noExport">Action</th>
+                                        {{--<th class="noExport">Action</th>--}}
                                     </tr>
                                     </tfoot>
 

@@ -67,7 +67,7 @@ class EmpruntController extends Controller
     public function retouremprunt(Request $r)
     {
 
-
+      //dump($r->all());
         $retour =  DB::table('documents')
             ->join('emprunts','documents.id','=','emprunts.documents_id')
             ->where('emprunts.id', $r->id)
@@ -118,7 +118,7 @@ class EmpruntController extends Controller
               'DateEmprunt'=>$request['DateEmprunt'],
               'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
               'ObservationEmprunt'=>$request['ObservationEmprunt'],
-              'ObservationRetour'=>$request['ObservationRetour'],
+        //      'ObservationRetour'=>$request['ObservationRetour'],
               'statusEmprunteur'=>$request['destination'],
               'cautionEmprunteur'=>$request['prix'],
               'Date_Retour' => null,
@@ -174,7 +174,7 @@ class EmpruntController extends Controller
    */
   public function update(Request $request)
   {
-    // dump($request);
+    //dump($request->all());
 
 
 

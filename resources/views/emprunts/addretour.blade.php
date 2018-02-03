@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="header">
                             <h2><center>RETOUR DE L'EMPRUNT DE L'OUVRAGE </center>
-                                <br> <br>
+                                <br>
                                 <center> TITRE : <strong>{{ $retouremprunt->TitreDocuments }}</strong></center>
                                 <br>
                                 <center> EMPRUNTEUR :  <strong>{{ $retouremprunt->NomEmprunteur }}</strong></center>
@@ -85,7 +85,7 @@
                                     <div class="form-group>
                                         <div class="form-line{{ $errors->has('ObservationRetour') ? ' has-error' : '' }}">
                                     <label>Observation Retour d'Emprunt De L'Ouvrage</label>
-                                    <input type="text" id="ObservationRetour" name="ObservationRetour" class="form-control" placeholder="Observation Retour" value="Ouvrage en etat emprunter">
+                                    <textarea  id="ObservationRetour" name="ObservationRetour" rows="4" cols="1" class="form-control no-resize auto-growth" placeholder="Observation Retour" value="Ouvrage en etat emprunter"></textarea>
                                     @if ($errors->has('ObservationRetour'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('ObservationRetour') }}</strong>
@@ -93,13 +93,13 @@
                                     @endif
                                 </div>
                                 </div>
+                        </div>
 
-
-                                <br><button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
+                                <button class="btn btn-primary waves-effect" type="submit">ENREGISTRER</button>
                                 {{ Form::close() }}
 
 
-                        </div>
+
                     </div>
                 </div>
                 <!-- #END# Advanced Validation -->

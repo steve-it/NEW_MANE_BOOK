@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\Exceptions;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\DomaineResquest;
 
 class DomaineController extends Controller 
 {
@@ -28,14 +30,11 @@ class DomaineController extends Controller
      * Fonction permettant d'enregistrer un nouveau Domaines
      */
 
-    public function NewDomaines(Request $request)
+    public function NewDomaines(DomaineResquest $request)
     {
-
-       //dump($_POST);
 
         if($request->ajax())
         {
-
             $domaines =  Domaine::create($request->all());
             return Response()->json($domaines);
            // return response()->json($domaines);
