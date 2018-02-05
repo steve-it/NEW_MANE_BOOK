@@ -422,9 +422,33 @@
             });
 
 
+            /*$('#Auteur').autocomplete({
+                minlenght:1,
+                autoFocus:true,
+                select:function(e,ui){
+                    alert(ui);
+                }
+            });*/
+
+            src = "{{ url('searchTitre') }}";
+
+            $('#TitreDocuments').autocomplete({
+                source : src,
+                minlenght:3,
+                autoFocus:true
+            });
+
+            src = "{{ url('searchPeriodicite') }}";
+
+            $('#PeriodiciteDocuments').autocomplete({
+                source : src,
+                minlenght:3,
+                autoFocus:true
+            });
+
             /*autocomplete */
             {{--src = "{{ route('searchajax') }}";--}}
-            /*$("#statnewname").autocomplete({
+            /*$("#Auteur").autocomplete({
                 source: function(request, response) {
                     $.ajax({
                         url: src,
@@ -540,8 +564,8 @@
     </script>
   <script>
       {{--{!! Html::script('bower_components/adminbsb-materialdesign/plugins/bootstrap-select/js/bootstrap-select.js') !!}--}}
-      {{--{!! Html::script('js/jquery.js') !!}--}}
-      {{--{!! Html::script('js/jquery-ui.min.js') !!}--}}
+      {!! Html::script('js/jquery.js') !!}
+      {!! Html::script('js/jquery-ui.min.js') !!}
 
 
 </script>

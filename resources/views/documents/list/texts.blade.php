@@ -1,8 +1,7 @@
-
 @extends('documents.list_layout')
 
 @section('list_title')
-LISTE DES TEXTS ET LOIS
+    LISTE DES TEXTS ET LOIS
 @stop
 
 @section('list_content')
@@ -40,7 +39,7 @@ LISTE DES TEXTS ET LOIS
         <tbody>
         {{--{{ dd($documentsauteur) }}--}}
         @foreach($documentsauteur as $document)
-{{--            {{ dd($document->id) }}--}}
+            {{--            {{ dd($document->id) }}--}}
             <tr id="document{{$document->id}}">
                 <td>
                     {{--<button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $document->id }}" title="voir"><i class="material-icons">list</i></button>--}}

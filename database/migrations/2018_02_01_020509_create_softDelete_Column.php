@@ -13,7 +13,12 @@ class CreateSoftDeleteColumn extends Migration
      */
     public function up()
     {
+
         Schema::table('documents', function (Blueprint $table) {
+            $table->softDeletes();
+        });
+
+        Schema::table('emprunts', function (Blueprint $table) {
             $table->softDeletes();
         });
     }

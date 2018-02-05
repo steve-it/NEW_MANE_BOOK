@@ -32,7 +32,7 @@ class EmpruntController extends Controller
           ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
           ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
           ->join('emprunts','documents.id','=','emprunts.documents_id')
-          //->where('emprunts.Date_Retour',null)
+          //->where('emprunts.deleted_at','=',null)
           ->get();
 
 
@@ -218,10 +218,15 @@ class EmpruntController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
-  {
-    
-  }
+    public function destroy(Request $r)
+    {
+
+        $emprunt =Emprunt::where('id',$r->id)->first();
+       // $emprunt =  Emprunt::find($r->id);
+        if($emprunt !=null){
+        $emprunt->delete();
+        return redirect()->back();}
+    }
   
 }
 

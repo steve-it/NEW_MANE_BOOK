@@ -63,8 +63,8 @@
                                         <th>Titre Ouvrages</th>
                                         <th>Emprunteur</th>
                                         <th>Date Emprunt</th>
-                                        <th>Date Effectif Retour</th>
                                         <th>Date Prevue Retour</th>
+                                        <th>Date Retour</th>
                                         {{--<th>Domaines</th>--}}
                                         {{--<th>SousDomaines</th>--}}
                                         {{--<th>Categories</th>--}}
@@ -110,8 +110,8 @@
                                         <th>Titre Ouvrages</th>
                                         <th>Emprunteur</th>
                                         <th>Date Emprunt</th>
-                                        <th>Date Effectif Retour</th>
                                         <th>Date Prevue Retour</th>
+                                        <th>Date Retour</th>
                                         {{--<th>Domaines</th>--}}
                                         {{--<th>SousDomaines</th>--}}
                                         {{--<th>Categories</th>--}}
@@ -144,6 +144,26 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+
+        //------------------supprimer--------------------
+        $('.btn-danger').click(function () {
+
+            var value= $(this).data('id');
+            var url = '{{ URL::to('deleteEmprunts') }}';
+            //alert(value);
+            if(confirm("Voulez vous supprimer ce retour d'emprunt ?")==true){
+
+                $.ajax({type : 'get',  url : url, data : {'id':value}, success:function (data) {
+                    console.log(data);
+                    $('#emprunts'+value).remove();
+
+                }
+                });
+            }
+
+        });
+
 
 
 

@@ -19,8 +19,9 @@ class DocumentsController extends Controller
 
     public function __construct(Documents $document)
     {
-        $this->documents= $document;
+        $this->documents = $document;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,17 +32,17 @@ class DocumentsController extends Controller
         $query = Documents::with('Categories')
             //->join('categories', 'categories.id', '=', 'documents.categories_id')
             ->with('SousDomaines');
-            //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
-            //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
+        //->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
+        //->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
 
         $vue = 'documents.list.generale'; //vue gennerale
-        if(isset($request['cat'])) {
+        if (isset($request['cat'])) {
             $query->where('categories_id', '=', $request->cat);
 
-            if($request->cat == 1) $vue = 'documents.list.memoires';
-            if($request->cat == 2) $vue = 'documents.list.revues';
-            if($request->cat == 3) $vue = 'documents.list.texts';
-            if($request->cat == 4) $vue = 'documents.list.livres';
+            if ($request->cat == 1) $vue = 'documents.list.memoires';
+            if ($request->cat == 2) $vue = 'documents.list.revues';
+            if ($request->cat == 3) $vue = 'documents.list.texts';
+            if ($request->cat == 4) $vue = 'documents.list.livres';
         }
 
         $documentsauteur = $query->get();
@@ -67,7 +68,7 @@ class DocumentsController extends Controller
 
         //dd($document['TitreDocuments']);
 
-        return view('documents.simpleadd', compact(['domaines', 'categories','sousdomaines','buildOption', 'document']));
+        return view('documents.simpleadd', compact(['domaines', 'categories', 'sousdomaines', 'buildOption', 'document']));
     }
 
     /**
@@ -148,9 +149,9 @@ class DocumentsController extends Controller
                 $doc->categories_id = $request->categories_id;
             }
 
-            if (isset($request->sousdomaine) && $request->sousdomaine != $doc->sousdomaines_id ) {
+            if (isset($request->sousdomaine) && $request->sousdomaine != $doc->sousdomaines_id) {
                 $doc->sousdomaines_id = (int)$request->sousdomaine;
-                }
+            }
         } else {
             //dd($request->all());
             $doc = new Documents([
@@ -182,7 +183,7 @@ class DocumentsController extends Controller
         }
         $doc->save();
 
-        return redirect('NewDocuments')->withOk( (isset($request->id))?'<strong>'. $doc->TitreDocuments. '</strong> a été modifié.':'<strong>'. $doc->TitreDocuments. '</strong> a été enregistré.');
+        return redirect('NewDocuments')->withOk((isset($request->id)) ? '<strong>' . $doc->TitreDocuments . '</strong> a été modifié.' : '<strong>' . $doc->TitreDocuments . '</strong> a été enregistré.');
     }
 
     /**
@@ -218,9 +219,10 @@ class DocumentsController extends Controller
         return view('documents.simpleadd', compact(['document', 'domaines', 'categories', 'sousdomaines', 'buildOption']));
     }
 
-    public function makeOptionBuilder($targetValue = false) {
-        return function($text) use ($targetValue) {
-            $selectionValue = ($targetValue && $targetValue == $text)?'selected':'';
+    public function makeOptionBuilder($targetValue = false)
+    {
+        return function ($text) use ($targetValue) {
+            $selectionValue = ($targetValue && $targetValue == $text) ? 'selected' : '';
             return "<option value='$text' $selectionValue>$text</option>";
         };
     }
@@ -253,36 +255,37 @@ class DocumentsController extends Controller
 
     //fonction autocomplete
 
-    public function dataAjax(Request $request)
+    /*public function dataAjax(Request $request)
     {
 
-        $query = $request->get('term','');
+        $query = $request->get('term', '');
 
-        $products=Auteur::where('NomAuteur','LIKE','%'.$query.'%')->get();
+        $products = Documents::where('Auteur', 'LIKE', '%' . $query . '%')->get();
 
-        $data=array();
+        $data = array();
         foreach ($products as $product) {
-            $data[]=array('value'=>$product->NomAuteur,'id'=>$product->id);
+            $data[] = array('value' => $product->NomAuteur, 'id' => $product->id);
         }
-        if(count($data))
+        if (count($data))
             return $data;
         else
-            return ['value'=>'No Result Found','id'=>''];
-    }
+            return ['value' => 'No Result Found', 'id' => ''];
+    }*/
+
 
     public function destroy(Request $r)
     {
-        $document =  Documents::find($r->id);
+        $document = Documents::find($r->id);
         $document->delete();
         return redirect()->back();
     }
-
-
-
-
-
-
 }
+
+
+
+
+
+
 
 
 
