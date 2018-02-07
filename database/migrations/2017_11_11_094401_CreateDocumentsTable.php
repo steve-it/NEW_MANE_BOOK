@@ -38,6 +38,7 @@ class CreateDocumentsTable extends Migration
             $table->integer('nbre_emprunt')->nullable();
             $table->string('Section',255)->nullable();
             $table->string('Auteur',255)->nullable();
+            $table->string('pagination',255)->nullable();
             $table->string('NumeroDecret',255)->nullable();
             $table->integer('categories_id')->nullable()->unsigned();
             $table->integer('sousdomaines_id')->nullable()->unsigned();

@@ -12,7 +12,7 @@ class Documents extends Model
     protected $fillable = ['TitreDocuments','IsbnDocuments','IssnDocuments','CoteDocuments','NumeroEntresDocuments',
         'AnneePublicationDocuments','EditionsDocuments','EditeurDocuments','NbreExemplaireEdition','DateEditionDocuments','LieuEditionDocuments',
         'MaisonEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments', 'origine',
-        'ReliureDocuments','nbre_emprunt','Section','Auteur','NumeroDecret','categories_id','sousdomaines_id'];
+        'ReliureDocuments','pagination','nbre_emprunt','Section','Auteur','NumeroDecret','categories_id','sousdomaines_id'];
 
 
     /**

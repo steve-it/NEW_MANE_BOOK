@@ -14,7 +14,7 @@ class DocumentsTypeSeeder extends Seeder
     {
         $cats = [
                     ['id' => 1, 'libelle' => 'Memoires'],
-                    ['id' => 2, 'libelle' => 'Revues'],
+                    ['id' => 2, 'libelle' => 'Revues et Periodiques'],
                     ['id' => 3, 'libelle' => 'Textes et Decrets'],
                     ['id' => 4, 'libelle' => 'Livres']
                 ];

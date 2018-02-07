@@ -323,7 +323,7 @@
                                         </div>--}}
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="PeriodiciteDocuments"
@@ -331,8 +331,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
 
-                                    <div class="col-md-6">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Pages</span>
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="pagination"
+                                                       id="pagination"
+                                                       placeholder="Nbres Pages Docs">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>Origine du document</label>

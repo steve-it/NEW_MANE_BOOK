@@ -161,6 +161,7 @@ class DocumentsController extends Controller
                 'CoteDocuments' => $request['CoteDocuments'],
                 'Section' => $request['Section'],
                 'Auteur' => $request['Auteur'],
+                'pagination' => $request['pagination'],
                 'NumeroDecret' => $request['NumeroDecret'],
                 'DateEditionDocuments' => $request['DateEditionDocuments'],
                 'LieuEditionDocuments' => $request['LieuEditionDocuments'],
