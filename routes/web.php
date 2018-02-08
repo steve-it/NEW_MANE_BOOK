@@ -128,9 +128,38 @@ Route::get('NewDocuments', ['as' => 'creerDocuments','uses' => 'DocumentsControl
 
 Route::post('NewDocuments', 'DocumentsController@store');
 
+Route::get('ModifierDocuments', 'DocumentsController@edit');
+
 Route::get('cities/{id}', 'DocumentsController@cities');
 
+Route::post('UpdateDocument', 'DocumentsController@update');
+
+Route::get('deleteDcoument', 'DocumentsController@destroy');
 //Route::get('searchajax',array('as'=>'searchajax','uses'=>'DocumentsController@dataAjax'));
+
+Route::any('searchTitre', function (){
+    $term = \Illuminate\Support\Str::lower(\Illuminate\Support\Facades\Input::get('term'));
+
+    $data = \Illuminate\Support\Facades\DB::select("SELECT * FROM documents WHERE TitreDocuments LIKE '%$term%'");
+
+    foreach ($data as $v){
+        $return_array[] = array('value' => $v->TitreDocuments);
+    }
+
+    return \Illuminate\Support\Facades\Response::json($return_array);
+});
+
+Route::any('searchPeriodicite', function (){
+    $term = \Illuminate\Support\Str::lower(\Illuminate\Support\Facades\Input::get('term'));
+
+    $data = \Illuminate\Support\Facades\DB::select("SELECT * FROM documents WHERE PeriodiciteDocuments LIKE '%$term%'");
+
+    foreach ($data as $v){
+        $return_array[] = array('value' => $v->PeriodiciteDocuments);
+    }
+
+    return \Illuminate\Support\Facades\Response::json($return_array);
+});
 
 //Route::get('select2-autocomplete-ajax', 'DocumentsController@dataAjax');
 
@@ -169,6 +198,7 @@ Route::get('NouvelleEmprunts', [
 
 Route::post('/NouvelleEmprunts', 'EmpruntController@store');
 
+Route::get('deleteEmprunts', 'EmpruntController@destroy');
 
 
 //// Fin Route in Emprunts ///////////////////////////////////////////

@@ -31,7 +31,7 @@
 
                             <div class="body">
                                 <div class="row clearfix">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="NomEmprunteur"
@@ -40,11 +40,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="CniEmprunteur"
                                                        id="CniEmprunteur" placeholder="Cni de l'Emprunteur" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="adresse"
+                                                       id="adresse" placeholder="Adresse de l'Emprunteur" required>
                                             </div>
                                         </div>
                                     </div>

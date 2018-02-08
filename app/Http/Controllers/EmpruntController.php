@@ -32,7 +32,7 @@ class EmpruntController extends Controller
           ->join('sousdomaines', 'sousdomaines.id', '=', 'documents.sousdomaines_id')
           ->join('domaines', 'domaines.id', '=', 'sousdomaines.domaines_id')
           ->join('emprunts','documents.id','=','emprunts.documents_id')
-          //->where('emprunts.Date_Retour',null)
+          //->where('emprunts.deleted_at','=',null)
           ->get();
 
 
@@ -67,7 +67,7 @@ class EmpruntController extends Controller
     public function retouremprunt(Request $r)
     {
 
-
+      //dump($r->all());
         $retour =  DB::table('documents')
             ->join('emprunts','documents.id','=','emprunts.documents_id')
             ->where('emprunts.id', $r->id)
@@ -85,7 +85,7 @@ class EmpruntController extends Controller
    */
   public function store(Request $request)
   {
-      //dump($request);
+      //dd($request->all());
 
 
 
@@ -94,7 +94,7 @@ class EmpruntController extends Controller
           ->where('documents.id', $request['document'])
           ->select('documents.*')
           ->get();
-      //dump();
+      //dd($nbre_emprunt_initial);
 
       $nbre_emprunt_actuel = $nbre_emprunt_initial[0]->nbre_emprunt;
 
@@ -114,14 +114,16 @@ class EmpruntController extends Controller
           $emprunt = new Emprunt([
               'NomEmprunteur'=>$request['NomEmprunteur'],
               'CniEmprunteur'=>$request['CniEmprunteur'],
+              'adresse' =>$request['adresse'],
               'DateEmprunt'=>$request['DateEmprunt'],
               'DateEffRetourEmprunt'=>$request['DateEffRetourEmprunt'],
               'ObservationEmprunt'=>$request['ObservationEmprunt'],
-              'ObservationRetour'=>$request['ObservationRetour'],
+        //      'ObservationRetour'=>$request['ObservationRetour'],
               'statusEmprunteur'=>$request['destination'],
               'cautionEmprunteur'=>$request['prix'],
               'Date_Retour' => null,
-              'documents_id' => $request['document']
+              'documents_id' => $request['document'],
+              'adresse' => $request['adresse']
 
           ]);
           $emprunt->save();
@@ -172,7 +174,7 @@ class EmpruntController extends Controller
    */
   public function update(Request $request)
   {
-    // dump($request);
+    //dump($request->all());
 
 
 
@@ -216,10 +218,15 @@ class EmpruntController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
-  {
-    
-  }
+    public function destroy(Request $r)
+    {
+
+        $emprunt =Emprunt::where('id',$r->id)->first();
+       // $emprunt =  Emprunt::find($r->id);
+        if($emprunt !=null){
+        $emprunt->delete();
+        return redirect()->back();}
+    }
   
 }
 

@@ -172,6 +172,7 @@
                 var data = $('#insert_form').serialize();
                 var type = 'POST';
                 var statut = $('#save').val();
+              //  alert(data);
 
                 if( statut == 'modifier')
                 {

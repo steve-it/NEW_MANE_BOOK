@@ -22,14 +22,15 @@ class DocumentGenerator extends Controller
                            ->with('SousDomaines')
                            ->where('created_at', '>=', $debut)
                            ->where('created_at', '<=', $fin)
+                           ->where('categories_id','=',4)
                            ->get();
 
         $header = "";//"<h4 align='center'>Fiche des documents enregistrées entre le $debut et le $fin<br><br></h4>";
         
         $contains = '<table class="maintable" width="100%">';
-        $contains .= '<tr>';
-        for($i=0;$i<20;$i++) {
-        //for($i=0; $i<count($docs); $i++) {
+        $contains .= '<tr><td/><td/></tr><tr>';
+        //for($i=0;$i<5;$i++) {
+        for($i=0; $i<count($docs); $i++) {
             $contains .= $this->buildBlock($docs[$i%count($docs)], $i);
             if($i>0 && $i%2==1) $contains .= '</tr><tr>';
         }
@@ -41,7 +42,7 @@ class DocumentGenerator extends Controller
         html, body, table {margin:0;}
         .maintable td{ font-size: 1.05em; }
         .maintable{ table-layout: fixed; border: none; border-spacing: 0px;}
-        .block{ overflow:hidden; line-height:2; width:125mm; height:88.5mm; page-break-inside: avoid; border: 1px dashed #999;}
+        .block{ overflow:hidden; line-height:1.6; width:125mm; height:88.5mm; page-break-inside: avoid; border: 1px dashed #999;}
         .lowline{ line-height:0.98em }
         </style>';
         $html = '<html><head>'.$style.'</head><body>'.$header.$contains.'</body></html>';
@@ -111,10 +112,12 @@ class DocumentGenerator extends Controller
                             ".$injectIf($doc->MaisonEditionDocuments)."
                             ".$injectIf($doc->LongueurEditionDocuments, ' ', 'cm, ')."
                             ".$injectIf($doc->AdresseMaisonEdition)."
+                            ".$injectIf($doc->pagination, ' (', 'p.) ')."
+
                             ".$injectIf($doc->IllustrationDocuments)."
                             ".$injectIf($doc->ReliureDocuments, ' ', '.')."
-                            ".$injectIf($doc->NumeroEntresDocuments, ' - N° ')."
-                            ".$injectIf($doc->PeriodiciteDocuments, ' - ')."
+                            ".$injectIf($doc->NumeroEntresDocuments, ' - N° ', '')."
+                            ".$injectIf($doc->PeriodiciteDocuments, ' - ', '.')."
                         </td>
                     </tr>
                     <tr><td><br></td></tr>

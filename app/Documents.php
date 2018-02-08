@@ -3,17 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Auteur;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Documents extends Model 
+class Documents extends Model
 {
-
-
+    use SoftDeletes;
     protected $table = 'documents';
     protected $fillable = ['TitreDocuments','IsbnDocuments','IssnDocuments','CoteDocuments','NumeroEntresDocuments',
         'AnneePublicationDocuments','EditionsDocuments','EditeurDocuments','NbreExemplaireEdition','DateEditionDocuments','LieuEditionDocuments',
-        'MaisonEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments',
-        'ReliureDocuments','nbre_emprunt','Section','Auteur','NumeroDecret','categories_id','sousdomaines_id'];
+        'MaisonEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments', 'origine',
+        'ReliureDocuments','pagination','nbre_emprunt','Section','Auteur','NumeroDecret','categories_id','sousdomaines_id'];
+
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     public $timestamps = true;
 

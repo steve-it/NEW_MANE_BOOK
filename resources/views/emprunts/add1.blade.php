@@ -45,13 +45,13 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="CniEmprunteur"
-                                                       id="CniEmprunteur" placeholder="Cni de l'Emprunteur" required>
+                                                       id="CniEmprunteur" placeholder="Cni de l'Emprunteur">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <label>Date D'emprunt</label>
@@ -61,12 +61,22 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label>Date effective du Retour</label>
+                                                <input type="date" class="form-control" name="DateEffRetourEmprunt"
+                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <label>Date Effectif Retour Emprunt</label>
-                                                <input type="date" class="form-control" name="DateEffRetourEmprunt"
-                                                       id="DateEffRetourEmprunt" placeholder="DateEffRetourEmprunt" value="{{ date('Y-m-d') }}" required>
+                                                <label>Adresse de l'emprunteur</label>
+                                                <input type="text" class="form-control" name="adresse"
+                                                       id="adresse"  required>
                                             </div>
                                         </div>
                                     </div>
@@ -97,24 +107,26 @@
 
 
                                 <div class="row clearfix">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="ObservationEmprunt"
-                                                       id="ObservationEmprunt" placeholder="ObservationEmprunt" required>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="ObservationRetour"
-                                                       id="ObservationRetour" placeholder="ObservationRetour" required>
+                                                <textarea rows="4" cols="1" class="form-control no-resize auto-growth" name="ObservationEmprunt"
+                                                          id="ObservationEmprunt" placeholder="ObservationEmprunt" required></textarea>
                                             </div>
                                         </div>
                                     </div>
+
+                                    {{--<div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <textarea rows="4" cols="1" class="form-control no-resize auto-growth" name="ObservationRetour"
+                                                          id="ObservationRetour" placeholder="ObservationRetour" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>--}}
                                 </div>
+
 
 
 

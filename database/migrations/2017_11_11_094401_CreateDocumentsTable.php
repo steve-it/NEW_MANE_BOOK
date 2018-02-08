@@ -34,9 +34,11 @@ class CreateDocumentsTable extends Migration
             $table->string('IllustrationDocuments', 255)->nullable();
             $table->string('PeriodiciteDocuments', 255)->nullable();
             $table->string('ReliureDocuments', 255)->nullable();
+            $table->string('origine', 255)->nullable();
             $table->integer('nbre_emprunt')->nullable();
             $table->string('Section',255)->nullable();
             $table->string('Auteur',255)->nullable();
+            $table->string('pagination',255)->nullable();
             $table->string('NumeroDecret',255)->nullable();
             $table->integer('categories_id')->nullable()->unsigned();
             $table->integer('sousdomaines_id')->nullable()->unsigned();
