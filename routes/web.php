@@ -12,7 +12,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\DB;
+use App\Categorie;
+use App\Domaine;
+use App\SousDomaine;
+use App\Documents;
+
 Route::get('/','ParametrageController@acceuil');
+/*Route::get('/',function (){
+
+
+   $DocParDomaines = DB::table('documents')
+        //->join('sousdomaines', 'documents.categories_id', '=', 'sousdomaines.id')
+       ->join('sousdomaines', 'documents.sousdomaines_id', '=', 'sousdomaines.id')
+       ->join('domaines','sousdomaines.domaines_id','=','domaines.id')
+       ->select('domaines.NomDomaines','sousdomaines.NomSousDomaines', DB::raw('count(sousdomaines.id) as DocParCat'))
+       ->groupBy('sousdomaines.NomSousDomaines')
+       ->get();
+
+});*/
 
 
 
@@ -219,6 +237,19 @@ Route::get('/planete',function (){
 
 
 ////// End Route in information////////////////////////////////////////////////
+
+///
+
+
+/// ROUTE STATISTIQUE ////////////////////////////////////////////////////////
+
+Route::get('ouvragecategories','StatistiqueController@OuvrageCategories');
+Route::get('ouvragesousdomaines','StatistiqueController@OuvrageSousdomaines');
+
+
+
+
+/// END ROUTE
 
 
 

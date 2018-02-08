@@ -133,7 +133,25 @@
                 <span>STATISTIQUES</span>
             </a>
             <ul class="ml-menu">
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">dehaze</i>
+                        <span>ETATS-FOND</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{!! url('ouvragecategories') !!}">
+                                <span>Par Categories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{!! url('ouvragesousdomaines') !!}">
+                                <span>Par Sous-Domaines</span>
+                            </a>
+                        </li>
 
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="mce-menu-item">
                         <i class="material-icons">nature_people</i><span>VEDETTES-AUTEURS</span>
@@ -146,12 +164,8 @@
                     </a>
 
                 </li>
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <i class="material-icons">dehaze</i><span>ETATS-FOND-DOCUMENTAIRES</span>
-                    </a>
 
-                </li>
+
             </ul>
         </li>
 
