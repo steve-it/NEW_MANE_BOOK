@@ -300,35 +300,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="NumeroDecret"
-                                                       placeholder="Numero du decret">
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="NumeroEntresDocuments"
-                                                       placeholder="Numéro d'entrée du document">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="EditeurDocuments"
-                                                       id="EditeurDocuments" placeholder="Editeur du document">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">Pagination</span>
@@ -353,10 +324,10 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="input-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="PeriodiciteDocuments"
-                                                       id="PeriodiciteDocuments" placeholder="Periodicite du document">
+                                                <input type="text" class="form-control" name="EditeurDocuments"
+                                                       id="EditeurDocuments" placeholder="Editeur du document">
                                             </div>
                                         </div>
                                     </div>
@@ -376,16 +347,32 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Pages</span>
+                                        <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="pagination"
-                                                       id="pagination"
-                                                       placeholder="Nbres Pages Docs">
+                                                <input type="text" class="form-control" name="PeriodiciteDocuments"
+                                                       id="PeriodiciteDocuments" placeholder="Periodicite du document">
                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="NumeroDecret"
+                                                       placeholder="Numero du decret">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="NumeroEntresDocuments"
+                                                       placeholder="Numéro d'entrée du document">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
 
