@@ -316,46 +316,40 @@
                                         <div class="input-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="EditeurDocuments"
-                                                       id="EditeurDocuments" placeholder="Editeur Documents">
+                                                       id="EditeurDocuments" placeholder="Editeur du document">
                                             </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Pagination</span>
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="pagination"
+                                                       id="pagination"
+                                                       placeholder="nombre de pages">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Longueur</span>
+                                            <div class="form-line">
+                                                <input type="number" style="text-align:right;" class="form-control" name="LongueurEditionDocuments"
+                                                    id="LongueurEditionDocuments"
+                                                placeholder="00">
+                                            </div>
+                                            <span class="input-group-addon" id="basic-addon2">cm</span>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Cm</span>
-                                            <div class="form-line">
-                                                <input type="number" class="form-control" name="LongueurEditionDocuments"
-                                                       id="LongueurEditionDocuments"
-                                                placeholder="Longueur Edition Documents">                                            </div>
-                                        </div>
-                                        {{--<div class="form-group">
-                                            <div class="form-line">
-                                                <span class="input-group-addon">CM</span>
-                                                <input type="number" class="form-control" name="LongueurEditionDocuments"
-                                                       id="LongueurEditionDocuments"
-                                                       placeholder="Longueur Edition Documents">
-                                            </div>
-                                        </div>--}}
-                                    </div>
-
-                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="PeriodiciteDocuments"
-                                                       id="PeriodiciteDocuments" placeholder="Periodicite Documents">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-
-
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Pages</span>
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="pagination"
-                                                       id="pagination"
-                                                       placeholder="Nbres Pages Docs">
+                                                       id="PeriodiciteDocuments" placeholder="Periodicite du document">
                                             </div>
                                         </div>
                                     </div>
@@ -374,18 +368,18 @@
                                         </div>
                                     </div>
 
-                                </div>
-
-                                <!-- <div class="row clearfix">
-                                <div class="col-md-6">
-
-                                        <div class="form-group">
-                                            <input type="text" name="item" class="form-control" id="statnewname" placeholder="Enter item name">
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Pages</span>
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="pagination"
+                                                       id="pagination"
+                                                       placeholder="Nbres Pages Docs">
+                                            </div>
                                         </div>
+                                    </div>
 
                                 </div>
-                            </div> -->
-
 
 
 
