@@ -163,6 +163,22 @@
                                     </div>
                                 </div>
 
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                         <div class="form-group">
+                                             <div class="form-line">
+                                                 <label style="color: red">Nouveau Sous Domaine Inexistant de la liste de selection haut</label>
+                                                 <input type="text" class="form-control" name="NouveauSousdomains" id="NouveauSousdomains"
+                                                        placeholder="Entrez le Nouveau Sous Domaines Inexistant de liste">
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <div class="row clearfix">
                                     <div class="col-md-4">
@@ -552,6 +568,11 @@
             function cityUpdate(DomaineId) {
                 $.get('{{ url('cities') }}/'+ DomaineId + "'", function(data) {
                     $('#sousdomaine').empty();
+
+                    $('#sousdomaine').append($('<option>', {
+                        value: '',
+                        text : 'Choisir le Sous-Domaine  (Si Inexiste pas Renseigner ci-dessous)'
+                    }));
                     $.each(data, function(index, cities) {
                         // alert(cities.NomSousDomaines);
                         $('#sousdomaine').append($('<option>', {

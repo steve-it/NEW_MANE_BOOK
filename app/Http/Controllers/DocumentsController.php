@@ -79,6 +79,19 @@ class DocumentsController extends Controller
     public function store(Request $request)
     {
 
+        // tester de renseignement d'un nouveau Sous-Domaines inexistant dans la liste de selection
+        if (isset($request->NouveauSousdomains)){
+            $sousdomaines = new SousDomaine([
+                'domaines_id' => $request['domaine'],
+                'NomSousDomaines' => $request['NouveauSousdomains']
+            ]);
+
+            $sousdomaines->save();
+
+            $request['sousdomaine'] = $sousdomaines->id;
+        }
+        //fin
+
         if (isset($request->id)) {
             $doc = Documents::find($request->id);
 //            dd($request->id);
@@ -182,6 +195,10 @@ class DocumentsController extends Controller
                 'sousdomaines_id' => $request['sousdomaine'],
             ]);
         }
+
+
+
+
         $doc->save();
 
         return redirect('NewDocuments')->withOk((isset($request->id)) ? '<strong>' . $doc->TitreDocuments . '</strong> a été modifié.' : '<strong>' . $doc->TitreDocuments . '</strong> a été enregistré.');
