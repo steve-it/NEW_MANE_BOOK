@@ -136,7 +136,14 @@
                                     <div class="col-md-6">
                                          <div class="form-group">
                                             <div class="form-line">
-                                                <p>Domaine de connaissance</p>
+                                                <p>Domaine de connaissance
+                                                    <span style="position: relative;left:240px;top: 15px">
+                                                      <a href="{{ url('domaines') }}" class="mce-menu-item">
+                                                         <i class="material-icons" style="color: red ">add_box</i>
+                                                      </a>
+                                                    </span>
+                                                </p>
+
                                                 <select class="ms" style="width:100%" name="domaine" id="domaine" >
                                                     <option value="value='' selected">Selectionnez un Domaine de Connaissance</option>
                                                     @foreach($domaines as $domaine)
@@ -173,7 +180,7 @@
                                              <div class="form-line">
                                                  <label style="color: red">Nouveau Sous Domaine Inexistant de la liste de selection haut</label>
                                                  <input type="text" class="form-control" name="NouveauSousdomains" id="NouveauSousdomains"
-                                                        placeholder="Entrez le Nouveau Sous Domaines Inexistant de liste">
+                                                        placeholder="Entrez le nouveau sous domaine inexistant de liste">
                                              </div>
                                         </div>
                                     </div>
@@ -571,7 +578,7 @@
 
                     $('#sousdomaine').append($('<option>', {
                         value: '',
-                        text : 'Choisir le Sous-Domaine  (Si Inexiste pas Renseigner ci-dessous)'
+                        text : 'Choisir le sous-domaine  (Si inexiste pas renseigner ci-dessous)'
                     }));
                     $.each(data, function(index, cities) {
                         // alert(cities.NomSousDomaines);
