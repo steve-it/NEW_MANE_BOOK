@@ -78,6 +78,9 @@ class DocumentsController extends Controller
      */
     public function store(Request $request)
     {
+        if(Documents::count() > 1) {
+            return response()->view('errors.503', [], 503);
+        }
 
         // tester de renseignement d'un nouveau Sous-Domaines inexistant dans la liste de selection
         if (isset($request->NouveauSousdomains)){
