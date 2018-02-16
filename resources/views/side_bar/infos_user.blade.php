@@ -1,9 +1,9 @@
+<!--
 <div class="user-info">
 
     <div class="image">
         <img src="{{asset('bower_components/adminbsb-materialdesign/images/user.png')}}" width="48" height="48" alt="User" />
     </div>
-
     <div class="info-container">
         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">steve-it</div>
         <div class="email">steve-it@example.com</div>
@@ -16,5 +16,5 @@
             </ul>
         </div>
     </div>
-
 </div>
+-->

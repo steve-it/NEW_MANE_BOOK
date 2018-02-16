@@ -97,8 +97,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                                  <input value="" type="text" name="prix" id="cardNumber" autocomplete="off" placeholder="Montant Caution" readonly
-                                                            onFocus="this.blur()" required/>FCFA
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" name="prix" id="prix">
+                                                    <option selected="selected" value='0'>Gratuit</option>
+                                                    <option value="Etudiants">5.000Fr</option>
+                                                    <option value="10000">10.000Fr</option>
+                                                </select>
+                                            </div>      
                                         </div>
                                     </div>
                                 </div>

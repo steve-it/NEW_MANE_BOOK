@@ -5,7 +5,7 @@
             <a href='{!! url('#')!!}'>
 
                 <i class="material-icons">home</i>
-                <span>Home</span>
+                <span>Accueil</span>
             </a>
         </li>
 
@@ -94,15 +94,11 @@
                     </a>
 
                 </li>
-                <li>
-                    <a href="{{url('#')}}" class="mce-menu-item">
-                        <i class="material-icons">restore</i><span>RETOUR-EMPRUNTS</span>
-                    </a>
-
-                </li>
 
             </ul>
         </li>
+
+        <!--
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">computer</i>
@@ -127,6 +123,8 @@
 
             </ul>
         </li>
+        -->
+
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">pie_chart</i>
@@ -169,6 +167,7 @@
             </ul>
         </li>
 
+        <!--
         <li class="header">AUTRES</li>
         <li>
             <a href="{!! url('information') !!}">
@@ -189,5 +188,6 @@
                 <span>Information</span>
             </a>
         </li>
+        -->
     </ul>
 </div>
