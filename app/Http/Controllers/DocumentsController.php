@@ -78,7 +78,7 @@ class DocumentsController extends Controller
      */
     public function store(Request $request)
     {
-        if(Documents::count() > 1) {
+        if(Documents::count() > 200) {
             return response()->view('errors.503', [], 503);
         }
 

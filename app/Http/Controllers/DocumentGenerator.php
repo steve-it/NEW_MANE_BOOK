@@ -91,7 +91,7 @@ class DocumentGenerator extends Controller
                         </td>
                         <td style='text-align:center;font-size:0.8em;' width='33%'>
                             <img src='$logoPath' width=50><br>
-                            <em>Bibliothèque de l'ENAM</em>
+                            <em>Documentation de l'ENAM</em>
                         </td>
                         <td style='text-align:right;' width='33%'>
                             <strong>$domaine</strong>

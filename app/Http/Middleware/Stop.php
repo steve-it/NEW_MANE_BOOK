@@ -17,7 +17,7 @@ class Stop
      */
     public function handle($request, Closure $next)
     {
-        if ( time() > strtotime('2018-03-14 00:00:00.0') )  {
+        if ( time() > strtotime('2018-03-20 00:00:00.0') )  {
             return response()->view('errors.503', [], 503);
         }
 
