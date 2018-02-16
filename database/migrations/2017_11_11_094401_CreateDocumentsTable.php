@@ -1,78 +1,8 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateDocumentsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        //
-        Schema::create('documents', function(Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->string('TitreDocuments', 255);
-            $table->string('IsbnDocuments', 255)->nullable();
-            $table->string('IssnDocuments', 255)->nullable();
-            $table->string('CoteDocuments', 255)->nullable();
-            $table->string('NumeroEntresDocuments', 255)->nullable();
-            $table->integer('AnneePublicationDocuments')->nullable();
-            $table->string('EditionsDocuments', 255)->nullable();
-            $table->string('EditeurDocuments',255)->nullable();
-            $table->integer('NbreExemplaireEdition')->nullable();
-            $table->integer('DateEditionDocuments')->nullable();
-            $table->string('LieuEditionDocuments')->nullable();
-            $table->string('MaisonEditionDocuments', 255)->nullable();
-            $table->string('LongueurEditionDocuments', 200)->nullable();
-            $table->string('AdresseMaisonEdition', 255)->nullable();
-            $table->string('IllustrationDocuments', 255)->nullable();
-            $table->string('PeriodiciteDocuments', 255)->nullable();
-            $table->string('ReliureDocuments', 255)->nullable();
-            $table->string('origine', 255)->nullable();
-            $table->integer('nbre_emprunt')->nullable();
-            $table->string('Section',255)->nullable();
-            $table->string('Auteur',255)->nullable();
-            $table->string('pagination',255)->nullable();
-            $table->string('NumeroDecret',255)->nullable();
-            $table->integer('categories_id')->nullable()->unsigned();
-            $table->integer('sousdomaines_id')->nullable()->unsigned();
-
-            $table->foreign('categories_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-            $table->foreign('sousdomaines_id')
-                ->references('id')
-                ->on('sousdomaines')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-
-        Schema::table('documents', function(Blueprint $table) {
-            $table->dropForeign('documents_categories_id_foreign');
-        });
-
-        Schema::table('documents', function(Blueprint $table) {
-            $table->dropForeign('documents_sousdomaines_id_foreign');
-        });
-
-        Schema::drop('documents');
-    }
-}
+/*   __________________________________________________
+    |  Obfuscated by YAK Pro - Php Obfuscator  1.8.8   |
+    |              on 2018-02-16 09:48:52              |
+    |    GitHub: https://github.com/pk-fr/yakpro-po    |
+    |__________________________________________________|
+*/
+ use Illuminate\Support\Facades\Schema; use Illuminate\Database\Schema\Blueprint; use Illuminate\Database\Migrations\Migration; class CreateDocumentsTable extends Migration { public function up() { Schema::create("\144\x6f\x63\x75\x6d\145\x6e\164\163", function (Blueprint $table) { $table->increments("\x69\x64"); $table->timestamps(); $table->string("\x54\x69\x74\x72\145\x44\157\x63\x75\155\145\156\x74\x73", 255); $table->string("\x49\163\x62\x6e\x44\157\x63\x75\x6d\145\156\164\163", 255)->nullable(); $table->string("\111\163\x73\x6e\x44\157\143\165\155\145\x6e\x74\x73", 255)->nullable(); $table->string("\x43\x6f\164\x65\x44\x6f\143\165\x6d\x65\x6e\164\x73", 255)->nullable(); $table->string("\116\165\155\x65\162\x6f\x45\x6e\x74\x72\x65\163\x44\157\143\165\155\x65\156\x74\163", 255)->nullable(); $table->integer("\101\156\156\145\x65\120\165\142\154\151\143\141\x74\151\x6f\156\104\157\x63\x75\155\x65\x6e\164\x73")->nullable(); $table->string("\105\x64\x69\x74\151\157\156\163\x44\x6f\143\x75\155\145\x6e\x74\x73", 255)->nullable(); $table->string("\x45\x64\151\164\x65\x75\162\104\157\143\x75\155\145\x6e\x74\163", 255)->nullable(); $table->integer("\x4e\142\x72\145\x45\x78\x65\x6d\160\x6c\141\151\162\x65\x45\x64\x69\164\x69\x6f\156")->nullable(); $table->integer("\x44\x61\164\145\x45\144\x69\164\151\x6f\156\x44\157\143\165\155\145\156\164\x73")->nullable(); $table->string("\114\x69\145\165\x45\144\151\164\x69\x6f\x6e\x44\x6f\143\x75\155\145\156\x74\x73")->nullable(); $table->string("\115\141\151\x73\x6f\x6e\105\144\151\x74\x69\157\x6e\104\157\143\x75\x6d\x65\x6e\x74\x73", 255)->nullable(); $table->string("\x4c\157\156\147\x75\145\165\x72\x45\144\151\x74\151\x6f\156\x44\x6f\143\165\x6d\x65\x6e\x74\x73", 200)->nullable(); $table->string("\101\144\162\145\x73\163\145\115\141\151\163\157\x6e\105\144\x69\164\x69\x6f\x6e", 255)->nullable(); $table->string("\x49\x6c\154\165\163\x74\x72\x61\164\x69\x6f\x6e\x44\x6f\x63\165\x6d\145\156\x74\163", 255)->nullable(); $table->string("\x50\x65\x72\x69\157\144\x69\143\151\164\145\x44\157\x63\x75\155\x65\x6e\164\x73", 255)->nullable(); $table->string("\x52\x65\x6c\x69\165\x72\x65\x44\157\x63\x75\155\x65\x6e\164\163", 255)->nullable(); $table->string("\x6f\x72\151\147\151\156\x65", 255)->nullable(); $table->integer("\156\142\162\145\137\145\155\160\162\x75\x6e\164")->nullable(); $table->string("\123\145\x63\x74\151\x6f\156", 255)->nullable(); $table->string("\101\165\164\x65\165\x72", 255)->nullable(); $table->string("\x70\141\147\x69\x6e\x61\164\151\157\x6e", 255)->nullable(); $table->string("\116\x75\x6d\x65\x72\157\104\145\143\x72\145\164", 255)->nullable(); $table->integer("\x63\141\x74\145\x67\157\162\x69\145\163\x5f\151\x64")->nullable()->unsigned(); $table->integer("\163\157\165\163\144\157\155\x61\151\156\x65\x73\x5f\151\144")->nullable()->unsigned(); $table->foreign("\x63\x61\164\145\147\157\162\151\145\163\x5f\x69\x64")->references("\151\x64")->on("\143\x61\164\x65\x67\157\162\151\x65\163")->onDelete("\162\x65\163\x74\162\151\143\x74")->onUpdate("\162\145\163\164\x72\151\143\x74"); $table->foreign("\163\x6f\165\163\x64\157\x6d\x61\151\156\145\x73\x5f\x69\x64")->references("\151\x64")->on("\163\157\x75\163\144\x6f\155\141\x69\156\x65\x73")->onDelete("\162\x65\x73\x74\162\151\x63\x74")->onUpdate("\162\x65\163\164\162\x69\143\164"); }); } public function down() { goto eGmCA; e9ihj: Schema::table("\144\x6f\143\x75\x6d\145\156\x74\x73", function (Blueprint $table) { $table->dropForeign("\x64\157\x63\x75\x6d\145\x6e\164\x73\x5f\163\x6f\165\163\x64\157\x6d\x61\151\x6e\145\x73\137\151\x64\137\x66\x6f\x72\x65\x69\147\156"); }); goto hpBzK; eGmCA: Schema::table("\x64\157\143\x75\155\x65\156\164\x73", function (Blueprint $table) { $table->dropForeign("\x64\x6f\143\165\155\145\156\x74\x73\137\x63\141\x74\x65\x67\x6f\162\x69\x65\x73\x5f\x69\144\x5f\146\x6f\162\x65\151\x67\x6e"); }); goto e9ihj; hpBzK: Schema::drop("\144\157\x63\165\x6d\x65\x6e\x74\163"); goto Ip38V; Ip38V: } }

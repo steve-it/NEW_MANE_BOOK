@@ -1,54 +1,8 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateEmpruntsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        //
-        Schema::create('emprunts', function(Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->string('NomEmprunteur', 255);
-            $table->string('CniEmprunteur', 100);
-            $table->string('adresse',255);
-            $table->date('DateEmprunt');
-            $table->date('DateEffRetourEmprunt')->nullable();
-            $table->text('ObservationEmprunt');
-            $table->text('ObservationRetour')->nullable();
-            $table->string('statusEmprunteur',50);
-            $table->integer('cautionEmprunteur');
-            $table->date('Date_Retour')->nullable();
-
-            $table->integer('documents_id')->unsigned();
-            $table->foreign('documents_id')
-                ->references('id')
-                ->on('documents')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('emprunts', function(Blueprint $table) {
-            $table->dropForeign('emprunts_documents_id_foreign');
-        });
-
-        Schema::drop('emprunts');
-    }
-}
+/*   __________________________________________________
+    |  Obfuscated by YAK Pro - Php Obfuscator  1.8.8   |
+    |              on 2018-02-16 09:48:52              |
+    |    GitHub: https://github.com/pk-fr/yakpro-po    |
+    |__________________________________________________|
+*/
+ use Illuminate\Support\Facades\Schema; use Illuminate\Database\Schema\Blueprint; use Illuminate\Database\Migrations\Migration; class CreateEmpruntsTable extends Migration { public function up() { Schema::create("\x65\155\160\162\165\x6e\x74\163", function (Blueprint $table) { $table->increments("\151\144"); $table->timestamps(); $table->string("\116\x6f\155\105\x6d\x70\x72\x75\156\x74\145\x75\162", 255); $table->string("\x43\156\x69\x45\x6d\x70\x72\165\156\x74\x65\x75\162", 100); $table->string("\141\144\x72\145\163\163\145", 255); $table->date("\104\x61\164\145\105\x6d\x70\162\165\x6e\x74"); $table->date("\x44\141\164\x65\x45\x66\146\x52\145\x74\157\x75\162\x45\155\x70\162\165\156\164")->nullable(); $table->text("\117\x62\x73\x65\x72\166\x61\164\x69\x6f\156\x45\x6d\160\162\x75\x6e\x74"); $table->text("\117\142\x73\x65\x72\166\x61\x74\x69\157\x6e\122\x65\x74\157\x75\x72")->nullable(); $table->string("\163\x74\141\x74\x75\163\x45\x6d\x70\x72\x75\156\x74\145\165\162", 50); $table->integer("\x63\x61\x75\x74\x69\x6f\156\105\155\160\x72\165\156\x74\x65\165\x72"); $table->date("\x44\141\x74\145\137\122\145\164\157\x75\162")->nullable(); $table->integer("\144\x6f\x63\x75\x6d\x65\x6e\x74\x73\137\151\144")->unsigned(); $table->foreign("\144\x6f\x63\165\155\x65\x6e\164\x73\x5f\x69\144")->references("\x69\x64")->on("\144\157\x63\x75\155\x65\156\164\x73")->onDelete("\162\x65\163\x74\162\151\143\164")->onUpdate("\162\145\163\164\162\151\x63\x74"); }); } public function down() { Schema::table("\x65\155\160\162\x75\x6e\x74\x73", function (Blueprint $table) { $table->dropForeign("\x65\x6d\x70\x72\x75\156\x74\x73\x5f\144\157\x63\x75\x6d\145\x6e\164\x73\x5f\151\x64\x5f\146\157\x72\145\151\147\156"); }); Schema::drop("\x65\x6d\160\x72\x75\156\x74\163"); } }
