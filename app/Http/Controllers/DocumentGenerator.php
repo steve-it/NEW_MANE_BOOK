@@ -1,3 +1,147 @@
 <?php
-/*__rester vrai__*/
- namespace App\Http\Controllers; use Illuminate\Http\Request; use Illuminate\Support\Facades\Storage; use Dompdf\Dompdf; use App\Documents; class DocumentGenerator extends Controller { public function ficheCatalographique(Request $request) { goto c9ck88gUfVf3vhvm; TT3TSzk2bqqljqai: $header = ''; goto Gku21zWfVDHtFZZS; qQqL2lulOrTNXzQH: $fin = $request->fin; goto W_ghWzH1rrtHwrIP; VKjvf6dH0iLDYpKx: $contains .= "\74\x74\162\76\x3c\164\x64\57\x3e\74\x74\x64\x2f\76\74\57\164\x72\x3e\74\x74\162\76"; goto EE4c4T2xxgdhxvRb; Gku21zWfVDHtFZZS: $contains = "\x3c\x74\141\142\154\145\x20\x63\x6c\141\x73\163\75\x22\155\x61\x69\156\164\x61\142\154\x65\42\x20\167\151\x64\x74\x68\x3d\x22\61\60\60\x25\x22\76"; goto VKjvf6dH0iLDYpKx; YONn5NM26Bo3VrTC: RwsdOetueYiHZuL2: goto Le8MRT2tDdi8ovaK; uvDmoPXsaPTTSApE: if (!($i > 0 && $i % 2 == 1)) { goto CcKpJMFU29vCIcPq; } goto gG1hPcfgm40cZXsH; uJm50fu10bu_hRFS: $contains .= "\74\x2f\x74\162\76"; goto AX_BU62m42rsDSEU; ncVxH9mOnBe5AJA_: if (!isset($request["\x64\x65\x62\165\147"])) { goto RwsdOetueYiHZuL2; } goto qNSPZOyd5LsSLKZD; JaOoSX3WXkdQ9Arv: $dompdf->setPaper("\x41\64", "\x6c\141\x6e\144\163\x63\x61\x70\x65"); goto wvMXnh2Qn7iEqi0G; Le8MRT2tDdi8ovaK: $html = preg_replace("\57\76\134\163\x2b\74\57", "\x3e\x3c", $html); goto mqUsi0cKPJWgyenc; qNSPZOyd5LsSLKZD: return $html; goto YONn5NM26Bo3VrTC; AR11MtU1Qr2pUaxB: $contains .= $this->buildBlock($docs[$i % count($docs)], $i); goto uvDmoPXsaPTTSApE; c9ck88gUfVf3vhvm: $dompdf = new Dompdf(); goto ZfTpXPg_eKUPYntU; yeFuL5Uov2j27alQ: $i++; goto gN2Dn5b9fFt0W2ow; PEd8r08WuZQxRw0e: $style = "\x3c\163\x74\x79\x6c\x65\x3e\xa\40\x20\x20\40\40\40\x20\x20\150\x74\x6d\x6c\54\40\142\157\x64\171\x2c\40\x74\x61\x62\x6c\x65\40\x7b\x6d\x61\x72\147\151\x6e\72\x30\73\x7d\xa\40\40\x20\40\40\x20\x20\x20\56\x6d\141\151\x6e\164\x61\142\x6c\145\40\x74\144\173\x20\x66\157\x6e\x74\x2d\x73\151\x7a\x65\72\x20\61\x2e\x30\x35\x65\x6d\73\x20\175\12\40\x20\x20\x20\x20\40\40\x20\56\155\x61\x69\156\164\x61\x62\x6c\145\173\x20\164\x61\x62\154\145\55\154\x61\171\157\x75\164\x3a\40\x66\151\170\145\144\x3b\40\142\x6f\162\144\145\x72\x3a\40\156\x6f\156\x65\73\x20\142\157\162\144\x65\x72\x2d\x73\x70\x61\x63\x69\x6e\x67\72\x20\60\160\x78\73\x7d\xa\40\40\40\40\40\40\x20\40\56\142\154\157\x63\153\173\x20\157\166\145\x72\146\154\157\167\72\x68\x69\x64\x64\145\156\73\40\154\x69\156\x65\55\150\x65\x69\x67\x68\x74\x3a\61\x2e\x36\73\x20\167\x69\x64\164\150\72\61\62\x35\x6d\155\73\x20\x68\x65\x69\147\x68\164\x3a\x38\x38\56\x35\155\155\x3b\40\160\141\x67\145\55\142\162\145\x61\153\x2d\151\156\163\x69\x64\x65\72\40\141\166\157\x69\x64\73\40\x62\157\162\x64\x65\162\x3a\40\x31\x70\170\x20\x64\141\163\x68\x65\144\40\43\x39\71\71\73\x7d\12\x20\40\40\40\x20\40\40\x20\56\154\x6f\167\x6c\151\x6e\145\173\40\154\151\156\145\x2d\150\145\x69\x67\x68\164\x3a\x30\56\x39\x38\x65\x6d\x20\x7d\12\40\40\40\x20\40\40\x20\40\x3c\x2f\163\164\x79\x6c\x65\76"; goto VUEJjIiTe2j0G4NU; wCkbXlkl0NmfmkrX: WpxJmG1FwHGzJbU0: goto uJm50fu10bu_hRFS; gN2Dn5b9fFt0W2ow: goto n9sAtK31WW0u3Mnt; goto wCkbXlkl0NmfmkrX; VUEJjIiTe2j0G4NU: $html = "\x3c\150\x74\155\154\x3e\74\x68\145\x61\144\76" . $style . "\x3c\57\150\x65\x61\x64\x3e\x3c\142\157\x64\x79\76" . $header . $contains . "\74\x2f\x62\x6f\144\171\x3e\x3c\x2f\x68\164\155\x6c\76"; goto ncVxH9mOnBe5AJA_; C4Fkxs5QnEP_KNcu: kpxhd2cnGtTYPsCn: goto yeFuL5Uov2j27alQ; gG1hPcfgm40cZXsH: $contains .= "\x3c\57\164\x72\76\x3c\x74\162\x3e"; goto UkiRYTxDJEqJhgOt; mqUsi0cKPJWgyenc: $dompdf->loadHtml($html); goto JaOoSX3WXkdQ9Arv; EE4c4T2xxgdhxvRb: $i = 0; goto nC81IulH8I22DfuW; UkiRYTxDJEqJhgOt: CcKpJMFU29vCIcPq: goto C4Fkxs5QnEP_KNcu; W_ghWzH1rrtHwrIP: $docs = Documents::with("\103\x61\164\x65\x67\x6f\x72\151\x65\163")->with("\123\157\165\x73\104\157\x6d\141\151\x6e\145\163")->where("\143\x72\x65\141\164\145\x64\137\x61\x74", "\x3e\75", $debut)->where("\143\x72\145\141\164\x65\x64\x5f\x61\x74", "\74\x3d", $fin)->where("\143\x61\164\x65\147\x6f\x72\x69\145\x73\x5f\151\144", "\x3d", 4)->get(); goto TT3TSzk2bqqljqai; AX_BU62m42rsDSEU: $contains .= "\74\57\164\x61\142\x6c\145\76"; goto PEd8r08WuZQxRw0e; ZfTpXPg_eKUPYntU: $debut = $request->debut; goto qQqL2lulOrTNXzQH; nC81IulH8I22DfuW: n9sAtK31WW0u3Mnt: goto rGdno0wNvvlqLU0b; rGdno0wNvvlqLU0b: if (!($i < count($docs))) { goto WpxJmG1FwHGzJbU0; } goto AR11MtU1Qr2pUaxB; l2sVoug68cCmgVdu: return $dompdf->stream("\x46\x69\x63\150\145\163\x20\103\x61\164\x61\154\157\x67\x72\x61\x70\150\151\161\x75\x65\x73\56\x70\144\146", array("\101\164\164\x61\143\x68\x6d\145\156\x74" => 0)); goto S8GcykRSXZXjM5x6; wvMXnh2Qn7iEqi0G: $dompdf->render(); goto l2sVoug68cCmgVdu; S8GcykRSXZXjM5x6: } private function buildBlock($doc, $i) { goto ONAaASgHLH3p_ToJ; EZkjwBAxIBpTw3sv: $displayHack = ''; goto I6rdqrKRKUXXJQdl; I6rdqrKRKUXXJQdl: $storagePath = Storage::disk("\x6c\x6f\143\x61\x6c")->getDriver()->getAdapter()->getPathPrefix(); goto lSf03YQszVVh_elv; hFMdPDfBLykXucx_: if (!isset($doc->SousDomaines)) { goto ak_CxvPQRZlSI46N; } goto v1xeqTc0mSawtFZE; yBZ4L8KEFLgqbkJU: return $block; goto SL2BfJlkS1L7D80h; M0QgWkISkLDRDVw3: $sousdomaine = $doc->SousDomaines->NomSousDomaines; goto u8LWxdmqYvgK3ejH; d_eT0dMK8QMSUXqS: $sousdomaine = ''; goto hFMdPDfBLykXucx_; cbUk0yYafD4Gx276: $block = "\xa\40\x20\40\40\x20\x20\40\40\x3c\164\x64\40\143\154\x61\x73\x73\x3d\x27\142\x6c\157\143\x6b\47\40\166\141\x6c\151\x67\156\75\47\x74\157\160\x27\x20{$displayHack}\x3e\12\x20\40\40\x20\40\40\x20\40\40\x20\40\40\74\x64\151\166\x20\163\164\x79\154\145\x3d\x27\x70\x6f\x73\x69\x74\x69\x6f\156\72\162\x65\x6c\141\164\x69\x76\x65\x3b\x20\167\x69\x64\x74\150\x3a\x31\60\60\45\73\40\150\145\x69\x67\x68\x74\72\x38\x37\x2e\x35\x6d\155\x3b\x20\x6f\166\145\162\146\154\157\167\72\x68\x69\x64\144\145\x6e\73\x20\160\x61\144\x64\x69\x6e\147\72\40\x33\x30\x70\170\73\x27\x3e\xa\x20\x20\x20\40\x20\40\40\x20\x20\x20\40\40\40\x20\x20\x20\x3c\x74\141\x62\x6c\145\40\x73\x74\171\154\145\75\x27\x70\x6f\163\x69\x74\151\157\156\x3a\141\x62\163\x6f\x6c\165\164\145\x3b\47\x20\x77\151\x64\164\150\x3d\x27\61\60\x30\45\47\x20\x68\145\x69\147\x68\164\75\47\x31\x30\x30\45\x27\76\12\40\40\x20\x20\x20\40\40\x20\40\x20\40\40\x20\x20\40\40\40\x20\x20\40\x3c\164\162\x3e\12\40\40\40\x20\x20\x20\40\x20\x20\40\x20\40\40\x20\40\40\40\40\x20\40\40\40\x20\40\x3c\164\x64\40\x73\x74\x79\x6c\x65\x3d\47\x74\145\170\x74\x2d\x61\x6c\151\147\x6e\x3a\154\x65\x66\164\x3b\47\40\x77\x69\x64\x74\x68\x3d\x27\63\x33\x25\x27\x3e\xa\x20\x20\x20\x20\40\x20\40\40\40\40\x20\40\x20\40\40\x20\x20\x20\40\x20\40\40\40\x20\40\x20\40\40\74\x73\x74\x72\157\x6e\x67\x3e{$doc->CoteDocuments}\x3c\57\x73\x74\x72\x6f\x6e\x67\76\12\40\40\x20\x20\40\40\40\40\x20\x20\x20\x20\x20\40\40\40\40\x20\40\x20\40\40\x20\x20\x3c\x2f\164\144\x3e\12\40\40\40\x20\x20\40\40\40\x20\40\x20\x20\x20\40\40\40\40\40\40\x20\x20\40\40\40\x3c\x74\144\x20\163\164\x79\154\145\75\x27\164\x65\170\x74\x2d\x61\154\151\x67\156\72\143\145\x6e\164\145\x72\x3b\146\x6f\x6e\164\55\x73\x69\x7a\145\x3a\60\x2e\70\145\x6d\73\x27\x20\167\151\x64\x74\150\x3d\x27\63\x33\45\47\x3e\12\x20\x20\40\40\40\x20\40\40\40\40\x20\x20\40\x20\40\40\x20\40\x20\40\40\x20\x20\40\x20\40\40\x20\74\151\x6d\x67\40\163\162\143\x3d\x27{$logoPath}\47\40\167\151\x64\x74\x68\x3d\65\x30\76\74\x62\x72\76\12\40\40\x20\x20\x20\40\40\x20\40\40\40\40\x20\x20\40\40\x20\40\x20\40\x20\x20\40\40\x20\40\40\x20\x3c\x65\155\x3e\104\x6f\143\165\x6d\145\x6e\x74\x61\164\x69\157\x6e\x20\144\145\40\x6c\x27\x45\116\101\115\x3c\x2f\x65\x6d\x3e\12\x20\40\x20\x20\x20\40\40\x20\40\x20\40\40\x20\x20\x20\x20\x20\x20\40\40\x20\40\40\x20\74\57\164\144\76\12\40\40\x20\40\40\40\x20\40\x20\40\40\40\x20\40\40\x20\40\x20\40\x20\x20\40\40\40\74\x74\144\40\163\164\171\x6c\145\x3d\x27\164\x65\170\x74\x2d\x61\154\151\x67\156\72\162\x69\x67\x68\x74\x3b\47\x20\x77\x69\x64\164\x68\x3d\47\x33\x33\x25\x27\x3e\xa\x20\x20\x20\40\x20\x20\40\x20\x20\x20\40\40\x20\x20\x20\x20\40\x20\x20\x20\40\x20\x20\x20\40\40\x20\x20\74\163\164\162\157\156\147\76{$domaine}\74\x2f\x73\x74\x72\157\156\147\76\xa\40\x20\40\40\40\40\40\x20\40\x20\x20\40\40\40\40\40\x20\40\40\x20\x20\40\40\40\74\x2f\164\x64\x3e\xa\40\40\x20\40\40\x20\x20\40\x20\40\x20\40\40\x20\x20\40\40\40\x20\40\x3c\57\164\162\76\xa\x20\40\x20\40\40\x20\40\x20\x20\40\40\x20\40\40\x20\x20\40\x20\40\40\x3c\164\162\x3e\12\40\40\x20\40\40\x20\40\40\40\40\x20\40\40\40\x20\40\x20\x20\x20\40\x20\x20\x20\x20\74\164\x64\40\143\157\x6c\x73\160\141\156\75\47\63\47\x3e\12\40\x20\40\40\40\x20\40\x20\40\x20\40\x20\x20\x20\40\40\40\40\40\x20\x20\40\40\40\x20\40\40\40\x3c\142\162\x3e\xa\40\x20\40\x20\x20\x20\40\40\40\40\x20\x20\40\x20\x20\x20\x20\40\40\x20\40\x20\40\x20\40\40\40\40\x3c\x73\164\x72\x6f\156\147\x3e{$doc->TitreDocuments}\x3c\57\163\x74\x72\157\x6e\x67\76\x20\57\x20{$doc->Auteur}\x20\12\40\x20\x20\40\40\x20\40\x20\40\40\x20\x20\x20\40\x20\x20\x20\40\40\x20\x20\x20\x20\x20\x20\40\x20\40" . $injectIf($doc->LieuEditionDocuments, "\40\x2d\40", '') . "\12\40\x20\40\x20\x20\x20\x20\40\40\x20\x20\x20\40\40\x20\40\40\40\40\40\40\x20\40\x20\40\40\40\40" . $injectIf($doc->AnneePublicationDocuments, "\x2c\40", '') . "\12\40\x20\x20\x20\x20\40\40\40\x20\x20\40\40\x20\x20\x20\40\x20\40\x20\40\x20\40\40\x20\74\57\x74\x64\76\12\x20\40\40\x20\40\40\40\40\x20\40\40\40\40\x20\x20\40\x20\40\x20\40\x3c\57\x74\x72\x3e\12\x20\x20\x20\40\40\x20\40\x20\40\x20\40\x20\40\40\40\x20\x20\x20\40\x20\x3c\164\162\x3e\12\x20\40\x20\x20\40\x20\x20\40\40\x20\40\40\40\40\40\x20\40\x20\40\40\x20\x20\x20\40\74\164\144\40\143\x6f\154\x73\x70\141\156\75\47\63\47\40\143\154\141\163\x73\75\x27\x6c\157\x77\x6c\x69\156\145\47\76\xa\40\x20\x20\40\x20\x20\40\40\40\x20\x20\40\x20\40\x20\40\x20\x20\x20\x20\x20\x20\x20\x20\x20\40\40\x20" . $injectIf($doc->EditionsDocuments) . "\xa\x20\x20\x20\40\40\x20\x20\40\x20\x20\x20\x20\40\x20\x20\40\x20\40\x20\x20\40\x20\40\x20\x20\40\40\40" . $injectIf($doc->AnneeEditionDocuments) . "\12\x20\40\x20\40\x20\40\x20\40\x20\40\x20\40\x20\x20\x20\x20\40\40\40\x20\40\40\40\x20\x20\40\x20\x20" . $injectIf($doc->MaisonEditionDocuments) . "\12\40\40\x20\40\x20\x20\40\40\40\40\40\40\x20\40\x20\x20\x20\40\x20\x20\x20\x20\x20\x20\x20\40\x20\40" . $injectIf($doc->LongueurEditionDocuments, "\40", "\x63\x6d\x2c\40") . "\12\x20\x20\x20\40\x20\x20\x20\x20\x20\x20\40\x20\x20\x20\40\x20\40\x20\40\x20\40\x20\x20\40\40\x20\x20\x20" . $injectIf($doc->AdresseMaisonEdition) . "\xa\40\x20\40\40\x20\40\40\x20\40\40\40\x20\x20\40\40\x20\40\40\40\x20\x20\x20\x20\x20\40\x20\40\40" . $injectIf($doc->pagination, "\x20\x28", "\160\x2e\x29\40") . "\xa\12\40\x20\40\x20\x20\40\40\40\x20\40\x20\x20\40\40\x20\40\x20\x20\40\x20\x20\40\x20\40\x20\40\40\40" . $injectIf($doc->IllustrationDocuments) . "\xa\x20\40\40\x20\40\40\40\40\40\x20\x20\40\x20\40\x20\40\x20\x20\40\40\40\x20\x20\x20\x20\x20\x20\40" . $injectIf($doc->ReliureDocuments, "\x20", "\x2e") . "\xa\40\x20\x20\x20\40\40\40\x20\x20\40\40\x20\x20\40\40\x20\40\x20\x20\40\40\40\x20\40\40\x20\40\x20" . $injectIf($doc->NumeroEntresDocuments, "\40\x2d\x20\x4e\302\xb0\40", '') . "\12\40\x20\40\40\40\x20\x20\40\x20\x20\x20\40\40\x20\40\40\40\x20\x20\x20\x20\40\x20\40\x20\40\x20\40" . $injectIf($doc->PeriodiciteDocuments, "\40\55\x20", "\x2e") . "\12\x20\x20\40\x20\40\40\40\x20\x20\40\x20\40\40\x20\x20\x20\x20\40\x20\40\40\x20\x20\x20\74\x2f\x74\x64\x3e\xa\x20\40\x20\40\40\40\x20\40\40\40\40\40\40\x20\x20\x20\x20\40\40\x20\x3c\x2f\164\x72\x3e\xa\40\x20\x20\x20\40\x20\x20\x20\x20\x20\40\40\40\40\x20\x20\x20\x20\x20\x20\x3c\x74\162\76\x3c\x74\x64\x3e\x3c\x62\x72\x3e\x3c\x2f\x74\x64\76\74\x2f\x74\x72\x3e\12\40\x20\x20\40\x20\40\x20\x20\40\40\40\40\40\40\x20\x20\40\x20\x20\x20\x3c\x74\162\40\x73\164\x79\x6c\x65\75\47\x76\x65\162\x74\x69\x63\x61\154\x2d\x61\154\x69\x67\x6e\x3a\x74\x6f\160\x3b\47\x3e\12\x20\40\40\x20\40\x20\40\x20\x20\40\x20\x20\x20\40\x20\x20\x20\x20\x20\40\x20\40\40\40\x3c\164\144\x20\x63\x6f\154\x73\160\x61\156\x3d\47\62\47\x20\x63\154\141\163\x73\x3d\x27\x6c\x6f\x77\x6c\x69\x6e\145\x27\x3e\12\40\x20\x20\40\40\x20\x20\40\x20\x20\x20\x20\x20\40\x20\40\x20\x20\40\x20\40\x20\x20\x20\x20\x20\40\40" . $injectIf($doc->IsbnDocuments, "\x49\x53\x42\x4e\x3a\40", "\x3c\142\162\x3e") . "\xa\40\40\40\x20\x20\40\40\40\x20\x20\40\x20\x20\x20\40\40\x20\40\x20\40\40\x20\40\40\40\x20\40\x20" . $injectIf($doc->IssnDocuments, "\x49\123\123\x4e\72\x20", '') . "\xa\40\40\40\x20\x20\x20\40\40\x20\x20\x20\40\40\40\40\x20\40\x20\x20\x20\40\40\40\x20\74\x2f\x74\x64\x3e\12\40\40\x20\x20\40\40\x20\x20\x20\x20\x20\x20\x20\40\40\40\40\40\x20\x20\40\40\40\40\x3c\164\144\40\x73\x74\x79\x6c\145\75\x27\x74\145\170\x74\55\141\154\151\x67\156\x3a\x72\x69\x67\x68\164\73\x27\x3e\xa\x20\40\40\x20\40\40\x20\40\x20\40\x20\40\x20\40\x20\x20\40\40\40\40\40\x20\x20\40\x20\40\x20\x20{$doc->NbreExemplaireEdition}\40\x65\x78\145\155\160\154\141\151\x72\x65\x28\163\51\x3c\x62\162\x3e\12\x20\40\40\x20\40\40\40\x20\40\x20\x20\x20\x20\40\x20\x20\40\40\x20\40\40\x20\x20\x20\x3c\x2f\x74\144\x3e\xa\x20\40\40\40\x20\x20\x20\x20\x20\40\x20\x20\x20\x20\40\x20\x20\40\40\x20\x3c\57\164\162\76\12\12\40\x20\x20\40\40\x20\40\40\x20\40\40\x20\40\40\x20\40\40\x20\40\40\74\164\162\x3e\xa\x20\40\40\40\40\x20\x20\x20\x20\40\40\x20\x20\40\40\x20\x20\40\40\x20\x20\40\x20\x20\x3c\164\x64\x20\x63\157\x6c\x73\x70\x61\x6e\x3d\47\x33\47\x20\163\x74\x79\154\145\75\x27\164\x65\x78\164\x2d\141\154\151\x67\156\72\x72\x69\147\150\x74\73\x27\76\12\x20\40\x20\x20\40\40\x20\40\x20\40\40\x20\x20\40\x20\x20\x20\x20\x20\40\x20\40\40\40\x20\x20\40\40\74\x73\164\x72\157\x6e\147\76{$sousdomaine}\x3c\57\x73\164\162\x6f\x6e\x67\76\xa\x20\x20\x20\40\40\40\40\x20\40\x20\40\x20\40\40\x20\40\40\x20\x20\40\40\x20\x20\x20\x3c\57\164\x64\76\xa\40\40\x20\x20\x20\x20\40\x20\x20\x20\x20\40\x20\40\40\x20\40\40\40\40\x3c\x2f\164\x72\x3e\xa\x20\x20\40\40\x20\40\x20\40\40\40\40\x20\40\40\40\40\x3c\x2f\164\x61\x62\154\145\76\xa\x20\x20\x20\40\x20\x20\x20\40\40\x20\40\x20\74\x2f\144\151\166\x3e\xa\x20\x20\x20\40\40\x20\40\40\x3c\x2f\164\144\76"; goto yBZ4L8KEFLgqbkJU; QVeE_xgq2sWfD1Gh: $injectIf = function ($data, $prefix = "\40", $suffix = "\x2c\40") { if (!$data) { goto KvS3IrD_gCwUJhNX; } return $prefix . trim($data) . $suffix; KvS3IrD_gCwUJhNX: return ''; }; goto EZkjwBAxIBpTw3sv; v1xeqTc0mSawtFZE: $domaine = $doc->SousDomaines->Domaines->NomDomaines; goto M0QgWkISkLDRDVw3; ONAaASgHLH3p_ToJ: $domaine = ''; goto d_eT0dMK8QMSUXqS; u8LWxdmqYvgK3ejH: ak_CxvPQRZlSI46N: goto QVeE_xgq2sWfD1Gh; lSf03YQszVVh_elv: $logoPath = $storagePath . "\x70\x75\142\154\151\143\57\x6c\x6f\147\x6f\x65\x6e\x61\155\x2e\x6a\x70\x67"; goto cbUk0yYafD4Gx276; SL2BfJlkS1L7D80h: } }
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Dompdf\Dompdf;
+use App\Documents;
+
+class DocumentGenerator extends Controller
+{
+    //
+    public function ficheCatalographique(Request $request)
+    {
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+
+        $debut = $request->debut;
+        $fin   = $request->fin;
+
+        $docs = Documents::with('Categories')
+                           ->with('SousDomaines')
+                           ->where('created_at', '>=', $debut)
+                           ->where('created_at', '<=', $fin)
+                           ->where('categories_id','=',4)
+                           ->get();
+
+        $header = "";//"<h4 align='center'>Fiche des documents enregistrées entre le $debut et le $fin<br><br></h4>";
+        
+        $contains = '<table class="maintable" width="100%">';
+        $contains .= '<tr><td/><td/></tr><tr>';
+        for($i=0;$i<50;$i++) {
+        //for($i=0; $i<count($docs); $i++) {
+            $contains .= $this->buildBlock($docs[$i%count($docs)], $i);
+            if($i>0 && $i%2==1) $contains .= '</tr><tr>';
+        }
+        $contains .= '</tr>'; //close at the closed
+                
+        $contains .= '</table>';
+        
+        $style = '<style>
+        html, body, table {margin:10px 0;}
+        .maintable td{ font-size: 1.05em; }
+        .maintable{ table-layout: fixed; border: none; border-spacing: 25px;}
+        .block{ overflow:hidden; line-height:1.2; width:125mm; height:77mm; page-break-inside: avoid; border: 1px dashed #999;}
+        .lowline{ line-height:0.98em }
+        </style>';
+        $html = '<html><head>'.$style.'</head><body>'.$header.$contains.'</body></html>';
+
+        if(isset($request['debug'])) return $html;
+
+        $html = preg_replace('/>\s+</', "><", $html);
+        $dompdf->loadHtml($html);
+        
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        return $dompdf->stream('Fiches Catalographiques.pdf',array('Attachment'=>0));
+    }
+
+    private function buildBlock($doc, $i){
+        $domaine = '';
+        $sousdomaine = '';
+        if(isset($doc->SousDomaines)) {
+            $domaine = $doc->SousDomaines->Domaines->NomDomaines;
+            $sousdomaine     = $doc->SousDomaines->NomSousDomaines;
+        }
+
+        $injectIf = function ($data, $prefix=' ', $suffix=', '){
+            if($data){
+                return $prefix.trim($data).$suffix;
+            }
+            return '';
+        };
+
+        $displayHack = '';// ($i==7)?'style="page-break-after:always;background:red;height:50mm;"':'';
+
+        $storagePath  = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix(); 
+        $logoPath = $storagePath.'public/logoenam.jpg';
+        
+        $block = "
+        <td class='block' valign='top' $displayHack>
+            <div style='position:relative; width:100%; height:77mm; overflow:hidden; padding: 10px;'>
+                <table style='position:absolute;' width='100%' height='100%'>
+                    <tr>
+                        <td style='text-align:left;' width='33%'>
+                            <strong>$doc->CoteDocuments</strong>
+                        </td>
+                        <td style='text-align:center;font-size:0.8em;' width='33%'>
+                            <img src='$logoPath' width=50><br>
+                            <em>Documentation de l'ENAM</em>
+                        </td>
+                        <td style='text-align:right;' width='33%'>
+                            <strong>$domaine</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='3'>
+                            <br>
+                            <strong>$doc->TitreDocuments</strong> / $doc->Auteur 
+                            ".$injectIf($doc->LieuEditionDocuments, ' - ', '')."
+                            ".$injectIf($doc->AnneePublicationDocuments, ', ','')."
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='3' class='lowline'>
+                            ".$injectIf($doc->EditionsDocuments)."
+                            ".$injectIf($doc->AnneeEditionDocuments)."
+                            ".$injectIf($doc->MaisonEditionDocuments)."
+                            ".$injectIf($doc->LongueurEditionDocuments, ' ', 'cm, ')."
+                            ".$injectIf($doc->AdresseMaisonEdition)."
+                            ".$injectIf($doc->pagination, ' (', 'p.) ')."
+
+                            ".$injectIf($doc->IllustrationDocuments)."
+                            ".$injectIf($doc->ReliureDocuments, ' ', '.')."
+                            ".$injectIf($doc->NumeroEntresDocuments, ' - N° ', '')."
+                            ".$injectIf($doc->PeriodiciteDocuments, ' - ', '.')."
+                        </td>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr style='vertical-align:top;'>
+                        <td colspan='2' class='lowline'>
+                            ".$injectIf($doc->IsbnDocuments, 'ISBN: ', '<br>')."
+                            ".$injectIf($doc->IssnDocuments, 'ISSN: ', '')."
+                        </td>
+                        <td style='text-align:right;'>
+                            $doc->NbreExemplaireEdition exemplaire(s)<br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan='3' style='text-align:right;'>
+                            <strong>$sousdomaine</strong>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>";
+
+        return $block;
+    }
+
+
+}
