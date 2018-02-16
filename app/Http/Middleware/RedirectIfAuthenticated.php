@@ -1,8 +1,3 @@
 <?php
-/*   __________________________________________________
-    |  Obfuscated by YAK Pro - Php Obfuscator  1.8.8   |
-    |              on 2018-02-16 09:48:53              |
-    |    GitHub: https://github.com/pk-fr/yakpro-po    |
-    |__________________________________________________|
-*/
- namespace App\Http\Middleware; use Closure; use Illuminate\Support\Facades\Auth; class RedirectIfAuthenticated { public function handle($request, Closure $next, $guard = null) { goto DOQuj; iPlgV: return redirect("\x2f\x68\x6f\155\145"); goto gt34c; bu25O: return $next($request); goto keTuH; gt34c: QNCpD: goto bu25O; DOQuj: if (!Auth::guard($guard)->check()) { goto QNCpD; } goto iPlgV; keTuH: } }
+/*__rester vrai__*/
+ namespace App\Http\Middleware; use Closure; use Illuminate\Support\Facades\Auth; class RedirectIfAuthenticated { public function handle($request, Closure $next, $guard = null) { goto PZcir012AqBWF3uU; kAdwEN99_ut1pfFe: return $next($request); goto BQMgfa_fCYPn4FnW; UmEBnk20zl_tkoGo: if (Auth::guard($guard)->check()) { goto uAXZih27ytccGMmW; } goto jvMaocbBOr8IaYYP; CSVsdxzqkioKosqn: keTuH: goto QwJPvo0PaoROGo0P; PZcir012AqBWF3uU: goto DOQuj; goto kVc043uOvcA2267g; PmYy8sB2XNK6_4dX: goto bu25O; goto vyqhdMVuL95tcQaf; nqM6TA1j96H0e2Ka: goto iPlgV; goto CSVsdxzqkioKosqn; kVc043uOvcA2267g: iPlgV: goto AqXNe5kMT2CjMpOO; jkOZNuiAmEiwAwvz: gt34c: goto Ywo6l7iR_oOJp9A2; vyqhdMVuL95tcQaf: DOQuj: goto UmEBnk20zl_tkoGo; jvMaocbBOr8IaYYP: goto QNCpD; goto PgkeE7SZQ095oYhF; PgkeE7SZQ095oYhF: uAXZih27ytccGMmW: goto nqM6TA1j96H0e2Ka; Ywo6l7iR_oOJp9A2: QNCpD: goto PmYy8sB2XNK6_4dX; xVhMhLCTdwtIUzaY: goto gt34c; goto O1p_lh2a_NBR3rtJ; BQMgfa_fCYPn4FnW: goto keTuH; goto jkOZNuiAmEiwAwvz; AqXNe5kMT2CjMpOO: return redirect("\57\x68\157\155\x65"); goto xVhMhLCTdwtIUzaY; O1p_lh2a_NBR3rtJ: bu25O: goto kAdwEN99_ut1pfFe; QwJPvo0PaoROGo0P: } }
