@@ -29,8 +29,8 @@ class DocumentGenerator extends Controller
         
         $contains = '<table class="maintable" width="100%">';
         $contains .= '<tr><td/><td/></tr><tr>';
-        //for($i=0;$i<5;$i++) {
-        for($i=0; $i<count($docs); $i++) {
+        for($i=0;$i<50;$i++) {
+        //for($i=0; $i<count($docs); $i++) {
             $contains .= $this->buildBlock($docs[$i%count($docs)], $i);
             if($i>0 && $i%2==1) $contains .= '</tr><tr>';
         }
@@ -39,10 +39,10 @@ class DocumentGenerator extends Controller
         $contains .= '</table>';
         
         $style = '<style>
-        html, body, table {margin:0;}
+        html, body, table {margin:10px 0;}
         .maintable td{ font-size: 1.05em; }
-        .maintable{ table-layout: fixed; border: none; border-spacing: 0px;}
-        .block{ overflow:hidden; line-height:1.6; width:125mm; height:88.5mm; page-break-inside: avoid; border: 1px dashed #999;}
+        .maintable{ table-layout: fixed; border: none; border-spacing: 25px;}
+        .block{ overflow:hidden; line-height:1.2; width:125mm; height:77mm; page-break-inside: avoid; border: 1px dashed #999;}
         .lowline{ line-height:0.98em }
         </style>';
         $html = '<html><head>'.$style.'</head><body>'.$header.$contains.'</body></html>';
@@ -83,7 +83,7 @@ class DocumentGenerator extends Controller
         
         $block = "
         <td class='block' valign='top' $displayHack>
-            <div style='position:relative; width:100%; height:87.5mm; overflow:hidden; padding: 30px;'>
+            <div style='position:relative; width:100%; height:77mm; overflow:hidden; padding: 10px;'>
                 <table style='position:absolute;' width='100%' height='100%'>
                     <tr>
                         <td style='text-align:left;' width='33%'>

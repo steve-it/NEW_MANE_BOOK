@@ -43,7 +43,7 @@
                                         <div class="form-group">
                                             Type du document
                                             <div class="form-line">
-                                                <select class="ms" style="width:100%" name="categories_id" id="categorie">
+                                                <select class="ms" style="width:100%" require name="categories_id" id="categorie">
                                                     <option value="">Choisir le Type du document</option>
                                                     @foreach($categories as $categorie)
                                                         <option value="{{ $categorie->id }}" {{ ($document->Categories && $document->Categories->id == $categorie->id)?'selected':'' }} >{{ $categorie->libelle }}</option>
