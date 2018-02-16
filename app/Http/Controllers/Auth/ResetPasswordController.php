@@ -1,3 +1,3 @@
 <?php
 /*__rester vrai__*/
- namespace App\Http\Controllers\Auth; use App\Http\Controllers\Controller; use Illuminate\Foundation\Auth\ResetsPasswords; class ResetPasswordController extends Controller { use ResetsPasswords; protected $redirectTo = "\x2f\x68\x6f\x6d\145"; public function __construct() { $this->middleware("\147\165\x65\x73\164"); } }
+ namespace App\Http\Controllers\Auth; use App\Http\Controllers\Controller; use Illuminate\Foundation\Auth\ResetsPasswords; class ResetPasswordController extends Controller { use ResetsPasswords; protected $redirectTo = "\57\x68\x6f\155\145"; public function __construct() { $this->middleware("\147\x75\x65\163\x74"); } }
