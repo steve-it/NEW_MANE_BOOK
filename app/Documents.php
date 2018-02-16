@@ -1,52 +1,8 @@
 <?php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Documents extends Model
-{
-    use SoftDeletes;
-    protected $table = 'documents';
-    protected $fillable = ['TitreDocuments','IsbnDocuments','IssnDocuments','CoteDocuments','NumeroEntresDocuments',
-        'AnneePublicationDocuments','EditionsDocuments','EditeurDocuments','NbreExemplaireEdition','DateEditionDocuments','LieuEditionDocuments',
-        'MaisonEditionDocuments','LongueurEditionDocuments','AdresseMaisonEdition','IllustrationDocuments','PeriodiciteDocuments', 'origine',
-        'ReliureDocuments','pagination','nbre_emprunt','Section','Auteur','NumeroDecret','categories_id','sousdomaines_id'];
-
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['deleted_at'];
-
-    public $timestamps = true;
-
-    public function Categories()
-    {
-        return $this->belongsTo('App\Categorie');
-    }
-
-    public function consultations()
-    {
-        return $this->hasMany('App\Consultation');
-    }
-
-    /*public function Auteurs()
-    {
-        return $this->belongsToMany('App\Auteur','auteurs_documents','documents_id','auteurs_id');
-    }*/
-
-    public function Emprunts()
-    {
-        return $this->hasMany('App\Emprunt');
-    }
-
-    public function SousDomaines()
-    {
-        return $this->belongsTo('App\SousDomaine','sousdomaines_id')->with('domaines');
-    }
-
-}
+/*   __________________________________________________
+    |  Obfuscated by YAK Pro - Php Obfuscator  1.8.8   |
+    |              on 2018-02-16 09:48:54              |
+    |    GitHub: https://github.com/pk-fr/yakpro-po    |
+    |__________________________________________________|
+*/
+ namespace App; use Illuminate\Database\Eloquent\Model; use Illuminate\Database\Eloquent\SoftDeletes; class Documents extends Model { use SoftDeletes; protected $table = "\144\x6f\143\x75\155\x65\x6e\x74\x73"; protected $fillable = array("\124\151\164\x72\145\104\x6f\143\x75\155\x65\156\164\x73", "\x49\x73\x62\x6e\104\157\143\165\155\145\156\x74\163", "\x49\x73\163\156\104\157\143\165\155\x65\x6e\164\163", "\103\x6f\x74\145\104\157\143\165\155\x65\156\x74\163", "\x4e\x75\x6d\x65\x72\x6f\105\156\x74\162\145\163\104\x6f\x63\x75\x6d\x65\156\x74\x73", "\x41\156\x6e\145\145\x50\165\x62\x6c\151\143\x61\164\x69\157\156\104\157\143\x75\x6d\145\156\x74\x73", "\105\144\151\x74\151\157\156\x73\104\157\x63\x75\155\145\156\164\163", "\x45\144\x69\x74\x65\165\162\x44\x6f\x63\x75\155\145\x6e\x74\x73", "\116\142\x72\145\105\170\x65\x6d\x70\154\141\x69\x72\x65\105\144\x69\164\x69\157\x6e", "\x44\x61\x74\x65\x45\144\x69\164\x69\x6f\x6e\x44\x6f\x63\165\x6d\x65\x6e\x74\163", "\114\x69\145\165\x45\x64\x69\164\151\157\156\104\157\x63\165\x6d\145\156\x74\x73", "\115\x61\x69\x73\157\156\x45\x64\x69\164\x69\157\156\104\157\143\165\155\x65\x6e\164\163", "\114\157\x6e\x67\x75\x65\165\162\x45\x64\x69\x74\151\x6f\156\104\x6f\x63\165\155\145\x6e\x74\163", "\101\144\162\145\163\163\145\115\141\x69\x73\157\156\105\144\151\164\151\157\156", "\111\154\x6c\165\x73\x74\x72\141\x74\x69\157\156\104\157\143\x75\155\145\156\x74\x73", "\x50\x65\162\x69\157\144\x69\143\x69\x74\145\104\x6f\143\165\x6d\x65\x6e\164\x73", "\x6f\x72\x69\x67\x69\x6e\145", "\x52\x65\x6c\x69\x75\162\x65\x44\157\143\165\x6d\145\x6e\164\x73", "\x70\x61\147\151\x6e\141\164\x69\157\x6e", "\x6e\x62\162\x65\x5f\145\x6d\x70\x72\165\x6e\164", "\x53\x65\x63\164\151\x6f\x6e", "\101\165\x74\145\165\x72", "\116\165\x6d\145\162\x6f\104\145\x63\162\145\164", "\143\x61\x74\x65\x67\157\x72\151\x65\163\x5f\151\x64", "\163\x6f\x75\x73\144\x6f\155\x61\x69\156\145\x73\137\x69\x64"); protected $dates = array("\144\x65\154\145\164\145\144\137\141\x74"); public $timestamps = true; public function Categories() { return $this->belongsTo("\101\x70\x70\134\103\x61\x74\145\147\157\162\x69\145"); } public function consultations() { return $this->hasMany("\101\x70\160\x5c\x43\x6f\x6e\x73\x75\x6c\164\x61\164\151\157\x6e"); } public function Emprunts() { return $this->hasMany("\101\x70\x70\134\x45\155\x70\162\x75\x6e\x74"); } public function SousDomaines() { return $this->belongsTo("\101\160\160\x5c\x53\157\x75\x73\x44\x6f\155\x61\x69\156\x65", "\163\157\165\x73\x64\x6f\x6d\141\x69\156\145\163\x5f\151\144")->with("\144\157\x6d\x61\151\x6e\x65\x73"); } }
