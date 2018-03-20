@@ -137,15 +137,15 @@
                                          <div class="form-group">
                                             <div class="form-line">
                                                 <p>Domaine de connaissance
-                                                    <span style="position: relative;left:240px;top: 15px">
+                                                    <!--<span style="position: relative;left:240px;top: 15px">
                                                       <a href="{{ url('domaines') }}" class="mce-menu-item">
                                                          <i class="material-icons" style="color: red ">add_box</i>
                                                       </a>
-                                                    </span>
+                                                    </span>-->
                                                 </p>
 
                                                 <select class="ms" style="width:100%" name="domaine" id="domaine" >
-                                                    <option value="value='' selected">Selectionnez un Domaine de Connaissance</option>
+                                                    <option value="">Selectionnez un Domaine de Connaissance</option>
                                                     @foreach($domaines as $domaine)
                                                         <option value="{{ $domaine->id }}" {{ ($document->SousDomaines && $domaine->id == $document->SousDomaines->Domaines->id)?'selected':'' }}>{{ $domaine->NomDomaines  }}</option>
                                                     @endforeach
@@ -172,15 +172,21 @@
 
                                 <div class="row clearfix">
                                     <div class="col-md-6">
-
+                                        <div class="form-group">
+                                             <div class="form-line">
+                                                 <label style="color: red">Nouveau domaine inexistant de la selection haut</label>
+                                                 <input type="text" class="form-control" name="Nouveaudomains" id="Nouveaudomains"
+                                                        placeholder="Entrez le nouveau domaine inexistant de la liste">
+                                             </div>
+                                        </div>
                                     </div>
 
                                     <div class="col-md-6">
                                          <div class="form-group">
                                              <div class="form-line">
-                                                 <label style="color: red">Nouveau Sous Domaine Inexistant de la liste de selection haut</label>
+                                                 <label style="color: red">Nouveau sous domaine inexistant de la selection haut</label>
                                                  <input type="text" class="form-control" name="NouveauSousdomains" id="NouveauSousdomains"
-                                                        placeholder="Entrez le nouveau sous domaine inexistant de liste">
+                                                        placeholder="Entrez le nouveau sous domaine inexistant de la liste">
                                              </div>
                                         </div>
                                     </div>
@@ -231,7 +237,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="MaisonEditionDocuments"
-                                                       id="MaisonEditionDocuments" placeholder="Maison d'edition du document">
+                                                       id="MaisonEditionDocuments" placeholder="Notes document">
                                             </div>
                                         </div>
                                     </div>
