@@ -82,7 +82,19 @@ class DocumentsController extends Controller
             return response()->view('errors.503', [], 503);
         }
 
-        // tester de renseignement d'un nouveau Sous-Domaines inexistant dans la liste de selection
+    //tester de renseignement d'un nouveau Domaine inexistant dans la liste de selection
+    if(isset($request->Nouveaudomains))
+    {
+        $newdomaines = new Domaine([
+            'NomDomaines' => $request['Nouveaudomains']
+        ]);
+        $newdomaines->save();
+
+        $request['domaine']= $newdomaines->id;
+    }
+
+
+        // tester de renseignement d'un nouveau Sous-Domaine inexistant dans la liste de selection
         if (isset($request->NouveauSousdomains)){
             $sousdomaines = new SousDomaine([
                 'domaines_id' => $request['domaine'],

@@ -100,25 +100,25 @@ class DocumentGenerator extends Controller
                     <tr>
                         <td colspan='3'>
                             <br>
-                            <strong>$doc->TitreDocuments</strong> / $doc->Auteur 
+                            <strong>$doc->TitreDocuments</strong> / $doc->Auteur
+                            ".$injectIf($doc->EditionsDocuments, ' - ', '')."
                             ".$injectIf($doc->LieuEditionDocuments, ' - ', '')."
+                            ".$injectIf($doc->EditeurDocuments, ' - ', '')."                            
                             ".$injectIf($doc->AnneePublicationDocuments, ', ','')."
                         </td>
                     </tr>
                     <tr>
-                        <td colspan='3' class='lowline'>
-                            ".$injectIf($doc->EditionsDocuments)."
-                            ".$injectIf($doc->AnneeEditionDocuments)."
-                            ".$injectIf($doc->MaisonEditionDocuments)."
-                            ".$injectIf($doc->LongueurEditionDocuments, ' ', 'cm, ')."
-                            ".$injectIf($doc->AdresseMaisonEdition)."
-                            ".$injectIf($doc->pagination, ' (', 'p.) ')."
-
-                            ".$injectIf($doc->IllustrationDocuments)."
-                            ".$injectIf($doc->ReliureDocuments, ' ', '.')."
-                            ".$injectIf($doc->NumeroEntresDocuments, ' - N° ', '')."
-                            ".$injectIf($doc->PeriodiciteDocuments, ' - ', '.')."
-                        </td>
+                        <td colspan='3' class='lowline'>"
+                            .$injectIf($doc->pagination, ' (', 'p) ')
+                            .$injectIf($doc->IllustrationDocuments)
+                            .$injectIf($doc->ReliureDocuments, ' ', '.') 
+                            .$injectIf($doc->LongueurEditionDocuments, ' ', 'cm, ')
+                            .$injectIf($doc->MaisonEditionDocuments, ' (', ') ')
+                            .$injectIf($doc->NumeroEntresDocuments, ' - N° ', '')
+                            //.$injectIf($doc->PeriodiciteDocuments, ' - ', '.')
+                            //.$injectIf($doc->AnneeEditionDocuments)
+                            //.$injectIf($doc->AdresseMaisonEdition)
+                        ."</td>
                     </tr>
                     <tr><td><br></td></tr>
                     <tr style='vertical-align:top;'>
