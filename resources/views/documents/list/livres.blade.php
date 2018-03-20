@@ -11,27 +11,27 @@ LISTE DES LIVRES
 
         <tr>
             <th class="noExport">Action</th>
-            <th>COTE</th>
-            <th>TITRE</th>
-            <th>AUTEURS</th>
+            <th>Cote</th>
+            <th>Titre</th>
+            <th>Auteurs</th>
+            <th>Année de publication</th>
             {{--<th>NBRE DISPONIBLE</th>--}}
             <th>Domaine</th>
-            <th>Sous Domaine</th>
+            <th>Sous domaine</th>
             {{--<th>NBRE EXEMPLAIRE INITIAL</th>--}}
             {{--<th>Categorie</th>--}}
             {{--<th>ISBN</th>--}}
             {{--<th>ISSN</th>--}}
             {{--<th>NUMERO ENTREE</th>--}}
-            {{--<th>ANNEE PUBLICATION</th>--}}
             {{--<th>EDITION</th>--}}
             {{--<th>ANNEE EDITION</th>--}}
             {{--<th>MAISON EDITION</th>--}}
             {{--<th>LARGEUR EDITION</th>--}}
             {{--<th>LONGUEUR EDITION</th>--}}
             {{--<th>ADESSE MAISON EDITION</th>--}}
-            <th>ILLUSTRATION</th>
+            <th class="noExport">Illustrastion</th>
             {{--<th>PERIODICITE</th>--}}
-            <th>RELIURE</th>
+            <th class="noExport">Reliure</th>
 
         </tr>
         </thead>
@@ -52,6 +52,7 @@ LISTE DES LIVRES
                 <td>
                     {{ $document->Auteur }}
                 </td>
+                <td>{{ $document->AnneePublicationDocuments }}</td>
                 {{--<td>{{ $document->NbreExemplaireEdition - $document->nbre_emprunt }}</td>--}}
                 <td>
                     @if($document->SousDomaines)
@@ -68,7 +69,6 @@ LISTE DES LIVRES
                 {{--<td>{{ $document->IsbnDocuments }}</td>--}}
                 {{--<td>{{ $document->IssnDocuments }}</td>--}}
                 {{--<td>{{ $document->NumeroEntresDocuments }}</td>--}}
-                {{--<td>{{ $document->AnneePublicationDocuments }}</td>--}}
                 {{--<td>{{ $document->EditionsDocuments }}</td>--}}
                 {{--<td>{{ $document->AnneeEditionDocuments }}</td>--}}
                 {{--<td>{{ $document->MaisonEditionDocuments }}</td>--}}
@@ -90,26 +90,26 @@ LISTE DES LIVRES
         <tr>
             <th class="noExport">Action</th>
             <th>Cote</th>
-            <th>Titres</th>
-            <th>AUTEURS</th>
+            <th>Titre</th>
+            <th>Auteurs</th>
+            <th>Année de publication</th>
             {{--<th>NBRE DISPONIBLE</th>--}}
             <th>Domaine</th>
-            <th>Sous Domaine</th>
+            <th>Sous domaine</th>
             {{--<th>NBRE EXEMPLAIRE INITIAL</th>--}}
             {{--<th>Categorie</th>--}}
             {{--<th>ISBN</th>--}}
             {{--<th>ISSN</th>--}}
             {{--<th>NUMERO ENTREE</th>--}}
-            {{--<th>ANNEE PUBLICATION</th>--}}
             {{--<th>EDITION</th>--}}
             {{--<th>ANNEE EDITION</th>--}}
             {{--<th>MAISON EDITION</th>--}}
             {{--<th>LARGEUR EDITION</th>--}}
             {{--<th>LONGUEUR EDITION</th>--}}
             {{--<th>ADESSE MAISON EDITION</th>--}}
-            <th>ILLUSTRATION</th>
+            <th class="noExport">Illustrastion</th>
             {{--<th>PERIODICITE</th>--}}
-            <th>RELIURE</th>
+            <th class="noExport">Reliure</th>
         </tr>
         </tfoot>
 

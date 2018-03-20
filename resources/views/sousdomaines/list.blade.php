@@ -300,16 +300,15 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
-                    'csv',
-                    'excel',
+                    // 'copy',
+                    // 'csv',
+                    // 'excel',
                     {
                         extend:'pdf',
                         exportOptions:{
                             columns:"thead th:not(.noExport)"
                         }
-                    },
-                    'print'
+                    }
                 ]
             });
         });

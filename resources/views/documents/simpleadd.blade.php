@@ -199,6 +199,7 @@
                                             <div class="form-line">
                                                 <label>Annee Publication Documents</label>
                                                 <input type="number" class="form-control" name="AnneePublicationDocuments"
+                                                       value="{{ $document->AnneePublicationDocuments }}"
                                                        placeholder="Annee Publication Documents">
                                             </div>
                                         </div>
@@ -209,6 +210,7 @@
                                             <div class="form-line">
                                                 <label>Année d'edition du document</label>
                                                 <input type="number" class="form-control" name="DateEditionDocuments"
+                                                       value="{{ $document->DateEditionDocuments }}"
                                                        placeholder="Année d'edition du document">
                                             </div>
                                         </div>
@@ -219,6 +221,7 @@
                                             <div class="form-line">
                                                 <label>Lieu d'edition</label>
                                                 <input type="text" class="form-control" name="LieuEditionDocuments"
+                                                       value="{{ $document->LieuEditionDocuments }}"
                                                        placeholder="Lieu d'edition du document">
                                             </div>
                                         </div>
@@ -228,6 +231,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="EditionsDocuments"
+                                                       value="{{ $document->EditionsDocuments }}"
                                                        id="EditionsDocuments" placeholder="Edition du document">
                                             </div>
                                         </div>
@@ -237,6 +241,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="MaisonEditionDocuments"
+                                                       value="{{ $document->MaisonEditionDocuments }}"
                                                        id="MaisonEditionDocuments" placeholder="Notes document">
                                             </div>
                                         </div>
@@ -246,6 +251,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="AdresseMaisonEdition"
+                                                       value="{{ $document->AdresseMaisonEdition }}"
                                                        id="AdresseMaisonEdition" placeholder="Adresse de la maison d'edition">
                                             </div>
                                         </div>
@@ -259,6 +265,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="IsbnDocuments"
+                                                       value="{{ $document->IsbnDocuments }}"
                                                        placeholder="ISBN du document" >
                                             </div>
                                         </div>
@@ -269,6 +276,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="IssnDocuments"
+                                                       value="{{ $document->IssnDocuments }}"
                                                        placeholder="ISSN du document" >
                                             </div>
                                         </div>
@@ -312,6 +320,7 @@
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="pagination"
                                                        id="pagination"
+                                                       value="{{ $document->pagination }}"
                                                        placeholder="nombre de pages">
                                             </div>
                                         </div>
@@ -323,7 +332,8 @@
                                             <div class="form-line">
                                                 <input type="number" style="text-align:right;" class="form-control" name="LongueurEditionDocuments"
                                                     id="LongueurEditionDocuments"
-                                                placeholder="00">
+                                                    value="{{ $document->LongueurEditionDocuments }}"
+                                                    placeholder="00">
                                             </div>
                                             <span class="input-group-addon" id="basic-addon2">cm</span>
                                         </div>
@@ -333,6 +343,7 @@
                                         <div class="input-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="EditeurDocuments"
+                                                       value="{{ $document->EditeurDocuments }}"
                                                        id="EditeurDocuments" placeholder="Editeur du document">
                                             </div>
                                         </div>
@@ -356,6 +367,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="PeriodiciteDocuments"
+                                                       value="{{ $document->PeriodiciteDocuments }}"
                                                        id="PeriodiciteDocuments" placeholder="Periodicite du document">
                                             </div>
                                         </div>
@@ -365,6 +377,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="NumeroDecret"
+                                                       value="{{ $document->NumeroDecret }}"
                                                        placeholder="Numero du decret">
                                             </div>
                                         </div>
@@ -375,6 +388,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="NumeroEntresDocuments"
+                                                       value="{{ $document->NumeroEntresDocuments }}"
                                                        placeholder="Numéro d'entrée du document">
                                             </div>
                                         </div>

@@ -91,8 +91,7 @@
                         exportOptions:{
                             columns:"thead th:not(.noExport)"
                         }
-                    },
-                    'print'
+                    }
                 ]
             });
         });

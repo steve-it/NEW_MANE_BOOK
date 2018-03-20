@@ -29,9 +29,10 @@ class DocumentGenerator extends Controller
         
         $contains = '<table class="maintable" width="100%">';
         $contains .= '<tr><td/><td/></tr><tr>';
-        for($i=0;$i<50;$i++) {
-        //for($i=0; $i<count($docs); $i++) {
-            $contains .= $this->buildBlock($docs[$i%count($docs)], $i);
+        for($i=0; $i<count($docs); $i++) {
+            //for($i=0;$i<50;$i++) {
+            //$contains .= $this->buildBlock($docs[$i%count($docs)], $i);
+            $contains .= $this->buildBlock($docs[$i], $i);
             if($i>0 && $i%2==1) $contains .= '</tr><tr>';
         }
         $contains .= '</tr>'; //close at the closed
@@ -111,28 +112,28 @@ class DocumentGenerator extends Controller
                         <td colspan='3' class='lowline'>"
                             .$injectIf($doc->pagination, ' (', 'p) ')
                             .$injectIf($doc->IllustrationDocuments)
-                            .$injectIf($doc->ReliureDocuments, ' ', '.') 
+                            .$injectIf($doc->ReliureDocuments, ' ', '.')
                             .$injectIf($doc->LongueurEditionDocuments, ' ', 'cm, ')
-                            .$injectIf($doc->MaisonEditionDocuments, ' (', ') ')
-                            .$injectIf($doc->NumeroEntresDocuments, ' - N° ', '')
+                            .$injectIf($doc->MaisonEditionDocuments, ' (', ') ') // note
                             //.$injectIf($doc->PeriodiciteDocuments, ' - ', '.')
                             //.$injectIf($doc->AnneeEditionDocuments)
                             //.$injectIf($doc->AdresseMaisonEdition)
+                            //.$injectIf($doc->IssnDocuments, 'ISSN: ', '')
                         ."</td>
                     </tr>
-                    <tr><td><br></td></tr>
+                    <tr><td></td></tr>
                     <tr style='vertical-align:top;'>
-                        <td colspan='2' class='lowline'>
-                            ".$injectIf($doc->IsbnDocuments, 'ISBN: ', '<br>')."
-                            ".$injectIf($doc->IssnDocuments, 'ISSN: ', '')."
+                        <td class='lowline'>
+                            ".$injectIf($doc->NumeroEntresDocuments, 'N°', '')."
                         </td>
-                        <td style='text-align:right;'>
+                        <td colspan='2' style='text-align:right;'>                        
+                           ".$injectIf($doc->IsbnDocuments, 'ISBN: ', '<br>')."
                             $doc->NbreExemplaireEdition exemplaire(s)<br>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan='3' style='text-align:right;'>
+                        <td colspan='3' style='text-align:center;'>
                             <strong>$sousdomaine</strong>
                         </td>
                     </tr>
