@@ -10,6 +10,7 @@
 
         <tr>
             <th class="noExport">Action</th>
+            <th>N°</th>
             <th>COTE</th>
             <th>TITRE</th>
             <th>AUTEURS</th>
@@ -22,7 +23,7 @@
             {{--<th>ISSN</th>--}}
             <th>NUMERO ENTREE</th>
             <th>NUMERO DECRET</th>
-            {{--<th>ANNEE PUBLICATION</th>--}}
+            {{--<th title="Année de publication">Année</th>--}}
             {{--<th>EDITION</th>--}}
             {{--<th>ANNEE EDITION</th>--}}
             {{--<th>MAISON EDITION</th>--}}
@@ -49,6 +50,7 @@
                     <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@emprunt', ['id' => $document->id]) }}" title="Emprunter Cet Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
                     <a class="btn btn-xs btn-danger" data-id="{{  $document->id }}" title="Supprimer le document"><i class="material-icons">clear</i></a>
                 </td>
+                <td>{{ isset($i)? ++$i : $i=1 }}</td>
                 <td>{{ $document->CoteDocuments }}</td>
                 <td>{{ $document->TitreDocuments }}</td>
                 <td>
@@ -84,6 +86,7 @@
 
         <tr>
             <th class="noExport">Action</th>
+            <th>N°</th>
             <th>COTE</th>
             <th>TITRE</th>
             <th>AUTEURS</th>
@@ -96,7 +99,7 @@
             {{--<th>ISSN</th>--}}
             <th>NUMERO ENTREE</th>
             <th>NUMERO DECRET</th>
-            {{--<th>ANNEE PUBLICATION</th>--}}
+            {{--<th title="Année de publication">Année</th>--}}
             {{--<th>EDITION</th>--}}
             {{--<th>ANNEE EDITION</th>--}}
             {{--<th>MAISON EDITION</th>--}}

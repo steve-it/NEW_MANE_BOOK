@@ -10,11 +10,12 @@ LISTE DES MEMOIRES
 
         <tr>
             <th class="noExport">Action</th>
+            <th>N°</th>
             <th>COTE</th>
             <th>SECTION</th>
             <th>TITRE</th>
             <th>AUTEURS</th>
-            <th>ANNEE PUBLICATION</th>
+            <th title="Année de publication">Année</th>
         </tr>
 
         </thead>
@@ -31,6 +32,7 @@ LISTE DES MEMOIRES
                     <a class="btn btn-xs btn-info"  href ="{{ action('DocumentsController@edit', ['id' => $document->id]) }}" title="Modifier le dossier" ><i class="material-icons">create</i></a>
                     <a class="btn btn-xs btn-danger" data-id="{{  $document->id }}" title="Supprimer le document"><i class="material-icons">clear</i></a>
                 </td>
+                <td>{{ isset($i)? ++$i : $i=1 }}</td>
                 <td>{{ $document->CoteDocuments }}</td>
                 <td>{{ $document->Section }}</td>
                 <td>{{ $document->TitreDocuments }}</td>
@@ -47,11 +49,12 @@ LISTE DES MEMOIRES
 
         <tr>
             <th class="noExport">Action</th>
+            <th>N°</th>
             <th>COTE</th>
             <th>SECTION</th>
             <th>TITRE</th>
             <th>AUTEURS</th>
-            <th>ANNEE PUBLICATION</th>
+            <th title="Année de publication">Année</th>
         </tr>
         </tfoot>
 

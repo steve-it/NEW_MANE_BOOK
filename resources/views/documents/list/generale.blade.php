@@ -5,11 +5,13 @@ LISTE GENERALE DES OUVRAGES
 @stop
 
 @section('list_content')
+
     <table class="table table-bordered table-striped table-hover dataTable js-exportable">
         <thead>
 
         <tr>
             <th class="noExport">Action</th>
+            <th>N°</th>
             <th>Cote</th>
             <th>Titres</th>
             <th>AUTEURS</th>
@@ -21,7 +23,7 @@ LISTE GENERALE DES OUVRAGES
             <th>ISBN</th>
             <th>ISSN</th>
             <th>NUMERO ENTREE</th>
-            <th>ANNEE PUBLICATION</th>
+            <th title="Année de publication">Année</th>
             <th>EDITION</th>
             <th>ANNEE EDITION</th>
             <th>MAISON EDITION</th>
@@ -45,6 +47,7 @@ LISTE GENERALE DES OUVRAGES
                     <a class="btn btn-xs btn-info " href ="{{ action('ConsultationController@consulter', ['id' => $document->id]) }}" title="Consulter Cet Ouvrage"> <i class="material-icons">forum</i></a>
                     <a class="btn btn-xs btn-warning " href ="{{ action('EmpruntController@emprunt', ['id' => $document->id]) }}" title="Emprunter Cet Ouvrage"> <i class="material-icons">call_missed_outgoing</i></a>
                 </td>
+                <td>{{ isset($i)? ++$i : $i=1 }}</td>
                 <td>{{ $document->CoteDocuments }}</td>
                 <td>{{ $document->TitreDocuments }}</td>
                 <td>{{ $document->Auteur }}</td>
@@ -74,8 +77,8 @@ LISTE GENERALE DES OUVRAGES
                 <td>{{ $document->IllustrationDocuments }}</td>
                 <td>{{ $document->PeriodiciteDocuments }}</td>
                 <td>{{ $document->ReliureDocuments }}</td>
-
             </tr>
+
         @endforeach
 
         </tbody>
@@ -84,6 +87,7 @@ LISTE GENERALE DES OUVRAGES
 
         <tr>
             <th class="noExport">Action</th>
+            <th>N°</th>
             <th>Cote</th>
             <th>Titres</th>
             <th>AUTEURS</th>
@@ -95,7 +99,7 @@ LISTE GENERALE DES OUVRAGES
             <th>ISBN</th>
             <th>ISSN</th>
             <th>NUMERO ENTREE</th>
-            <th>ANNEE PUBLICATION</th>
+            <th title="Année de publication">Année</th>
             <th>EDITION</th>
             <th>ANNEE EDITION</th>
             <th>MAISON EDITION</th>
