@@ -11,7 +11,7 @@ LISTE DES LIVRES
 
         <tr>
             <th class="noExport">Action</th>
-            {{--<th>N°</th>--}}
+            <th>N°</th>
             <th>Cote</th>
             <th>Titre</th>
             <th>Auteurs</th>
@@ -48,7 +48,7 @@ LISTE DES LIVRES
                     <a class="btn btn-xs btn-info"  href ="{{ action('DocumentsController@edit', ['id' => $document->id]) }}" title="Modifier le dossier" ><i class="material-icons">create</i></a>
                     <a class="btn btn-xs btn-danger" data-id="{{  $document->id }}" title="Supprimer le document"><i class="material-icons">clear</i></a>
                 </td>
-                {{--<td>{{ isset($i)? ++$i : $i=1 }}</td>--}}
+                <td>{{ isset($i)? ++$i : $i=1 }}</td>
                 <td>{{ $document->CoteDocuments }}</td>
                 <td>{{ $document->TitreDocuments }}</td>
                 <td>
